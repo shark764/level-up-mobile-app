@@ -4,7 +4,7 @@ Mobile Application built with React Native.
 
 ## Development Requirements
 
-- Git (to download repository)
+- Git.
 - Node.js v14.16.0 +.
 - Yarn v1.22.5 +.
 - Android SDK (Java JDK included) and/or iOS SDK.
@@ -22,7 +22,7 @@ Mobile Application built with React Native.
 - Make sure that you have installed one Android emulator or plugged a real device.
 - Make sure that adb server is running y detecting your real device.
 - Make sure to add the ANDROID_HOME and ANDROID_SDK OS path values.
-- Make sure that Metro server is running (instructions section - step 3).
+- Make sure that Metro server is running (Run instructions section - step 3).
 
 ## Run tests
 
@@ -77,5 +77,6 @@ Mobile Application built with React Native.
 - Jest.
 - [Tailwind RN](https://github.com/vadimdemedes/tailwind-rn).
 - [Redux Toolkit](https://redux-toolkit.js.org/).
-- [Redux Toolkit Query]().
+- [Redux Toolkit Query](https://rtk-query-docs.netlify.app/).
+- [Redux Persist](https://github.com/rt2zz/redux-persist).
 - [React Navigation](https://reactnavigation.org/docs/getting-started).
