@@ -1,14 +1,15 @@
 import tailwind, { getColor } from 'tailwind-rn';
 
 const styles = {
-  iconInputContainer: tailwind(
-    'border-2 border-gray-200 px-4 py-6 flex flex-row items-start'
-  ),
+  iconInputContainer: [
+    { borderWidth: 0.5 },
+    tailwind('border-gray-200 bg-gray-600 px-4 py-6 flex flex-row items-start')
+  ],
   description: tailwind('flex flex-row'),
-  icon: tailwind('text-gray-500 mr-4'),
-  text: tailwind('text-gray-500'),
-  inputContainer: tailwind('bg-gray-400'),
-  textInput: tailwind('bg-gray-400 p-0 text-gray-100'),
+  icon: tailwind('text-gray-400 mr-4'),
+  text: tailwind('text-gray-400'),
+  inputContainer: tailwind('bg-gray-600'),
+  textInput: tailwind('bg-gray-600 p-0 text-gray-100'),
   placeholderColor: getColor('gray-100')
 };
 

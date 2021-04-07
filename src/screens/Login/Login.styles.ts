@@ -7,17 +7,16 @@ const styles = {
   backIcon: tailwind('text-gray-500'),
   backText: tailwind('text-gray-500 pb-20'),
   image: tailwind('items-center pb-5'),
-  containerText : tailwind('items-center my-2'),
+  containerText: tailwind('items-center my-2'),
   textHeader: tailwind('text-4xl font-bold text-white'),
   containerInputs: tailwind('mt-4 bg-gray-400'),
-  containerBottom : tailwind('items-center my-2'),
+  containerBottom: tailwind('items-center my-2'),
   link: tailwind('underline text-gray-500 mb-10 mt-2'),
   button: tailwind('mb-5'),
   buttonTitle: tailwind('text-xl text-white'),
   mainFooter: tailwind('text-gray-500'),
   subFooter: tailwind('text-white'),
-  imageColor: getColor('gray-500'),
-
+  imageColor: getColor('gray-500')
 };
 
 export default styles;

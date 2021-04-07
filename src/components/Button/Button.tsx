@@ -7,7 +7,7 @@ import {
 import tailwind from 'tailwind-rn';
 
 interface Props extends TouchableHighlightProps {
-  style: any;
+  style?: any;
   titleStyle?: any;
   title: string;
   color?: string;
