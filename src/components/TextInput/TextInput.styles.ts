@@ -7,8 +7,8 @@ const styles = {
   description: tailwind('flex flex-row'),
   icon: tailwind('text-gray-500 mr-4'),
   text: tailwind('text-gray-500'),
-  inputContainer: tailwind('bg-gray-100'),
-  textInput: tailwind('bg-gray-100 p-0 text-gray-100'),
+  inputContainer: tailwind('bg-gray-400'),
+  textInput: tailwind('bg-gray-400 p-0 text-gray-100'),
   placeholderColor: getColor('gray-100')
 };
 
