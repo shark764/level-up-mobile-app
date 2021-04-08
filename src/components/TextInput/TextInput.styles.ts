@@ -3,7 +3,7 @@ import tailwind, { getColor } from 'tailwind-rn';
 const styles = {
   iconInputContainer: [
     { borderWidth: 0.5 },
-    tailwind('border-gray-200 bg-gray-600 px-4 py-6 flex flex-row items-start')
+    tailwind('border-gray-200 bg-gray-600 px-4 py-2 flex flex-row items-start')
   ],
   description: tailwind('flex flex-row'),
   icon: tailwind('text-gray-400 mr-4'),

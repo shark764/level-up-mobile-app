@@ -10,7 +10,7 @@ Mobile Application built with React Native.
 - Android SDK (Java JDK included) and/or iOS SDK.
 - Text Editor (VSCode highly recommended with ESLint plug-in).
 
-## Run Intructions (Android)
+## Run Instructions (Android)
 1. `adb devices` (to start the adb server and be sure the OS is detecting your device).
 2. `yarn install`.
 3. `yarn start` (in one terminal tab).
