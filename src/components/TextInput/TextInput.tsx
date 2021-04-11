@@ -24,6 +24,7 @@ const TextInput = (props: Props) => (
         <Input
           placeholderTextColor={styles.placeholderColor}
           style={[styles.textInput, props.style ? props.style : {}]}
+          value={props.value}
           {...props}
         />
       </View>

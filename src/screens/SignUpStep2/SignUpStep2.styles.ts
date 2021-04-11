@@ -12,7 +12,7 @@ const styles = {
   buttonTitle: tailwind('text-xl text-white'),
   haveAccountContainer: tailwind('mt-3 mb-4 justify-center'),
   labelText: tailwind('text-center text-gray-medium'),
-  loginText: tailwind('text-center font-bold text-bright-green-light'),
+  loginText: tailwind('text-center font-bold text-bright-green-light')
 };
 
 export default styles;

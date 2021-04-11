@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
-import { View, SafeAreaView, ScrollView, TouchableHighlight } from 'react-native';
+import React, { useState } from 'react';
+import { View, ScrollView, TouchableHighlight } from 'react-native';
 import styles from './SignUpStep2.styles';
 import { Text } from '@components/Text';
 import { TextInputContainer } from '@components/TextInputContainer';
 import { Button } from '@components/Button';
 import { HeadSection } from '@components/HeadSection';
 import { Container } from '@components/Container';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/core';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { convertDateMDY } from '@utils'
+import { convertDateMDY } from '@utils/index';
 
 const SignUpStep2 = () => {
   const { navigate } = useNavigation();
@@ -18,7 +17,7 @@ const SignUpStep2 = () => {
   };
   const today = new Date();
 
-  const [username, setUsername] = useState(undefined);
+  const [username, setUsername] = useState('');
   const [usernameError, setUsernameError] = useState(false);
   const [date, setDate] = useState(today);
   const [dateString, setDateString] = useState(convertDateMDY(today));
@@ -32,9 +31,11 @@ const SignUpStep2 = () => {
     }
   };
 
-  const _isUsernameValid = (username: string) => {
-    if (username) {
-      return (/^(?=.*[a-zA-Z0-9])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{4,}$/).test(username);
+  const _isUsernameValid = (user: string) => {
+    if (user) {
+      return /^(?=.*[a-zA-Z0-9])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{4,}$/.test(
+        user
+      );
     } else {
       return true;
     }
@@ -49,7 +50,9 @@ const SignUpStep2 = () => {
     if (username && _isUsernameValid(username)) {
       navigateTo('UploadPic');
     } else {
-      if (!username) { setUsernameError(true); }
+      if (!username) {
+        setUsernameError(true);
+      }
     }
   };
 
@@ -66,8 +69,12 @@ const SignUpStep2 = () => {
 
             <View style={[styles.mainText]}>
               <View style={styles.titleSection}>
-                <Text type='heading-1' style={styles.textTitle}>Your</Text>
-                <Text type='heading-1' style={styles.textTitle}>Account</Text>
+                <Text type='heading-1' style={styles.textTitle}>
+                  Your
+                </Text>
+                <Text type='heading-1' style={styles.textTitle}>
+                  Account
+                </Text>
               </View>
               <TextInputContainer
                 icon='person-outline'
@@ -75,7 +82,7 @@ const SignUpStep2 = () => {
                 label='Username'
                 placeholder='Choose your username'
                 onChangeText={(value) => setUsername(value)}
-                error={!_isUsernameValid(username) || usernameError}
+                // error={!_isUsernameValid(username) || usernameError}
                 errorVisible={!_isUsernameValid(username) || usernameError}
                 errorMessage='Enter a valid username'
               />
@@ -90,12 +97,12 @@ const SignUpStep2 = () => {
               />
               {show && (
                 <DateTimePicker
-                  testID="dateTimePicker"
+                  testID='dateTimePicker'
                   timeZoneOffsetInMinutes={0}
                   value={date}
-                  mode="date"
+                  mode='date'
                   is24Hour={true}
-                  display="default"
+                  display='default'
                   onChange={onChange}
                 />
               )}
@@ -104,7 +111,7 @@ const SignUpStep2 = () => {
                 style={styles.button}
                 title='Create Account'
                 color='primary'
-                onPress={() => { validateData(); }}
+                onPress={() => validateData()}
               />
 
               <TouchableHighlight
@@ -112,8 +119,11 @@ const SignUpStep2 = () => {
                   navigateTo('Login');
                 }}>
                 <View style={styles.haveAccountContainer}>
-                  <Text type='body' style={styles.labelText}>Already have an account?
-                    <Text type='body' style={styles.loginText}> Log In</Text>
+                  <Text type='body' style={styles.labelText}>
+                    Already have an account?
+                    <Text type='body' style={styles.loginText}>
+                      Log In
+                    </Text>
                   </Text>
                 </View>
               </TouchableHighlight>

@@ -12,7 +12,9 @@ const styles = {
   titleSection: tailwind('mb-5'),
   textTitle: [tailwind('text-4xl text-white')],
   button: tailwind('mt-5 mb-5'),
-  signUpWithContainer: tailwind('flex flex-row w-full justify-between content-center items-center pb-3 pt-3'),
+  signUpWithContainer: tailwind(
+    'flex flex-row w-full justify-between content-center items-center pb-3 pt-3'
+  ),
   haveAccountContainer: tailwind('mt-3 mb-4 justify-center'),
   labelText: tailwind('text-center text-gray-medium'),
   loginText: tailwind('text-center font-bold text-bright-green-light'),

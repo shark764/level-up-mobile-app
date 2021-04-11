@@ -14,7 +14,7 @@ Mobile Application built with React Native.
 1. `adb devices` (to start the adb server and be sure the OS is detecting your device).
 2. `yarn install`.
 3. `yarn start` (in one terminal tab).
-4. `npx react-native run-android`  (in another terminal tab).
+4. `yarn android` or `yarn ios` (in another terminal tab).
 
 ## Create a Debug APK
 1. `react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle --assets-dest ./android/app/src/main/res`
@@ -88,3 +88,4 @@ Mobile Application built with React Native.
 - [React Navigation](https://reactnavigation.org/docs/getting-started).
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons).
 - [React Native Paper](https://callstack.github.io/react-native-paper/index.html).
+- [React Native date & time picker component for iOS and Android](https://reactnativeexample.com/react-native-date-time-picker-component-for-ios-and-android/)

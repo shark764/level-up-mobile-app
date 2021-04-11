@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { View, SafeAreaView, ScrollView, TouchableHighlight, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, ScrollView, TouchableHighlight, Image } from 'react-native';
 import styles from './SignUp.styles';
 import { Text } from '@components/Text';
 import { TextInputContainer } from '@components/TextInputContainer';
@@ -7,8 +7,11 @@ import { Button } from '@components/Button';
 import { HeadSection } from '@components/HeadSection';
 import { Container } from '@components/Container';
 import { useNavigation } from '@react-navigation/core';
+// @ts-ignore
 import logo_fb from '../../assets/social_media/logo_fb.png';
+// @ts-ignore
 import logo_google from '../../assets/social_media/logo_google.png';
+// @ts-ignore
 import logo_tw from '../../assets/social_media/logo_tw.png';
 
 const SignUp = () => {
@@ -17,21 +20,23 @@ const SignUp = () => {
     navigate(screen);
   };
 
-  const [email, setEmail] = useState(undefined);
-  const [password, setPassword] = useState(undefined);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const _isEmailValid = (email: string) => {
-    if (email) {
-      return (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/).test(email);
+  const _isEmailValid = (mail: string) => {
+    if (mail) {
+      return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(mail);
     } else {
       return true;
     }
   };
-  const _isPasswordValid = (password: string) => {
-    if (password) {
-      return (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{8,12}$/).test(password);
+  const _isPasswordValid = (pass: string) => {
+    if (pass) {
+      return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{8,12}$/.test(
+        pass
+      );
     } else {
       return true;
     }
@@ -40,11 +45,20 @@ const SignUp = () => {
   const validateData = () => {
     setEmailError(false);
     setPasswordError(false);
-    if ((email && _isEmailValid(email)) && (password && _isPasswordValid(password))) {
+    if (
+      email &&
+      _isEmailValid(email) &&
+      password &&
+      _isPasswordValid(password)
+    ) {
       navigateTo('SignUpStep2');
     } else {
-      if (!email) { setEmailError(true); }
-      if (!password) { setPasswordError(true); }
+      if (!email) {
+        setEmailError(true);
+      }
+      if (!password) {
+        setPasswordError(true);
+      }
     }
   };
 
@@ -58,11 +72,14 @@ const SignUp = () => {
               backText='Back'
               stepsText='Step 1/3'
             />
-
             <View style={[styles.mainText]}>
               <View style={styles.titleSection}>
-                <Text type='heading-1' style={styles.textTitle}>Create Your</Text>
-                <Text type='heading-1' style={styles.textTitle}>Account</Text>
+                <Text type='heading-1' style={styles.textTitle}>
+                  Create Your
+                </Text>
+                <Text type='heading-1' style={styles.textTitle}>
+                  Account
+                </Text>
               </View>
               <TextInputContainer
                 icon='person-outline'
@@ -71,7 +88,7 @@ const SignUp = () => {
                 placeholder='Your Email'
                 value={email}
                 onChangeText={(value) => setEmail(value)}
-                error={!_isEmailValid(email) || emailError}
+                // error={!_isEmailValid(email) || emailError}
                 errorVisible={!_isEmailValid(email) || emailError}
                 errorMessage='Enter a valid email'
               />
@@ -83,7 +100,7 @@ const SignUp = () => {
                 secureTextEntry={true}
                 value={password}
                 onChangeText={(value) => setPassword(value)}
-                error={!_isPasswordValid(password) || passwordError}
+                // error={!_isPasswordValid(password) || passwordError}
                 errorVisible={!_isPasswordValid(password) || passwordError}
                 errorMessage='Enter a valid password (At least: 8 characters, 1 lower case letter, 1 upper case letter, no special characters)'
               />
@@ -96,34 +113,27 @@ const SignUp = () => {
                 color='primary'
               />
               <View style={styles.signUpWithContainer}>
-                  <View style={styles.divider} />
-                  <Text type='body' style={styles.labelText}>OR SIGN UP WITH</Text>
-                  <View style={styles.divider} />
+                <View style={styles.divider} />
+                <Text type='body' style={styles.labelText}>
+                  OR SIGN UP WITH
+                </Text>
+                <View style={styles.divider} />
               </View>
               <View style={styles.socialMedia}>
                 <TouchableHighlight
                   onPress={() => {}}
                   underlayColor='transparent'>
-                  <Image
-                    style={styles.socialMediaLogo}
-                    source={logo_fb}
-                  />
+                  <Image style={styles.socialMediaLogo} source={logo_fb} />
                 </TouchableHighlight>
                 <TouchableHighlight
                   onPress={() => {}}
                   underlayColor='transparent'>
-                  <Image
-                    style={styles.socialMediaLogo}
-                    source={logo_google}
-                  />
+                  <Image style={styles.socialMediaLogo} source={logo_google} />
                 </TouchableHighlight>
                 <TouchableHighlight
                   onPress={() => {}}
                   underlayColor='transparent'>
-                  <Image
-                    style={styles.socialMediaLogo}
-                    source={logo_tw}
-                  />
+                  <Image style={styles.socialMediaLogo} source={logo_tw} />
                 </TouchableHighlight>
               </View>
 
@@ -132,8 +142,12 @@ const SignUp = () => {
                   navigateTo('Login');
                 }}>
                 <View style={styles.haveAccountContainer}>
-                  <Text type='body' style={styles.labelText}>Already have an account?
-                    <Text type='body' style={styles.loginText}> Log In</Text>
+                  <Text type='body' style={styles.labelText}>
+                    Already have an account?
+                    <Text type='body' style={styles.loginText}>
+                      {' '}
+                      Log In
+                    </Text>
                   </Text>
                 </View>
               </TouchableHighlight>
