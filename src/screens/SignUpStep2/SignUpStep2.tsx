@@ -1,17 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Text, View, SafeAreaView, ScrollView, TouchableHighlight } from 'react-native';
-import styles from './SignUp.styles';
+import styles from './SignUpStep2.styles';
 import { TextInput } from '@components/TextInput';
 import { Button } from '@components/Button';
 import { HeadSection } from '@components/HeadSection';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faUser, faCalendar } from '@fortawesome/free-regular-svg-icons';
 import { useNavigation } from '@react-navigation/native';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { convertDateMDY } from '@utils'
 
-const SignUp = () => {
+const SignUpStep2 = () => {
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
     navigate(screen);
+  };
+  const today = new Date();
+
+  const [date, setDate] = useState(today);
+  const [dateString, setDateString] = useState(convertDateMDY(today));
+  const [show, setShow] = useState(false);
+
+  const onChange = (event, selectedDate) => {
+    setShow(false);
+    if (selectedDate) {
+      setDate(selectedDate);
+      setDateString(convertDateMDY(selectedDate));
+    }
+  };
+
+  const showDatePicker = () => {
+    setShow(true);
   };
 
   return (
@@ -22,7 +40,7 @@ const SignUp = () => {
             <HeadSection
               textStyle={styles.backText}
               backText='Back'
-              stepsText='Step 1/3'
+              stepsText='Step 2/3'
             />
 
             <View style={[styles.mainText]}>
@@ -32,40 +50,36 @@ const SignUp = () => {
               </View>
               <View style={styles.input}>
                 <TextInput
-                  icon={faEnvelope}
-                  text='Email'
-                  placeholder='Your Email'
+                  icon={faUser}
+                  text='Username'
+                  placeholder='Choose your username'
                  />
               </View>
               <View style={styles.input}>
                 <TextInput
-                  icon={faLock}
-                  text='Password'
-                  placeholder='Type your password'
+                  icon={faCalendar}
+                  text='Date of Birth'
+                  showSoftInputOnFocus={false}
+                  onPressIn={showDatePicker}
+                  value={dateString}
                  />
               </View>
+              {show && (
+                <DateTimePicker
+                  testID="dateTimePicker"
+                  timeZoneOffsetInMinutes={0}
+                  value={date}
+                  mode="date"
+                  is24Hour={true}
+                  display="default"
+                  onChange={onChange}
+                />
+              )}
+
               <Button
                 style={styles.button}
                 titleStyle={styles.buttonTitle}
-                onPress={() => {
-                  navigateTo('SignUpStep2');
-                }}
-                title='Next'
-                color='bg-gray-500'
-              />
-              <View style={styles.signUpWithContainer}>
-                <Text style={styles.labelText}>OR SIGN UP WITH</Text>
-              </View>
-              <Button
-                style={styles.button}
-                titleStyle={styles.buttonTitle}
-                title='Sign Up with Facebook'
-                color='bg-gray-500'
-              />
-              <Button
-                style={styles.button}
-                titleStyle={styles.buttonTitle}
-                title='Sign Up with Google'
+                title='Create Account'
                 color='bg-gray-500'
               />
 
@@ -87,4 +101,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUpStep2;
