@@ -16,6 +16,12 @@ Mobile Application built with React Native.
 3. `yarn start` (in one terminal tab).
 4. `npx react-native run-android`  (in another terminal tab).
 
+## Create a Debug APK
+1. `react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle --assets-dest ./android/app/src/main/res`
+2. `cd android`
+3. `./gradlew assembleDebug`
+4. The APK is generated in `android/app/build/outputs/apk/debug/app-debug.apk`
+
 ## Android Troubleshooting
 - If your changes are not showing try running Metro server with `yarn start --reset-cache` 
 - Make sure that you have installed the Android SDK and an Android API (Android Studio's AVD manager is your friend for it).

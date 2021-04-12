@@ -3,7 +3,8 @@ import { SafeAreaView, ScrollView, View, Text } from 'react-native';
 import { Button } from '@components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
-import style from './EnableLocation.style';
+
+import style from './EnableLocation.styles';
 import RNLocation from 'react-native-location';
 import { useNavigation } from '@react-navigation/core';
 
