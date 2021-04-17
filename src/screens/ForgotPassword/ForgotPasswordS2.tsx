@@ -58,7 +58,6 @@ const ForgotPasswordVerification = () => {
                                 navigateTo('ForgotPasswordReset');
                             }}
                             title='Verify'
-                            color='bg-gray-400'
                             titleStyle={styles.buttonTitle}
                         />
                         <View style={styles.containerBottom}>
