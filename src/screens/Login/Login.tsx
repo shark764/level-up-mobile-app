@@ -16,32 +16,23 @@ const Login = () => {
             <Icon style={styles.backIcon} name='chevron-left' size={26} />
             <Text style={styles.backText}> Back</Text>
           </View>
-          <LoginPicture
-            viewStyle={styles.image}
-            imageStyle={{
-              width: 50,
-              height: 50,
-              backgroundColor: styles.imageColor
-            }}
-            sourceImage={
-              'https://e7.pngegg.com/pngimages/413/262/png-clipart-table-square-shape-circle-textile-square-angle-furniture.png'
-            }
-          />
           <View>
             <LoginHeader
               viewStyle={styles.containerText}
               textStyle={styles.textHeader}
             />
             <LoginTextInput viewStyle={styles.containerInputs}/>
-            <LoginBottom
-              viewStyle={styles.containerBottom}
-              linkStyle={styles.link}
-              navigationLink={'ForgotPassword'}
-              buttonStyle={styles.button}
-              navigationButton={'SignUp'}
-              buttonTittle={styles.buttonTitle}
-              mainFooter={styles.mainFooter}
-              subFooter={styles.subFooter}
+            <LoginBottom 
+              viewStyle={styles.containerBottom} 
+              linkStyle={styles.link} 
+              navigationLink={'ForgotPassword'} 
+              buttonStyle={styles.button} 
+              navigationButton={'SignUp'} 
+              buttonTittle={styles.buttonTitle} 
+              mainFooter={styles.mainFooter} 
+              subFooter={styles.subFooter} 
+              textDivider={styles.textDivider} 
+              colDivider={styles.colDivider}
             />
           </View>
         </View>

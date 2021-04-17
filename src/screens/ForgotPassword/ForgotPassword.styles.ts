@@ -12,7 +12,10 @@ const styles = {
   containerInputs: tailwind('mt-10 bg-gray-400'),
   button: tailwind('mt-8'),
   buttonTitle: tailwind('text-xl text-white'),
-
+  verication: tailwind('my-5'),
+  mainFooter: tailwind('text-gray-500'),
+  subFooter: tailwind('text-white'),
+  containerBottom: tailwind('my-10 items-center')
 };
 
 export default styles;
