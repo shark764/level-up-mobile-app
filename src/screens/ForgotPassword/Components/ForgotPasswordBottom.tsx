@@ -23,7 +23,7 @@ const forgotPasswordHeader = (props: Props) => {
                 navigateTo(props.navigationButton);
             }}
             title='Send'
-            color= 'bg-gray-400 w-full rounded'
+            color= 'bg-gray-400'
             titleStyle={props.buttonTitleStyle}
             /> 
             </View>

@@ -60,7 +60,7 @@ const loginBottom = (props: Props) => {
                 title='Google'
                 titleStyle={props.buttonTittle}
             />
-            <Text style={props.mainFooter}>Don't have an account? <Text style={props.subFooter}>Sing Up</Text></Text> 
+            <Text style={props.mainFooter}>Don't have an account? <Text style={props.subFooter}>Sign Up</Text></Text> 
         </View>        
     );
 }

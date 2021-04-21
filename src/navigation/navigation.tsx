@@ -2,7 +2,7 @@ import React from 'react';
 import { Home } from '@screens/Home';
 import { SignUp } from '@screens/SignUp';
 import { Login } from '@screens/Login';
-import { ForgotPassword, ForgotPasswordVerification } from '@screens/ForgotPassword';
+import { ForgotPassword, ForgotPasswordVerification, ForgotPasswordReset, ForgotPasswordConfirm } from '@screens/ForgotPassword';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { EnableLocation } from '@screens/EnableLocation';
@@ -19,6 +19,8 @@ const MainNavigation = () => {
         <Screen name='ForgotPassword' component={ForgotPassword} />
         <Screen name='EnableLocation' component={EnableLocation} />
         <Screen name='ForgotPasswordVerification' component={ForgotPasswordVerification} />
+        <Screen name='ForgotPasswordReset' component={ForgotPasswordReset} />
+        <Screen name='ForgotPasswordConfirm' component={ForgotPasswordConfirm} />
       </Navigator>
     </NavigationContainer>
   );
