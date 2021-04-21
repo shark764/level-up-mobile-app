@@ -4,12 +4,17 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Button } from '@components/Button';
 import styles from './ForgotPassword.styles';
 import { View, Text, TextInput, ScrollView, SafeAreaView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export interface Props {
 
 }
 
 const ForgotPasswordVerification = () => {
+    const { navigate } = useNavigation();
+    const navigateTo = (screen: string) => {
+      navigate(screen);
+    };  
     return (
         <SafeAreaView style={[styles.fpContainer]}>
             <ScrollView>
@@ -51,10 +56,10 @@ const ForgotPasswordVerification = () => {
                         <Button
                             style={styles.button}
                             onPress={() => {
-                                navigateTo('');
+                                navigateTo('ForgotPasswordReset');
                             }}
                             title='Verify'
-                            color='bg-gray-400 w-full rounded'
+                            color='bg-gray-400'
                             titleStyle={styles.buttonTitle}
                         />
                         <View style={styles.containerBottom}>
