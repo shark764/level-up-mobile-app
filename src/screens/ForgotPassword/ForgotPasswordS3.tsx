@@ -21,7 +21,6 @@ const ForgotPasswordReset = (props: Props) => {
             <ScrollView>
                 <View style={styles.main}>
                     <View style={styles.backSection}>
-
                         <Text style={styles.backText}> Back</Text>
                     </View>
                     <View>
@@ -45,7 +44,6 @@ const ForgotPasswordReset = (props: Props) => {
                                     navigateTo('ForgotPasswordConfirm');
                                 }}
                                 title='Submit'
-                                color='bg-gray-400'
                                 titleStyle={styles.buttonTitle}
                             />
                         </View>

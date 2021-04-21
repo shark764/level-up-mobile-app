@@ -3,15 +3,12 @@ import { View, TouchableHighlight, Image } from 'react-native';
 import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
 import { color } from 'react-native-reanimated';
-<<<<<<< HEAD
 import facebook_image from '../assets/facebook_image';
 import google_image from '../assets/google_image';
 import twitter_image from '../assets/twitter_image';
 import { Text } from '@components/Text';
 import {getColor} from '@utils/tailwind';
 
-=======
->>>>>>> Vefication screen
 
 export interface Props {
     viewStyle: object,
