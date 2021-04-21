@@ -1,6 +1,7 @@
 import React from 'react';
 import { Home } from '@screens/Home';
 import { SignUp } from '@screens/SignUp';
+import { SignUpStep2 } from '@screens/SignUpStep2';
 import { Login } from '@screens/Login';
 import { ForgotPassword } from '@screens/ForgotPassword';
 import { NavigationContainer } from '@react-navigation/native';
@@ -17,6 +18,7 @@ const MainNavigation = () => {
         <Screen name='Home' component={Home} />
         <Screen name='Login' component={Login} />
         <Screen name='SignUp' component={SignUp} />
+        <Screen name='SignUpStep2' component={SignUpStep2} />
         <Screen name='ForgotPassword' component={ForgotPassword} />
       </Navigator>
     </NavigationContainer>

@@ -87,3 +87,4 @@ Mobile Application built with React Native.
 - [Redux Persist](https://github.com/rt2zz/redux-persist).
 - [React Navigation](https://reactnavigation.org/docs/getting-started).
 - [React Native Font Awesome](https://www.npmjs.com/package/@fortawesome/react-native-fontawesome)
+- [React Native date & time picker component for iOS and Android](https://reactnativeexample.com/react-native-date-time-picker-component-for-ios-and-android/)
