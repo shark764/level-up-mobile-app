@@ -10,19 +10,29 @@ import ForgotPasswordBottom from './Components/ForgotPasswordBottom';
 const ForgotPassword = () => {
   return (
     <SafeAreaView style={[styles.fpContainer]}>
-    <ScrollView>
-      <View style={styles.main}>
-        <View style={styles.backSection}>
-          <Text style={styles.backText}> Back </Text> 
+      <ScrollView>
+        <View style={styles.main}>
+          <View style={styles.backSection}>
+            <Icon style={styles.backIcon} name='chevron-left' size={26} />
+            <Text style={styles.backText}> Back</Text>
+          </View>
+          <View>
+            <ForgotPasswordHeader
+              viewStyle={styles.containerText}
+              textHeader={styles.textHeader}
+              textSubHeader={styles.textSubHeader}
+            />
+            <ForgotPasswordInput viewStyle={styles.containerInputs} />
+            <ForgotPasswordBottom
+              viewStyle={styles.containerText}
+              buttonStyle={styles.button}
+              navigationButton={'SignUp'}
+              buttonTitleStyle={styles.buttonTitle}
+            />
+          </View>
         </View>
-        <View>
-          <ForgotPasswordHeader viewStyle={styles.containerText} textHeader={styles.textHeader} textSubHeader={styles.textSubHeader}/>
-          <ForgotPasswordInput viewStyle={styles.containerInputs}/>
-          <ForgotPasswordBottom viewStyle={styles.containerText} buttonStyle={styles.button} navigationButton={'ForgotPasswordVerification'} buttonTitleStyle={styles.buttonTitle}/>
-        </View>
-        </View>  
-    </ScrollView>
-  </SafeAreaView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
