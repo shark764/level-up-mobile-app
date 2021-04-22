@@ -21,6 +21,7 @@ const MainNavigation = () => {
         <Screen name='ForgotPasswordVerification' component={ForgotPasswordVerification} />
         <Screen name='ForgotPasswordReset' component={ForgotPasswordReset} />
         <Screen name='ForgotPasswordConfirm' component={ForgotPasswordConfirm} />
+        <Screen name='EnableLocation' component={EnableLocation} />
       </Navigator>
     </NavigationContainer>
   );

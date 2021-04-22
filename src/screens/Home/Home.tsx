@@ -25,14 +25,14 @@ const Home = () => {
                 Level Up Live
               </Text>
             </View>
-            <Text type='heading-3' style={styles.textSubHeader}>
-              Level up your game and
+            <Text type='paragraph' style={styles.textSubHeader}>
+              Become part of the
             </Text>
-            <Text type='heading-3' style={styles.textSubHeader}>
-              be part of the next-gen
+            <Text type='paragraph' style={styles.textSubHeader}>
+              next generation
             </Text>
-            <Text type='heading-3' style={styles.textSubHeader}>
-              shooters
+            <Text type='paragraph' style={styles.textSubHeader}>
+              Level up
             </Text>
           </View>
           <Button
@@ -55,11 +55,11 @@ const Home = () => {
             title='Log In'
           />
           <View style={styles.footer}>
-            <Text type='body' style={styles.bottomText}>
-              By using Level Up Live you accept
+            <Text type='body-sm' style={styles.bottomText}>
+              By using Level Up you accept
             </Text>
-            <Text type='body' style={styles.bottomText}>
-              the Terms of Service and Privacy Policy
+            <Text type='body-sm' style={styles.bottomText}>
+              The Terms of Service and Privacy Policy
             </Text>
           </View>
         </View>
