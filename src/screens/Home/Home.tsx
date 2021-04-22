@@ -63,6 +63,42 @@ const Home = () => {
                 the Terms of Service and Privacy Policy
               </Text>
             </View>
+            <Text type='paragraph' style={styles.textSubHeader}>
+              Become part of the
+            </Text>
+            <Text type='paragraph' style={styles.textSubHeader}>
+              next generation
+            </Text>
+            <Text type='paragraph' style={styles.textSubHeader}>
+              Level up
+            </Text>
+          </View>
+          <Button
+            style={styles.button}
+            // titleStyle={styles.buttonTitle}
+            onPress={() => {
+              navigateTo('SignUp');
+            }}
+            title='Sign Up'
+            color='primary'
+          />
+          <Button
+            mode='text'
+            color='transparent'
+            style={styles.button}
+            titleStyle={styles.buttonTitle}
+            onPress={() => {
+              navigateTo('Login');
+            }}
+            title='Log In'
+          />
+          <View style={styles.footer}>
+            <Text type='body-sm' style={styles.bottomText}>
+              By using Level Up you accept
+            </Text>
+            <Text type='body-sm' style={styles.bottomText}>
+              The Terms of Service and Privacy Policy
+            </Text>
           </View>
         </ScrollView>
       </Container>
