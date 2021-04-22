@@ -1,9 +1,6 @@
 import React from 'react';
-import {
-  Text,
-  TouchableHighlight,
-  TouchableHighlightProps
-} from 'react-native';
+import { TouchableHighlight, TouchableHighlightProps } from 'react-native';
+import { Text } from '@components/Text';
 import tailwind from 'tailwind-rn';
 
 interface Props extends TouchableHighlightProps {
@@ -20,7 +17,9 @@ const Button = (props: Props) => (
       tailwind(`p-5 items-center rounded ${props.color ? props.color : ''}`),
       props.style || {}
     ]}>
-    <Text style={props.titleStyle}>{props.title}</Text>
+    <Text type='body-lg' style={props.titleStyle}>
+      {props.title}
+    </Text>
   </TouchableHighlight>
 );
 

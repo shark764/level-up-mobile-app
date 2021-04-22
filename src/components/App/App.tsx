@@ -15,6 +15,7 @@ import {
 import rootReducer from '@state/reducer';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { PersistGate } from 'redux-persist/integration/react';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 const persistConfig = {
   key: 'root',
@@ -40,7 +41,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <MainNavigation />
+        <PaperProvider>
+          <MainNavigation />
+        </PaperProvider>
       </PersistGate>
     </Provider>
   );

@@ -13,11 +13,11 @@ const MainNavigation = () => {
   return (
     <NavigationContainer>
       <Navigator headerMode='none'>
-        <Screen name='EnableLocation' component={EnableLocation} />
         <Screen name='Home' component={Home} />
         <Screen name='Login' component={Login} />
         <Screen name='SignUp' component={SignUp} />
         <Screen name='ForgotPassword' component={ForgotPassword} />
+        <Screen name='EnableLocation' component={EnableLocation} />
       </Navigator>
     </NavigationContainer>
   );

@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { SafeAreaView, ScrollView, View, Text } from 'react-native';
 import { Button } from '@components/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 
 import style from './EnableLocation.styles';
 import RNLocation from 'react-native-location';
@@ -55,11 +53,7 @@ const EnableLocation = () => {
     <SafeAreaView style={style.enableLocationContainer}>
       <ScrollView>
         <View style={style.mainIconContainer}>
-          <FontAwesomeIcon
-            style={style.mainIcon}
-            icon={faMapMarkedAlt}
-            size={150}
-          />
+          <Text>Icon pending</Text>
         </View>
         <View style={style.mainText}>
           <Text style={style.header}>Enable your location</Text>
