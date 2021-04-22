@@ -1,0 +1,54 @@
+{
+  "text-body-sm": {
+    "fontSize": 12,
+    "lineHeight": 20.4
+  },
+  "text-body": {
+    "fontSize": 16,
+    "lineHeight": 27.2
+  },
+  "text-body-md": {
+    "fontSize": 18,
+    "lineHeight": 30.6
+  },
+  "text-body-lg": {
+    "fontSize": 20,
+    "lineHeight": 34
+  },
+  "text-p": {
+    "fontSize": 22,
+    "lineHeight": 33
+  },
+  "text-h1": {
+    "fontSize": 36,
+    "lineHeight": 46.8
+  },
+  "text-h2": {
+    "fontSize": 28,
+    "lineHeight":  36.4
+  },
+  "text-h3": {
+    "fontSize": 20,
+    "lineHeight": 31.2
+  },
+  "text-h4": {
+    "fontSize": 18,
+    "lineHeight": 26
+  },
+  "text-h5": {
+    "fontSize": 16,
+    "lineHeight": 20.8
+  },
+  "text-h6": {
+    "fontSize": 14,
+    "lineHeight": 18.2
+  },
+  "text-display-1": {
+    "fontSize": 48,
+    "lineHeight": 62.4
+  },
+  "text-display-2": {
+    "fontSize": 40,
+    "lineHeight": 52
+  }
+}

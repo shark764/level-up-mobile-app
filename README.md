@@ -86,4 +86,5 @@ Mobile Application built with React Native.
 - [Redux Toolkit Query](https://rtk-query-docs.netlify.app/).
 - [Redux Persist](https://github.com/rt2zz/redux-persist).
 - [React Navigation](https://reactnavigation.org/docs/getting-started).
-- [React Native Font Awesome](https://www.npmjs.com/package/@fortawesome/react-native-fontawesome)
+- [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons).
+- [React Native Paper](https://callstack.github.io/react-native-paper/index.html).

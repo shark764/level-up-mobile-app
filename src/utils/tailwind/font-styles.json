@@ -1,0 +1,56 @@
+{
+  "font-martian-thin": {
+    "fontFamily": "MartianBThai-Thin"
+  },
+  "font-martian-100": {
+    "fontFamily": "MartianBThai-Thin"
+  },
+  "font-martian-extralight": {
+    "fontFamily": "MartianBThai-UltraLight"
+  },
+  "font-martian-200": {
+    "fontFamily": "MartianBThai-UltraLight"
+  },
+  "font-martian-light": {
+    "fontFamily": "MartianBThai-Light"
+  },
+  "font-martian-300": {
+    "fontFamily": "MartianBThai-Light"
+  },
+  "font-martian": {
+    "fontFamily": "MartianBThai-Regular"
+  },
+  "font-martian-400": {
+    "fontFamily": "MartianBThai-Regular"
+  },
+  "font-martian-medium": {
+    "fontFamily": "MartianBThai-Medium"
+  },
+  "font-martian-500": {
+    "fontFamily": "MartianBThai-Medium"
+  },
+  "font-martian-semibold": {
+    "fontFamily": "MartianBThai-SemiBold"
+  },
+  "font-martian-600": {
+    "fontFamily": "MartianBThai-SemiBold"
+  },
+  "font-martian-bold": {
+    "fontFamily": "MartianBThai-Bold"
+  },
+  "font-martian-700": {
+    "fontFamily": "MartianBThai-Bold"
+  },
+  "font-martian-extrabold": {
+    "fontFamily": "MartianBThai-Black"
+  },
+  "font-martian-800": {
+    "fontFamily": "MartianBThai-Black"
+  },
+  "font-martian-extrablack": {
+    "fontFamily": "MartianBThai-ExtraBlack"
+  },
+  "font-martian-900": {
+    "fontFamily": "MartianBThai-ExtraBlack"
+  }
+}
