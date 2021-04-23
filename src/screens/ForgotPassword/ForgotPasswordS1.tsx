@@ -26,7 +26,7 @@ const ForgotPassword = () => {
             <ForgotPasswordBottom
               viewStyle={styles.containerText}
               buttonStyle={styles.button}
-              navigationButton={'SignUp'}
+              navigationButton={'ForgotPasswordVerification'}
               buttonTitleStyle={styles.buttonTitle}
             />
           </View>
