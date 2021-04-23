@@ -1,6 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import { TextInput } from '@components/TextInput';
+
 
 export interface Props {
   viewStyle: object;
