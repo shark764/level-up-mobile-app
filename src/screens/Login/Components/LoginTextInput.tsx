@@ -2,6 +2,7 @@ import React from 'react';
 import { TextInputContainer } from '@components/TextInputContainer';
 import { TextInput } from 'react-native-paper';
 
+
 export interface Props {
   handleUsername: (value: string) => void,
   handlePassword: (value: string) => void,
