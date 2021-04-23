@@ -1,6 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+
 import { Button } from '@components/Button';
 import styles from './ForgotPassword.styles';
 import { View, Text, TextInput, ScrollView, SafeAreaView } from 'react-native';
@@ -20,7 +19,7 @@ const ForgotPasswordVerification = () => {
             <ScrollView>
                 <View style={styles.main}>
                     <View style={styles.backSection}>
-                        <FontAwesomeIcon style={styles.backIcon} icon={faChevronLeft} size={16} />
+           
                         <Text style={styles.backText}> Back</Text>
                     </View>
                     <View style={styles.containerText}>

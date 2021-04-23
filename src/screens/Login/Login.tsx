@@ -1,15 +1,15 @@
 import React from 'react';
-import { SafeAreaView, Text, ScrollView, View, } from 'react-native';
+import { Text, ScrollView, View, } from 'react-native';
 import styles from './Login.styles';
-import LoginPicture from './Components/LoginPicture';
 import LoginHeader from './Components/LoginHeader';
 import LoginTextInput from './Components/LoginTextInput';
 import LoginBottom from './Components/LoginBottom';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Container } from '@components/Container';
 
 const Login = () => {
   return (
-    <SafeAreaView style={[styles.loginContainer]}>
+    <Container background='dark'>
       <ScrollView>
         <View style={styles.main}>
           <View style={styles.backSection}>
@@ -21,23 +21,23 @@ const Login = () => {
               viewStyle={styles.containerText}
               textStyle={styles.textHeader}
             />
-            <LoginTextInput viewStyle={styles.containerInputs}/>
-            <LoginBottom 
-              viewStyle={styles.containerBottom} 
-              linkStyle={styles.link} 
-              navigationLink={'ForgotPassword'} 
-              buttonStyle={styles.button} 
-              navigationButton={'SignUp'} 
-              buttonTittle={styles.buttonTitle} 
-              mainFooter={styles.mainFooter} 
-              subFooter={styles.subFooter} 
-              textDivider={styles.textDivider} 
+            <LoginTextInput viewStyle={styles.containerInputs} />
+            <LoginBottom
+              viewStyle={styles.containerBottom}
+              linkStyle={styles.link}
+              navigationLink={'ForgotPassword'}
+              buttonStyle={styles.button}
+              navigationButton={'SignUp'}
+              buttonTittle={styles.buttonTitle}
+              mainFooter={styles.mainFooter}
+              subFooter={styles.subFooter}
+              textDivider={styles.textDivider}
               colDivider={styles.colDivider}
             />
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </Container>
   );
 };
 
