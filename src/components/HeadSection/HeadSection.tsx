@@ -5,9 +5,7 @@ import {
   TouchableHighlightProps
 } from 'react-native';
 import { Text } from '@components/Text';
-import tailwind from 'tailwind-rn';
 import styles from './HeadSection.styles';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -23,25 +21,27 @@ const HeadSection = (props: Props) => {
   const navigation = useNavigation();
 
   return (
-    <View
-      {...props}
-      style={[
-        styles.headerSection,
-        props.style || {}
-      ]}
-    >
+    <View {...props} style={[styles.headerSection, props.style || {}]}>
       <TouchableHighlight
-      onPress={() => {
-        navigation.goBack();
-      }}>
+        onPress={() => {
+          navigation.goBack();
+        }}>
         <View style={styles.backSection}>
           <Icon style={styles.backIcon} name='chevron-left' size={26} />
-          <Text type='body' style={props.textStyle}> {props.backText}</Text>
+          <Text type='body' style={props.textStyle}>
+            {' '}
+            {props.backText}
+          </Text>
         </View>
       </TouchableHighlight>
-      <View>
-        <Text type='body' style={props.textStyle}> {props.stepsText}</Text>
-      </View>
+      {props.stepsText && (
+        <View>
+          <Text type='body' style={props.textStyle}>
+            {' '}
+            {props.stepsText}
+          </Text>
+        </View>
+      )}
     </View>
   );
 };

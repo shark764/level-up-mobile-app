@@ -7,6 +7,7 @@ import { ForgotPassword } from '@screens/ForgotPassword';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { EnableLocation } from '@screens/EnableLocation';
+import { Progress } from '@screens/Progress';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -14,12 +15,13 @@ const MainNavigation = () => {
   return (
     <NavigationContainer>
       <Navigator headerMode='none'>
-        <Screen name='EnableLocation' component={EnableLocation} />
         <Screen name='Home' component={Home} />
         <Screen name='Login' component={Login} />
         <Screen name='SignUp' component={SignUp} />
         <Screen name='SignUpStep2' component={SignUpStep2} />
         <Screen name='ForgotPassword' component={ForgotPassword} />
+        <Screen name='EnableLocation' component={EnableLocation} />
+        <Screen name='Progress' component={Progress} />
       </Navigator>
     </NavigationContainer>
   );
