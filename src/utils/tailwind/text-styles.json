@@ -4,16 +4,16 @@
     "lineHeight": 20.4
   },
   "text-body": {
+    "fontSize": 14,
+    "lineHeight": 23.8
+  },
+  "text-body-md": {
     "fontSize": 16,
     "lineHeight": 27.2
   },
-  "text-body-md": {
+  "text-body-lg": {
     "fontSize": 18,
     "lineHeight": 30.6
-  },
-  "text-body-lg": {
-    "fontSize": 20,
-    "lineHeight": 34
   },
   "text-p": {
     "fontSize": 22,

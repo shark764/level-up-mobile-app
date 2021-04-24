@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
-import { SafeAreaView, ScrollView, View, Text } from 'react-native';
+import { ScrollView, View, Image } from 'react-native';
 import { Button } from '@components/Button';
+import { Container } from '@components/Container';
+import { Text } from '@components/Text';
+// @ts-ignore
+import locationImage from '@assets/images/location.svg';
 
 import style from './EnableLocation.styles';
 import RNLocation from 'react-native-location';
@@ -10,7 +14,7 @@ const EnableLocation = () => {
   const { navigate } = useNavigation();
 
   useEffect(() => {
-    const checkPermission = async () => {
+    /*const checkPermission = async () => {
       const granted = await RNLocation.checkPermission({
         ios: 'whenInUse',
         android: {
@@ -24,8 +28,8 @@ const EnableLocation = () => {
       }
     };
 
-    checkPermission();
-  }, [navigate]);
+    checkPermission();*/
+  }, []);
 
   const enableLocation = async () => {
     const granted = await RNLocation.requestPermission({
@@ -50,30 +54,53 @@ const EnableLocation = () => {
   };
 
   return (
-    <SafeAreaView style={style.enableLocationContainer}>
+    <Container background='dark' style={style.enableLocationContainer}>
       <ScrollView>
         <View style={style.mainIconContainer}>
-          <Text>Icon pending</Text>
+          <Image
+            source={locationImage}
+            style={{
+              width: 100,
+              height: 300,
+              display: 'flex',
+              justifyContent: 'center',
+              resizeMode: 'cover'
+            }}
+          />
         </View>
         <View style={style.mainText}>
-          <Text style={style.header}>Enable your location</Text>
-          <Text style={style.subheader}>Chose your location to start find</Text>
-          <Text style={style.subheader}>Level Up facility partners</Text>
+          <Text type='heading-3' style={style.header}>
+            Enable your location
+          </Text>
+          <Text type='body-md' style={style.subheader}>
+            In order to get full access to
+          </Text>
+          <Text type='body-md' style={style.subheader}>
+            LevelUpLive features make sure
+          </Text>
+          <Text type='body-md' style={style.subheader}>
+            Location Services are turned on
+          </Text>
         </View>
         <View style={style.bottom}>
           <Button
+            color='primary'
             title='Use My Location'
             onPress={enableLocation}
-            // color={style.buttonColor}
-            // style={style.mainButton}
+            style={style.mainButton}
             // titleStyle={style.buttonTitle}
           />
-          <Text style={style.skipText} onPress={enableLocation}>
-            Skip
-          </Text>
+          <Button
+            color='transparent'
+            mode='text'
+            title='Not Now'
+            onPress={enableLocation}
+            titleStyle={style.buttonTitle}
+            style={style.mainButton}
+          />
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </Container>
   );
 };
 
