@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, SafeAreaView, ScrollView, TouchableHighlight } from 'react-native';
-import styles from './SignUp.styles';
+import styles from './SignUpStep2.styles';
 import { Text } from '@components/Text';
 import { TextInputContainer } from '@components/TextInputContainer';
 import { Button } from '@components/Button';
@@ -8,11 +8,30 @@ import { HeadSection } from '@components/HeadSection';
 import { Container } from '@components/Container';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/core';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { convertDateMDY } from '@utils'
 
-const SignUp = () => {
+const SignUpStep2 = () => {
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
     navigate(screen);
+  };
+  const today = new Date();
+
+  const [date, setDate] = useState(today);
+  const [dateString, setDateString] = useState(convertDateMDY(today));
+  const [show, setShow] = useState(false);
+
+  const onChange = (event, selectedDate) => {
+    setShow(false);
+    if (selectedDate) {
+      setDate(selectedDate);
+      setDateString(convertDateMDY(selectedDate));
+    }
+  };
+
+  const showDatePicker = () => {
+    setShow(true);
   };
 
   return (
@@ -23,34 +42,42 @@ const SignUp = () => {
             <HeadSection
               textStyle={styles.backText}
               backText='Back'
-              stepsText='Step 1/3'
+              stepsText='Step 2/3'
             />
 
             <View style={[styles.mainText]}>
               <View style={styles.titleSection}>
-                <Text type='heading-1' style={styles.textTitle}>Create Your</Text>
+                <Text type='heading-1' style={styles.textTitle}>Your</Text>
                 <Text type='heading-1' style={styles.textTitle}>Account</Text>
               </View>
               <TextInputContainer
                 icon='person-outline'
                 colorIcon='#50E5C3'
-                label='Username or Email'
+                label='Username'
+                placeholder='Choose your username'
               />
               <TextInputContainer
-                icon='lock-outline'
+                icon='calendar-today'
                 colorIcon='#50E5C3'
-                label='Your Password'
+                label='Date of Birth'
+                placeholder='mm/dd/yyyy'
               />
+              {show && (
+                <DateTimePicker
+                  testID="dateTimePicker"
+                  timeZoneOffsetInMinutes={0}
+                  value={date}
+                  mode="date"
+                  is24Hour={true}
+                  display="default"
+                  onChange={onChange}
+                />
+              )}
+
               <Button
-                onPress={() => {
-                  navigateTo('SignUpStep2');
-                }}
-                title='Next'
+                title='Create Account'
                 color='primary'
               />
-              <View style={styles.signUpWithContainer}>
-                <Text type='body' style={styles.labelText}>OR SIGN UP WITH</Text>
-              </View>
 
               <TouchableHighlight
                 onPress={() => {
@@ -70,4 +97,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUpStep2;
