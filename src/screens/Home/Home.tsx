@@ -14,8 +14,8 @@ const Home = () => {
   };
 
   return (
-    <Container background='dark'>
-      <ImageBackground source={homeBackground} style={stylesx.image}>
+    <ImageBackground source={homeBackground} style={stylesx.image}>
+      <Container background='none'>
         <ScrollView>
           <View style={styles.main}>
             <View style={[styles.mainText]}>
@@ -65,8 +65,8 @@ const Home = () => {
             </View>
           </View>
         </ScrollView>
-      </ImageBackground>
-    </Container>
+      </Container>
+    </ImageBackground>
   );
 };
 
@@ -74,7 +74,8 @@ const stylesx = StyleSheet.create({
   image: {
     flex: 1,
     resizeMode: 'cover',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    height: '100%'
   }
 });
 

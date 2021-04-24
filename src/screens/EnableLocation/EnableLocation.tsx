@@ -14,7 +14,7 @@ const EnableLocation = () => {
   const { navigate } = useNavigation();
 
   useEffect(() => {
-    /*const checkPermission = async () => {
+    const checkPermission = async () => {
       const granted = await RNLocation.checkPermission({
         ios: 'whenInUse',
         android: {
@@ -28,8 +28,8 @@ const EnableLocation = () => {
       }
     };
 
-    checkPermission();*/
-  }, []);
+    checkPermission();
+  }, [navigate]);
 
   const enableLocation = async () => {
     const granted = await RNLocation.requestPermission({

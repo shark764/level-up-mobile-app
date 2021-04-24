@@ -1,7 +1,7 @@
 import tailwind from '@utils/tailwind';
 
 const styles = {
-  main: tailwind('pt-40 pl-5 pr-5'),
+  main: tailwind('pt-40'),
   backgroundImage: tailwind('flex'),
   mainText: tailwind('mb-28'),
   header: tailwind('mb-5'),
