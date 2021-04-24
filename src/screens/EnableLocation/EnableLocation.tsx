@@ -64,9 +64,9 @@ const EnableLocation = () => {
           <Button
             title='Use My Location'
             onPress={enableLocation}
-            color={style.buttonColor}
-            style={style.mainButton}
-            titleStyle={style.buttonTitle}
+            // color={style.buttonColor}
+            // style={style.mainButton}
+            // titleStyle={style.buttonTitle}
           />
           <Text style={style.skipText} onPress={enableLocation}>
             Skip

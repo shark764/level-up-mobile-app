@@ -46,13 +46,13 @@ const SignUp = () => {
                 />
               </View>
               <Button
-                style={styles.button}
-                titleStyle={styles.buttonTitle}
+                // style={styles.button}
+                // titleStyle={styles.buttonTitle}
                 onPress={() => {
                   navigateTo('');
                 }}
                 title='Next'
-                color='bg-gray-500'
+                color='primary'
               />
               <View style={styles.signUpWithContainer}>
                 <Text style={styles.labelText}>OR SIGN UP WITH</Text>
@@ -64,7 +64,7 @@ const SignUp = () => {
                   navigateTo('');
                 }}
                 title='Sign up with Facebook'
-                color='bg-gray-500'
+                // color='bg-gray-500'
               />
               <Button
                 style={styles.button}
@@ -73,7 +73,7 @@ const SignUp = () => {
                   navigateTo('');
                 }}
                 title='Sign up with Google'
-                color='bg-gray-500'
+                // color='bg-gray-500'
               />
 
               <View style={styles.haveAccountContainer}>

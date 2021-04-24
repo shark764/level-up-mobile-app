@@ -1,26 +1,55 @@
-import React from 'react';
-import { TouchableHighlight, TouchableHighlightProps } from 'react-native';
+import React, { ComponentProps } from 'react';
+import { Button as MaterialButton } from 'react-native-paper';
 import { Text } from '@components/Text';
-import tailwind from 'tailwind-rn';
+import myStyles from './Button.styles';
 
-interface Props extends TouchableHighlightProps {
-  style?: any;
+type Size = 'sm' | 'md' | 'lg';
+type Props = Omit<ComponentProps<typeof MaterialButton>, 'children'> & {
   titleStyle?: any;
   title: string;
-  color?: string;
-}
+  color?: 'primary' | 'default' | 'transparent';
+  size?: Size;
+};
 
-const Button = (props: Props) => (
-  <TouchableHighlight
+const getFontType = (size: Size) => {
+  switch (size) {
+    case 'sm':
+      return 'body';
+    case 'md':
+      return 'body-md';
+    default:
+      return 'body-lg';
+  }
+};
+
+const Button = ({
+  size = 'sm',
+  color = 'default',
+  mode = 'contained',
+  ...props
+}: Props) => (
+  <MaterialButton
     {...props}
-    style={[
-      tailwind(`p-5 items-center rounded ${props.color ? props.color : ''}`),
-      props.style || {}
+    mode={mode}
+    style={[myStyles.button, props.style]}
+    contentStyle={[
+      myStyles.button,
+      mode !== 'outlined'
+        ? myStyles.bgColor[color]
+        : myStyles.borderColor[color],
+      myStyles.padding[size],
+      props.contentStyle
     ]}>
-    <Text type='body-lg' style={props.titleStyle}>
+    <Text
+      type={getFontType(size)}
+      style={[
+        myStyles.text,
+        myStyles.textColor[color][mode],
+        props.titleStyle
+      ]}>
       {props.title}
     </Text>
-  </TouchableHighlight>
+  </MaterialButton>
 );
 
 export default Button;
