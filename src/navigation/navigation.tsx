@@ -19,7 +19,6 @@ const MainNavigation = () => {
         <Screen name='SignUp' component={SignUp} />
         <Screen name='SignUpStep2' component={SignUpStep2} />
         <Screen name='ForgotPassword' component={ForgotPassword} />
-        <Screen name='EnableLocation' component={EnableLocation} />
         <Screen name='ForgotPasswordVerification' component={ForgotPasswordVerification} />
         <Screen name='ForgotPasswordReset' component={ForgotPasswordReset} />
         <Screen name='ForgotPasswordConfirm' component={ForgotPasswordConfirm} />

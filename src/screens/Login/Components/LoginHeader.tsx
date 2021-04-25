@@ -1,5 +1,6 @@
 import React from 'react';
-import {  View, Text } from 'react-native';
+import {  View } from 'react-native';
+import { Text } from '@components/Text';
 
 export interface Props {
     viewStyle: object,
@@ -9,8 +10,8 @@ export interface Props {
 const loginHeader = (props: Props) => {
     return (
         <View style= {props.viewStyle}>
-            <Text style={props.textStyle}>Log In with</Text>
-            <Text style={props.textStyle}>Your Account</Text>
+            <Text type="heading-1" style={props.textStyle}>Log In with</Text>
+            <Text type="heading-1" style={props.textStyle}>Your Account</Text>
       </View>
     );
 }

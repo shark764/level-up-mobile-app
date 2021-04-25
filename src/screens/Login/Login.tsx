@@ -6,6 +6,7 @@ import LoginTextInput from './Components/LoginTextInput';
 import LoginBottom from './Components/LoginBottom';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Container } from '@components/Container';
+import style from '@screens/EnableLocation/EnableLocation.styles';
 
 const Login = () => {
   return (
@@ -33,6 +34,7 @@ const Login = () => {
               subFooter={styles.subFooter}
               textDivider={styles.textDivider}
               colDivider={styles.colDivider}
+              circle={styles.buttonCircle}
             />
           </View>
         </View>

@@ -13,15 +13,15 @@ const loginTextInput = (props: Props) => {
       <View style={props.viewStyle}>
         <TextInput
           icon='perm-identity'
-          text='Username'
-          placeholder='Choose your username'
+          text='Username or Email'
+          placeholder='Username'
         />
       </View>
       <View style={props.viewStyle}>
         <TextInput
           icon='lock-outline'
-          text='Password'
-          placeholder='Type your password'
+          text='Type your password'
+          placeholder=''
         />
       </View>
     </>
