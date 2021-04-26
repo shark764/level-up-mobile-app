@@ -2,7 +2,7 @@ import { color } from 'react-native-reanimated';
 import tailwind, { getColor } from 'tailwind-rn';
 
 const styles = {
-  main: tailwind('pt-8 pl-5 pr-5'),
+  main: tailwind('pt-8'),
   backSection: tailwind('pt-2 flex flex-row items-start'),
   backIcon: tailwind('text-white mb-10'),
   backText: tailwind('text-white mt-1 mb-8'),
