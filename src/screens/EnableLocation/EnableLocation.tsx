@@ -3,10 +3,11 @@ import { ScrollView, View, Image } from 'react-native';
 import { Button } from '@components/Button';
 import { Container } from '@components/Container';
 import { Text } from '@components/Text';
+import { HeadSection } from '@components/HeadSection';
 // @ts-ignore
-import locationImage from '@assets/images/location.svg';
+import locationImage from '@assets/images/location.png';
 
-import style from './EnableLocation.styles';
+import styles from './EnableLocation.styles';
 import RNLocation from 'react-native-location';
 import { useNavigation } from '@react-navigation/core';
 
@@ -54,40 +55,32 @@ const EnableLocation = () => {
   };
 
   return (
-    <Container background='dark' style={style.enableLocationContainer}>
+    <Container background='dark' style={styles.enableLocationContainer}>
       <ScrollView>
-        <View style={style.mainIconContainer}>
-          <Image
-            source={locationImage}
-            style={{
-              width: 100,
-              height: 300,
-              display: 'flex',
-              justifyContent: 'center',
-              resizeMode: 'cover'
-            }}
-          />
+        <HeadSection backText='Back' textStyle={styles.backText} />
+        <View style={styles.mainIconContainer}>
+          <Image source={locationImage} />
         </View>
-        <View style={style.mainText}>
-          <Text type='heading-3' style={style.header}>
+        <View style={styles.mainText}>
+          <Text type='heading-3' style={styles.header}>
             Enable your location
           </Text>
-          <Text type='body-md' style={style.subheader}>
+          <Text type='body-md' style={styles.subheader}>
             In order to get full access to
           </Text>
-          <Text type='body-md' style={style.subheader}>
+          <Text type='body-md' style={styles.subheader}>
             LevelUpLive features make sure
           </Text>
-          <Text type='body-md' style={style.subheader}>
+          <Text type='body-md' style={styles.subheader}>
             Location Services are turned on
           </Text>
         </View>
-        <View style={style.bottom}>
+        <View style={styles.bottom}>
           <Button
             color='primary'
             title='Use My Location'
             onPress={enableLocation}
-            style={style.mainButton}
+            style={styles.mainButton}
             // titleStyle={style.buttonTitle}
           />
           <Button
@@ -95,8 +88,8 @@ const EnableLocation = () => {
             mode='text'
             title='Not Now'
             onPress={enableLocation}
-            titleStyle={style.buttonTitle}
-            style={style.mainButton}
+            titleStyle={styles.buttonTitle}
+            style={styles.mainButton}
           />
         </View>
       </ScrollView>

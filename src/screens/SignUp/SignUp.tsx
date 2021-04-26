@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, SafeAreaView, ScrollView, TouchableHighlight } from 'react-native';
+import { View, SafeAreaView, ScrollView, TouchableHighlight, Image } from 'react-native';
 import styles from './SignUp.styles';
 import { Text } from '@components/Text';
 import { TextInputContainer } from '@components/TextInputContainer';
@@ -8,6 +8,9 @@ import { HeadSection } from '@components/HeadSection';
 import { Container } from '@components/Container';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/core';
+import logo_fb from '../../assets/social_media/logo_fb.png';
+import logo_google from '../../assets/social_media/logo_google.png';
+import logo_tw from '../../assets/social_media/logo_tw.png';
 
 const SignUp = () => {
   const { navigate } = useNavigation();
@@ -34,14 +37,17 @@ const SignUp = () => {
               <TextInputContainer
                 icon='person-outline'
                 colorIcon='#50E5C3'
-                label='Username or Email'
+                label='Email'
+                placeholder='Your Email'
               />
               <TextInputContainer
                 icon='lock-outline'
                 colorIcon='#50E5C3'
                 label='Your Password'
+                placeholder='Type your password'
               />
               <Button
+                style={styles.button}
                 onPress={() => {
                   navigateTo('SignUpStep2');
                 }}
@@ -50,6 +56,20 @@ const SignUp = () => {
               />
               <View style={styles.signUpWithContainer}>
                 <Text type='body' style={styles.labelText}>OR SIGN UP WITH</Text>
+              </View>
+              <View style={styles.socialMedia}>
+                <Image
+                  style={styles.socialMediaLogo}
+                  source={logo_fb}
+                />
+                <Image
+                  style={styles.socialMediaLogo}
+                  source={logo_google}
+                />
+                <Image
+                  style={styles.socialMediaLogo}
+                  source={logo_tw}
+                />
               </View>
 
               <TouchableHighlight
