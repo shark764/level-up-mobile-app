@@ -2,7 +2,7 @@ import tailwind from '@utils/tailwind';
 
 const styles = {
   signUpContainer: tailwind('h-full bg-black'),
-  main: tailwind('pt-2 pl-2 pr-2'),
+  main: tailwind('pt-2'),
   mainText: tailwind('mb-8'),
   headerSection: tailwind('pt-2 pb-10 flex flex-row justify-between'),
   backSection: tailwind('flex flex-row'),
@@ -16,8 +16,10 @@ const styles = {
   haveAccountContainer: tailwind('mt-3 mb-4 justify-center'),
   labelText: tailwind('text-center text-gray-medium'),
   loginText: tailwind('text-center font-bold text-bright-green-light'),
-  socialMedia: tailwind('flex flex-row justify-between content-center items-center pl-10 pr-10 pt-5 pb-5'),
-  socialMediaLogo: tailwind('w-14 h-14'),
+  socialMedia: tailwind(
+    'flex flex-row justify-between content-center items-center pl-10 pr-10 pt-5 pb-5'
+  ),
+  socialMediaLogo: tailwind('w-14 h-14')
 };
 
 export default styles;

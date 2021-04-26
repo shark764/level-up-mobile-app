@@ -19,7 +19,7 @@ const UploadPic = () => {
   const navigateTo = (screen: string) => navigate(screen);
 
   return (
-    <Container background='dark' style={styles.enableLocationContainer}>
+    <Container background='dark'>
       <ScrollView>
         <HeadSection
           backText='Back'

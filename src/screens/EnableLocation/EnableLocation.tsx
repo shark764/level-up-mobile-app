@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/core';
 const EnableLocation = () => {
   const { navigate } = useNavigation();
 
-  useEffect(() => {
+  /*useEffect(() => {
     const checkPermission = async () => {
       const granted = await RNLocation.checkPermission({
         ios: 'whenInUse',
@@ -25,12 +25,12 @@ const EnableLocation = () => {
 
       if (granted) {
         console.info('Permission already granted, skipping');
-        navigate('Home');
+        navigate('JoinRange');
       }
     };
 
     checkPermission();
-  }, [navigate]);
+  }, [navigate]);*/
 
   const enableLocation = async () => {
     const granted = await RNLocation.requestPermission({

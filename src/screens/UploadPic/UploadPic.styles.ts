@@ -1,8 +1,8 @@
 import tailwind from '@utils/tailwind';
 
 const style = {
-  enableLocationContainer: tailwind('pt-44'),
-  backText: tailwind('text-gray-medium'),
+  enableLocationContainer: tailwind('pt-2'),
+  backText: tailwind('text-gray-light'),
   mainIconContainer: tailwind('items-center mt-24 mb-12'),
   mainIcon: tailwind('text-gray-100 mb-20'),
   mainText: tailwind('items-center mb-12'),

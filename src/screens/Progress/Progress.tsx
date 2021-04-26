@@ -74,18 +74,18 @@ const Progress = () => {
                 mode='contained'
                 style={styles.coinButton2}
                 contentStyle={[styles.headerButton, styles.coinButton]}>
-                <Image source={coin} style={styles.buttonIcon} />
+                <Image source={coin} />
                 <Text type='body-sm-semi' style={[styles.buttonText]}>
-                  123
+                 {' '} 123
                 </Text>
               </Button>
               <Button
                 mode='contained'
-                style={styles.headerButton}
-                contentStyle={[styles.rubyButton]}>
+                style={styles.coinButton}
+                contentStyle={[styles.headerButton, styles.rubyButton]}>
                 <Image source={ruby} style={styles.buttonIcon} />
-                <Text type='body-sm' style={styles.buttonText}>
-                  456
+                <Text type='body-sm-semi' style={styles.buttonText}>
+                {' '} 456
                 </Text>
               </Button>
             </View>

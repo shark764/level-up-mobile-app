@@ -6,7 +6,6 @@ import { TextInputContainer } from '@components/TextInputContainer';
 import { Button } from '@components/Button';
 import { HeadSection } from '@components/HeadSection';
 import { Container } from '@components/Container';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/core';
 import logo_fb from '../../assets/social_media/logo_fb.png';
 import logo_google from '../../assets/social_media/logo_google.png';

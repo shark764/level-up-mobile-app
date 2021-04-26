@@ -48,11 +48,14 @@ export const TabsBottomNavigation = () => (
       }
     })}
     tabBarOptions={{
-      style: { backgroundColor: '#24263F' },
+      style: { backgroundColor: '#24263F', paddingVertical: 10 },
       tabStyle: { backgroundColor: '#24263F' },
       activeTintColor: getColor('green'),
       inactiveTintColor: '#C8C9D0',
-      labelStyle: { fontFamily: 'MartianBThai-Regular' }
+      labelStyle: { fontFamily: 'MartianBThai-Regular' },
+      safeAreaInsets: {
+        bottom: 20
+      }
     }}>
     <Tab.Screen name='Level Up' component={Progress} />
     <Tab.Screen name='Shop' component={Progress} />
