@@ -32,7 +32,7 @@ module.exports = {
         'red-light': '#FF7777',
         green: '#98DB55',
         'green-medium': '#7CB741',
-        'green-light': '#BAE292'
+        'green-light': '#BAE292',
       }
     }
   },

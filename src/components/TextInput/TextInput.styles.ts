@@ -6,7 +6,7 @@ const styles = {
     tailwind('border-gray-200 bg-gray-600 px-4 py-2 flex flex-row items-start')
   ],
   description: tailwind('flex flex-row'),
-  icon: tailwind('text-gray-400 mr-4'),
+  icon: tailwind('mr-4'),
   text: tailwind('text-gray-400'),
   inputContainer: tailwind('bg-gray-600'),
   textInput: tailwind('bg-gray-600 p-0 text-gray-100'),
