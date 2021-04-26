@@ -15,7 +15,7 @@ interface Props {
 }
 const AchievementsItem = ({ achievement, rewardType, reward }: Props) => (
   <ListItem>
-    <Text type='heading-4' style={[styles.achievement, styles.achievementFont]}>
+    <Text type='body-semi' style={[styles.achievement, styles.achievementFont]}>
       {achievement}
     </Text>
     <View style={styles.spaceBetween}>

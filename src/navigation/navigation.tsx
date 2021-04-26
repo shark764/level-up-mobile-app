@@ -16,9 +16,50 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { EnableLocation } from '@screens/EnableLocation';
 import { Progress } from '@screens/Progress';
-
+import { getColor } from '@utils/tailwind';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const { Navigator, Screen } = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
+export const TabsBottomNavigation = () => (
+  <Tab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ color, size }) => {
+        let icon;
+        switch (route.name) {
+          case 'Level Up':
+            icon = 'trophy-outline';
+            break;
+          case 'Shop':
+            icon = 'cart-outline';
+            break;
+          case 'Social':
+            icon = 'bullhorn-outline';
+            break;
+          case 'Messages':
+            icon = 'forum-outline';
+            break;
+          default:
+            icon = 'menu';
+        }
+        return <Icon name={icon} size={size} color={color} />;
+      }
+    })}
+    tabBarOptions={{
+      style: { backgroundColor: '#24263F' },
+      tabStyle: { backgroundColor: '#24263F' },
+      activeTintColor: getColor('green'),
+      inactiveTintColor: '#C8C9D0',
+      labelStyle: { fontFamily: 'MartianBThai-Regular' }
+    }}>
+    <Tab.Screen name='Level Up' component={Progress} />
+    <Tab.Screen name='Shop' component={Progress} />
+    <Tab.Screen name='Social' component={Progress} />
+    <Tab.Screen name='Messages' component={Progress} />
+    <Tab.Screen name='More' component={Progress} />
+  </Tab.Navigator>
+);
 const MainNavigation = () => {
   return (
     <NavigationContainer>
@@ -41,6 +82,7 @@ const MainNavigation = () => {
         />
         <Screen name='JoinRange' component={JoinRange} />
         <Screen name='RangeProfile' component={RangeProfile} />
+        <Screen name='Root' component={TabsBottomNavigation} />
       </Navigator>
     </NavigationContainer>
   );
