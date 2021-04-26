@@ -63,6 +63,8 @@
 		D722449AD55A4760A32B846E /* MartianBThai-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MartianBThai-SemiBold.otf"; path = "../src/assets/fonts/martian/OTF/MartianBThai-SemiBold.otf"; sourceTree = "<group>"; };
 		E27AE5722636769E00B76020 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		E27AE575263678DF00B76020 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		E2E888412636AC40006B30BC /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		E2E8887B2636ACE4006B30BC /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,8 @@
 		E27AE56D2636752E00B76020 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E2E888412636AC40006B30BC /* EvilIcons.ttf */,
+				E2E8887B2636ACE4006B30BC /* Feather.ttf */,
 				E27AE575263678DF00B76020 /* MaterialCommunityIcons.ttf */,
 				E27AE5722636769E00B76020 /* MaterialIcons.ttf */,
 			);

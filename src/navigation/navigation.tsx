@@ -19,6 +19,7 @@ import { Progress } from '@screens/Progress';
 import { getColor } from '@utils/tailwind';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { UploadPic } from '@screens/UploadPic';
 const { Navigator, Screen } = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -69,8 +70,8 @@ const MainNavigation = () => {
         <Screen name='SignUp' component={SignUp} />
         <Screen name='SignUpStep2' component={SignUpStep2} />
         <Screen name='ForgotPassword' component={ForgotPassword} />
+        <Screen name='UploadPic' component={UploadPic} />
         <Screen name='EnableLocation' component={EnableLocation} />
-        <Screen name='Progress' component={Progress} />
         <Screen
           name='ForgotPasswordVerification'
           component={ForgotPasswordVerification}
@@ -82,7 +83,7 @@ const MainNavigation = () => {
         />
         <Screen name='JoinRange' component={JoinRange} />
         <Screen name='RangeProfile' component={RangeProfile} />
-        <Screen name='Root' component={TabsBottomNavigation} />
+        <Screen name='Progress' component={TabsBottomNavigation} />
       </Navigator>
     </NavigationContainer>
   );

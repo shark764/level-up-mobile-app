@@ -15,13 +15,13 @@ const Login = () => {
   const credentials = {
     'user': 'user',
     'pass': '1234'
-  }
+  };
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
     navigate(screen);
   };
   const loginValidation = () => {
-    if (credentials.user === username && credentials.pass === password) navigateTo('JoinRange')
+    if (credentials.user === username && credentials.pass === password) navigateTo('Progress')
     else console.log('failed');
   };
   const handleUsername = (value: string) => {

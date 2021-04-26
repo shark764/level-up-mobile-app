@@ -42,7 +42,7 @@ const SignUpStep2 = () => {
             <HeadSection
               textStyle={styles.backText}
               backText='Back'
-              stepsText='Step 2/3'
+              stepsText='Step 2/4'
             />
 
             <View style={[styles.mainText]}>
@@ -81,6 +81,7 @@ const SignUpStep2 = () => {
                 style={styles.button}
                 title='Create Account'
                 color='primary'
+                onPress={() => navigateTo('UploadPic')}
               />
 
               <TouchableHighlight

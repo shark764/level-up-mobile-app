@@ -47,17 +47,21 @@ const EnableLocation = () => {
     });
     if (granted) {
       console.info('Permission granted, skipping');
-      navigate('Home');
+      navigate('JoinRange');
     } else {
       console.info('permission not granted');
-      navigate('Login');
+      navigate('JoinRange');
     }
   };
 
   return (
     <Container background='dark' style={styles.enableLocationContainer}>
       <ScrollView>
-        <HeadSection backText='Back' textStyle={styles.backText} />
+        <HeadSection
+          backText='Back'
+          textStyle={styles.backText}
+          stepsText='step 4/4'
+        />
         <View style={styles.mainIconContainer}>
           <Image source={locationImage} />
         </View>

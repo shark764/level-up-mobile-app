@@ -26,7 +26,7 @@ const SignUp = () => {
             <HeadSection
               textStyle={styles.backText}
               backText='Back'
-              stepsText='Step 1/3'
+              stepsText='Step 1/4'
             />
 
             <View style={[styles.mainText]}>
