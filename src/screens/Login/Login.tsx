@@ -13,7 +13,7 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const credentials = {
-    'user': 'wrivas',
+    'user': 'user',
     'pass': '1234'
   }
   const { navigate } = useNavigation();
@@ -54,7 +54,7 @@ const Login = () => {
               linkStyle={styles.link}
               navigationLink={'ForgotPassword'}
               buttonStyle={styles.button}
-              navigationButton={'JoinRange'}
+              navigationButton={'Login'}
               buttonTittle={styles.buttonTitle}
               mainFooter={styles.mainFooter}
               subFooter={styles.subFooter}
