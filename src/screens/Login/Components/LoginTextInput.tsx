@@ -1,29 +1,28 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import { TextInput } from '@components/TextInput';
-
+import { TextInputContainer } from '@components/TextInputContainer';
+import { TextInput } from 'react-native-paper';
 
 export interface Props {
-  viewStyle: object;
+  handleUsername: (value: string) => void,
+  handlePassword: (value: string) => void,
 }
 
-const loginTextInput = (props: Props) => {
+const loginTextInput = ({ handleUsername, handlePassword }: Props) => {
   return (
     <>
-      <View style={props.viewStyle}>
-        <TextInput
-          icon='perm-identity'
-          text='Username or Email'
-          placeholder='Username'
-        />
-      </View>
-      <View style={props.viewStyle}>
-        <TextInput
-          icon='lock-outline'
-          text='Type your password'
-          placeholder=''
-        />
-      </View>
+      <TextInputContainer
+        icon='person-outline'
+        colorIcon='#50E5C3'
+        label='Username or Email'
+        onChangeText={(value) => { handleUsername(value)}}
+      />
+
+      <TextInputContainer
+        icon='lock-outline'
+        colorIcon='#50E5C3'
+        label='Type Your Password'
+        onChangeText={(value) => { handlePassword(value) }}
+      />
     </>
   );
 };

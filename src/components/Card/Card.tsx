@@ -19,7 +19,7 @@ const Card = ({ data, ...props }: Props) => {
                 <TouchableHighlight
                 underlayColor={color}
                 onPress={() => {
-                    navigateTo('Login'); 
+                    navigateTo(card[i][3]); 
                 }}>
                     <View style={styles.cardContainer} >
                         <View style={styles.cardHeader}>
@@ -33,7 +33,7 @@ const Card = ({ data, ...props }: Props) => {
                             </View>
                         </View>
                         <View style={styles.cardBody}>
-                            <Text type='body-sm' style={{ color: '#C6D6EE' }}>
+                            <Text type='body-sm' style={{ color: '#C6D6EE', textAlign:'justify' }}>
                                 {card[i][1]}
                             </Text>
                         </View>

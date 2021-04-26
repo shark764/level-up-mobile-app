@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, TouchableHighlight, Image } from 'react-native';
+import { View, TouchableHighlight, Image } from 'react-native';
 import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
 import { color } from 'react-native-reanimated';
 import facebook_image from '../assets/facebook_image';
 import google_image from '../assets/google_image';
 import twitter_image from '../assets/twitter_image';
-
+import { Text } from '@components/Text';
+import {getColor} from '@utils/tailwind';
 
 
 export interface Props {
@@ -21,10 +22,10 @@ export interface Props {
     textDivider: object,
     colDivider: string,
     circle: object,
-
+    loginValidation: () => void;
 }
 
-const loginBottom = (props: Props) => {
+const loginBottom = ({ loginValidation, ...props}: Props) => {
     const { navigate } = useNavigation();
     const navigateTo = (screen: string) => {
         navigate(screen);
@@ -32,23 +33,24 @@ const loginBottom = (props: Props) => {
     return (
         <View style={props.viewStyle}>
             <View style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
-                <Text style={props.linkStyle} onPress={() => {
-                    navigateTo(props.navigationLink);
-                }}>I forgot my password
-                </Text>
+                <TouchableHighlight onPress={() => {
+                        navigateTo(props.navigationLink);
+                    }}
+                    underlayColor={getColor('charcoal')}
+                    >
+                    <Text type="body" style={props.linkStyle}>I forgot my password</Text>
+                </TouchableHighlight>
             </View>
             <Button
                 style={props.buttonStyle}
-                onPress={() => {
-                    navigateTo(props.navigationButton);
-                }}
+                onPress={() => { loginValidation() }}
                 title='Log In'
                 color='primary'
             />
             <View style={props.textDivider}>
-                <View style={{ flex: 1, height: 1, backgroundColor: props.colDivider, marginTop: '2.5%' }} />
-                <View style={{ width: '50%' }}><Text style={{ color: props.colDivider, textAlign: 'center' }}>OR LOG IN WITH</Text></View>
-                <View style={{ flex: 1, height: 1, backgroundColor: props.colDivider, marginTop: '2.5%' }} />
+                <View style={{ flex: 1, height: 1, backgroundColor: props.colDivider, marginTop: '4.5%' }} />
+                <View style={{ width: '50%' }}><Text type="body" style={{ color: 'white', textAlign: 'center' }}>OR LOG IN WITH</Text></View>
+                <View style={{ flex: 1, height: 1, backgroundColor: props.colDivider, marginTop: '4.5%' }} />
             </View>
             <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'center', marginTop: 25, marginBottom: 35 }}>
 
@@ -104,7 +106,7 @@ const loginBottom = (props: Props) => {
                 </TouchableHighlight>
 
             </View>
-            <Text style={props.mainFooter}>Don't have an account? <Text style={props.subFooter}>Sign Up</Text></Text>
+            <Text type="body" style={props.mainFooter}>Don't have an account? <Text type="body" style={props.subFooter}>Sign Up</Text></Text>
         </View>
     );
 }
