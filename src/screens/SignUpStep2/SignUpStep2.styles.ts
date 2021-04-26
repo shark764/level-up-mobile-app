@@ -2,7 +2,7 @@ import tailwind from '@utils/tailwind';
 
 const styles = {
   signUpContainer: tailwind('h-full bg-black'),
-  main: tailwind('pt-5 pl-5 pr-5'),
+  main: tailwind('pt-2 pl-2 pr-2'),
   mainText: tailwind('mb-8'),
   backText: tailwind('text-gray-light'),
   titleSection: tailwind('mb-5'),

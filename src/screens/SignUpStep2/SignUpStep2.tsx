@@ -61,6 +61,9 @@ const SignUpStep2 = () => {
                 colorIcon='#50E5C3'
                 label='Date of Birth'
                 placeholder='mm/dd/yyyy'
+                onPressIn={() => showDatePicker()}
+                showSoftInputOnFocus={false}
+                value={dateString}
               />
               {show && (
                 <DateTimePicker
@@ -75,6 +78,7 @@ const SignUpStep2 = () => {
               )}
 
               <Button
+                style={styles.button}
                 title='Create Account'
                 color='primary'
               />
