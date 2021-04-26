@@ -13,7 +13,6 @@ interface Props extends TextInputProps {
   label: string;
   placeholder?: string;
   underlineColor?: string;
-
 }
 
 const TextInputContainer = (props: Props) => (
@@ -42,6 +41,7 @@ const TextInputContainer = (props: Props) => (
         />
       }
       value={props.value}
+      onChangeText={props.onChangeText}
     />
   </View>
 );

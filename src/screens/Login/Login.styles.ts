@@ -17,9 +17,9 @@ const styles = {
   button: tailwind('mb-5 w-full'),
   buttonCircle: tailwind('w-16 h-16 rounded-full bg-white mx-5'),
   buttonTitle: tailwind('text-xl text-white'),
-  mainFooter: tailwind('text-gray-500'),
+  mainFooter: tailwind('text-white'),
   subFooter: {color:'#50E5C3'},
-  textDivider: tailwind('flex-row w-full pb-3 pt-5'),
+  textDivider: tailwind('flex-row w-full pb-3 pt-3'),
   colDivider: getColor('gray-500'),
 };
 

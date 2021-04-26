@@ -4,6 +4,8 @@ import { SignUp } from '@screens/SignUp';
 import { SignUpStep2 } from '@screens/SignUpStep2';
 import { Login } from '@screens/Login';
 import { ForgotPassword, ForgotPasswordVerification, ForgotPasswordReset, ForgotPasswordConfirm } from '@screens/ForgotPassword';
+import { JoinRange} from '@screens/JoinRange';
+import { RangeProfile} from '@screens/RangeProfile';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { EnableLocation } from '@screens/EnableLocation';
@@ -23,6 +25,8 @@ const MainNavigation = () => {
         <Screen name='ForgotPasswordReset' component={ForgotPasswordReset} />
         <Screen name='ForgotPasswordConfirm' component={ForgotPasswordConfirm} />
         <Screen name='EnableLocation' component={EnableLocation} />
+        <Screen name='JoinRange' component={JoinRange} />
+        <Screen name='RangeProfile' component={RangeProfile} />
       </Navigator>
     </NavigationContainer>
   );
