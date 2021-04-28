@@ -1,13 +1,9 @@
 import tailwind from '@utils/tailwind';
 
 const style = {
-  enableLocationContainer: tailwind('pt-44'),
-<<<<<<< HEAD
-  mainIconContainer: tailwind('items-center'),
-=======
+  enableLocationContainer: tailwind('pt-2'),
   backText: tailwind('text-gray-medium'),
   mainIconContainer: tailwind('items-center mt-24 mb-12'),
->>>>>>> edad3ead26756e68e7ee52e0a2792d7728d62579
   mainIcon: tailwind('text-gray-100 mb-20'),
   mainText: tailwind('items-center mb-12'),
   header: tailwind('mb-2 text-white font-martian-700'),

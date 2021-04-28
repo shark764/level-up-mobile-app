@@ -7,3 +7,10 @@ export interface Achievement {
   rewardType: 'coin' | 'ruby';
   reward: number;
 }
+
+export interface Game {
+  points: number;
+  level: 1 | 4;
+  gameType: 'standard' | 'multiplayer';
+  time: string;
+}

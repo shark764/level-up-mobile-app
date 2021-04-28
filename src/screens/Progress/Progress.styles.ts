@@ -12,10 +12,17 @@ const styles = StyleSheet.create({
     'bg-charcoal-medium rounded-md pl-3 pr-7 py-1 relative left-4'
   ),
   leaderboardText: tailwind('text-white font-martian-500'),
-  headerButton: tailwind('h-8 w-20 mb-0 mt-0 rounded-md'),
+  headerButton: tailwind('rounded-md flex content-center items-center'),
   points: tailwind('flex flex-row content-center'),
-  buttonText: tailwind('ml-12'),
-  buttonIcon: tailwind('pl-4'),
+  buttonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    marginLeft: 20
+  },
+  buttonIcon: {
+    width: 13,
+    height: 13
+  },
   vr: tailwind('h-12 border-gray-medium border-l mx-3.5'),
   coinButton: tailwind('bg-purple-light'),
   coinButton2: tailwind('mr-2.5'),

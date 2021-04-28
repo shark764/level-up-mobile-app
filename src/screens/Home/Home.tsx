@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, ScrollView, ImageBackground, StyleSheet } from 'react-native';
 import { Text } from '@components/Text';
+import { Card } from '@components/Card';
 import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
 import styles from './Home.styles';

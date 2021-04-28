@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/core';
 const EnableLocation = () => {
   const { navigate } = useNavigation();
 
-  useEffect(() => {
+  /*useEffect(() => {
     const checkPermission = async () => {
       const granted = await RNLocation.checkPermission({
         ios: 'whenInUse',
@@ -25,12 +25,12 @@ const EnableLocation = () => {
 
       if (granted) {
         console.info('Permission already granted, skipping');
-        navigate('Home');
+        navigate('JoinRange');
       }
     };
 
     checkPermission();
-  }, [navigate]);
+  }, [navigate]);*/
 
   const enableLocation = async () => {
     const granted = await RNLocation.requestPermission({
@@ -47,17 +47,21 @@ const EnableLocation = () => {
     });
     if (granted) {
       console.info('Permission granted, skipping');
-      navigate('Home');
+      navigate('JoinRange');
     } else {
       console.info('permission not granted');
-      navigate('Login');
+      navigate('JoinRange');
     }
   };
 
   return (
     <Container background='dark' style={styles.enableLocationContainer}>
       <ScrollView>
-        <HeadSection backText='Back' textStyle={styles.backText} />
+        <HeadSection
+          backText='Back'
+          textStyle={styles.backText}
+          stepsText='step 4/4'
+        />
         <View style={styles.mainIconContainer}>
           <Image source={locationImage} />
         </View>

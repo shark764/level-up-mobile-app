@@ -26,16 +26,18 @@ const Button = ({
   size = 'sm',
   color = 'default',
   mode = 'contained',
+  disabled = false,
   ...props
 }: Props) => (
   <MaterialButton
     {...props}
     mode={mode}
     style={[myStyles.button, props.style]}
+    disabled={disabled}
     contentStyle={[
       myStyles.button,
       mode !== 'outlined'
-        ? myStyles.bgColor[color]
+        ? myStyles.bgColor[color][disabled ? 'disabled' : 'enabled']
         : myStyles.borderColor[color],
       myStyles.padding[size],
       props.contentStyle
@@ -44,7 +46,7 @@ const Button = ({
       type={getFontType(size)}
       style={[
         myStyles.text,
-        myStyles.textColor[color][mode],
+        myStyles.textColor[color][mode][disabled ? 'disabled' : 'enabled'],
         props.titleStyle
       ]}>
       {props.title}

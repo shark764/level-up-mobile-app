@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   View,
   TextInputProps
@@ -12,6 +13,7 @@ interface Props extends TextInputProps {
   colorIcon?: string;
   label: string;
   placeholder?: string;
+  underlineColor?: string;
 }
 
 const TextInputContainer = (props: Props) => {
@@ -41,7 +43,7 @@ const TextInputContainer = (props: Props) => {
             />
           }
           value={props.value}
-          {...props}
+          onChangeText={props.onChangeText}
         />
       </View>
     );
@@ -60,11 +62,10 @@ const TextInputContainer = (props: Props) => {
             }
           }}
           value={props.value}
-          {...props}
+          onChangeText={props.onChangeText}
         />
       </View>
     );
   }
-};
-
+}
 export default TextInputContainer;

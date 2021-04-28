@@ -3,9 +3,18 @@ import tailwind from '@utils/tailwind';
 const styles = {
   button: tailwind('rounded-lg'),
   bgColor: {
-    primary: tailwind('bg-purple'),
-    default: tailwind('bg-off-white'),
-    transparent: tailwind('bg-transparent')
+    primary: {
+      enabled: tailwind('bg-purple'),
+      disabled: tailwind('bg-purple')
+    },
+    default: {
+      enabled: tailwind('bg-off-white'),
+      disabled: tailwind('bg-gray-medium')
+    },
+    transparent: {
+      enabled: tailwind('bg-transparent'),
+      disabled: tailwind('bg-transparent')
+    }
   },
   borderColor: {
     primary: tailwind('border	border-purple'),
@@ -15,19 +24,46 @@ const styles = {
   text: tailwind('normal-case'),
   textColor: {
     primary: {
-      contained: tailwind('text-white'),
-      outlined: tailwind('text-purple'),
-      text: tailwind('text-charcoal')
+      contained: {
+        enabled: tailwind('text-white'),
+        disabled: tailwind('text-gray-medium')
+      },
+      outlined: {
+        enabled: tailwind('text-purple'),
+        disabled: tailwind('text-purple bg-opacity-40')
+      },
+      text: {
+        enabled: tailwind('text-charcoal'),
+        disabled: tailwind('text-charcoal')
+      }
     },
     default: {
-      contained: tailwind('text-charcoal'),
-      outlined: tailwind('text-off-white'),
-      text: tailwind('text-charcoal')
+      contained: {
+        enabled: tailwind('text-charcoal'),
+        disabled: tailwind('text-charcoal')
+      },
+      outlined: {
+        enabled: tailwind('text-white'),
+        disabled: tailwind('text-gray-medium')
+      },
+      text: {
+        enabled: tailwind('text-charcoal'),
+        disabled: tailwind('text-charcoal')
+      }
     },
     transparent: {
-      contained: tailwind('text-charcoal'),
-      outlined: tailwind('text-charcoal'),
-      text: tailwind('text-charcoal')
+      contained: {
+        enabled: tailwind('text-charcoal'),
+        disabled: tailwind('text-charcoal')
+      },
+      outlined: {
+        enabled: tailwind('text-charcoal'),
+        disabled: tailwind('text-charcoal')
+      },
+      text: {
+        enabled: tailwind('text-charcoal'),
+        disabled: tailwind('text-charcoal')
+      }
     }
   },
   padding: {
