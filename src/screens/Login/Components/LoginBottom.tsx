@@ -3,11 +3,14 @@ import { View, TouchableHighlight, Image } from 'react-native';
 import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
 import { color } from 'react-native-reanimated';
-import facebook_image from '../assets/facebook_image';
-import google_image from '../assets/google_image';
-import twitter_image from '../assets/twitter_image';
+// @ts-ignore
+import logo_fb from '../../../assets/social_media/logo_fb.png';
+// @ts-ignore
+import logo_google from '../../../assets/social_media/logo_google.png';
+// @ts-ignore
+import logo_tw from '../../../assets/social_media/logo_tw.png';
 import { Text } from '@components/Text';
-import {getColor} from '@utils/tailwind';
+import { getColor } from '@utils/tailwind';
 
 
 export interface Props {
@@ -25,7 +28,7 @@ export interface Props {
     loginValidation: () => void;
 }
 
-const loginBottom = ({ loginValidation, ...props}: Props) => {
+const loginBottom = ({ loginValidation, ...props }: Props) => {
     const { navigate } = useNavigation();
     const navigateTo = (screen: string) => {
         navigate(screen);
@@ -34,10 +37,10 @@ const loginBottom = ({ loginValidation, ...props}: Props) => {
         <View style={props.viewStyle}>
             <View style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
                 <TouchableHighlight onPress={() => {
-                        navigateTo(props.navigationLink);
-                    }}
+                    navigateTo(props.navigationLink);
+                }}
                     underlayColor={getColor('charcoal')}
-                    >
+                >
                     <Text type="body" style={props.linkStyle}>I forgot my password</Text>
                 </TouchableHighlight>
             </View>
@@ -62,12 +65,12 @@ const loginBottom = ({ loginValidation, ...props}: Props) => {
                     underlayColor='white'                >
                     <Image
                         style={{
-                            width: 20,
-                            height: 40, marginTop: 13, marginLeft: 22
+                            width: 56,
+                            height: 56,marginTop: 3, marginLeft: 5
                         }}
-                        source={{
-                            uri: facebook_image,
-                        }}
+                        source={
+                            logo_fb
+                        }
                     />
                 </TouchableHighlight>
 
@@ -79,12 +82,11 @@ const loginBottom = ({ loginValidation, ...props}: Props) => {
                     underlayColor='white'                >
                     <Image
                         style={{
-                            width: 37,
-                            height: 37, marginTop: 13, marginLeft: 13
+                            width: 56,
+                            height: 56, marginTop: 3, marginLeft: 5
                         }}
-                        source={{
-                            uri: google_image,
-                        }}
+                        source={logo_google
+                        }
                     />
                 </TouchableHighlight>
 
@@ -96,12 +98,10 @@ const loginBottom = ({ loginValidation, ...props}: Props) => {
                     underlayColor='white'                >
                     <Image
                         style={{
-                            width: 37,
-                            height: 37, marginTop: 13, marginLeft: 14
+                            width: 56,
+                            height: 56, marginTop: 3, marginLeft: 5
                         }}
-                        source={{
-                            uri: twitter_image,
-                        }}
+                        source={logo_tw}
                     />
                 </TouchableHighlight>
 
