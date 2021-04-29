@@ -63,7 +63,8 @@ const Progress = () => {
     <>
       <Container background='dark'>
         <ScrollView>
-          <HeadSection style={styles.headSection}
+          <HeadSection
+            style={styles.headSection}
             textStyle={styles.backText}
             backText='Back'
           />
@@ -81,16 +82,18 @@ const Progress = () => {
                 contentStyle={[styles.headerButton, styles.coinButton]}>
                 <Image source={coin} />
                 <Text type='body-sm-semi' style={[styles.buttonText]}>
-                 {' '} 123
+                  {' '}
+                  123
                 </Text>
               </Button>
               <Button
                 mode='contained'
-                style={styles.coinButton}
-                contentStyle={[styles.headerButton, styles.rubyButton]}>
+                style={styles.rubyButton}
+                contentStyle={[styles.headerButton]}>
                 <Image source={ruby} style={styles.buttonIcon} />
                 <Text type='body-sm-semi' style={styles.buttonText}>
-                {' '} 456
+                  {' '}
+                  456
                 </Text>
               </Button>
             </View>

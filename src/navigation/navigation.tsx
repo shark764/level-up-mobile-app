@@ -53,6 +53,8 @@ export const TabsBottomNavigation = () => (
       activeTintColor: getColor('green'),
       inactiveTintColor: '#C8C9D0',
       labelStyle: { fontFamily: 'MartianBThai-Regular' },
+      // @ts-ignore
+      indicatorStyle: { backgroundColor: 'red' },
       safeAreaInsets: {
         bottom: 20
       }

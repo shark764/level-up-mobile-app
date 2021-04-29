@@ -5,7 +5,7 @@ const styles = {
   bgColor: {
     primary: {
       enabled: tailwind('bg-purple'),
-      disabled: tailwind('bg-purple')
+      disabled: { backgroundColor: '#2d2f6a' }
     },
     default: {
       enabled: tailwind('bg-off-white'),
@@ -26,7 +26,7 @@ const styles = {
     primary: {
       contained: {
         enabled: tailwind('text-white'),
-        disabled: tailwind('text-gray-medium')
+        disabled: { color: '#42446e' }
       },
       outlined: {
         enabled: tailwind('text-purple'),
