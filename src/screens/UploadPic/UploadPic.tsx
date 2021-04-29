@@ -24,7 +24,7 @@ const UploadPic = () => {
         <HeadSection
           backText='Back'
           textStyle={styles.backText}
-          stepsText='Step 3/4'
+          stepsText='Step 3/3'
         />
         <View style={styles.mainIconContainer}>
           {!isUploaded ? (

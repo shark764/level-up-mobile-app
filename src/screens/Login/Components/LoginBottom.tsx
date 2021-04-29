@@ -25,6 +25,8 @@ export interface Props {
     textDivider: object,
     colDivider: string,
     circle: object,
+    socialMedia: object,
+    socialMediaLogo: object,
     loginValidation: () => void;
 }
 
@@ -37,8 +39,8 @@ const loginBottom = ({ loginValidation, ...props }: Props) => {
         <View style={props.viewStyle}>
             <View style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
                 <TouchableHighlight onPress={() => {
-                    navigateTo(props.navigationLink);
-                }}
+//                         navigateTo(props.navigationLink);
+                    }}
                     underlayColor={getColor('charcoal')}
                 >
                     <Text type="body" style={props.linkStyle}>I forgot my password</Text>
@@ -55,58 +57,48 @@ const loginBottom = ({ loginValidation, ...props }: Props) => {
                 <View style={{ width: '50%' }}><Text type="body" style={{ color: 'white', textAlign: 'center' }}>OR LOG IN WITH</Text></View>
                 <View style={{ flex: 1, height: 1, backgroundColor: props.colDivider, marginTop: '4.5%' }} />
             </View>
-            <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'center', marginTop: 25, marginBottom: 35 }}>
 
+            <View style={props.socialMedia}>
                 <TouchableHighlight
-                    style={props.circle}
                     onPress={() => {
                         navigateTo(props.navigationButton);
                     }}
-                    underlayColor='white'                >
+                    underlayColor='transparent'>
                     <Image
-                        style={{
-                            width: 56,
-                            height: 56,marginTop: 3, marginLeft: 5
-                        }}
-                        source={
-                            logo_fb
-                        }
+                      style={props.socialMediaLogo}
+                      source={logo_fb}
                     />
                 </TouchableHighlight>
 
                 <TouchableHighlight
-                    style={props.circle}
                     onPress={() => {
                         navigateTo(props.navigationButton);
                     }}
-                    underlayColor='white'                >
+                    underlayColor='transparent'>
                     <Image
-                        style={{
-                            width: 56,
-                            height: 56, marginTop: 3, marginLeft: 5
-                        }}
-                        source={logo_google
-                        }
+                      style={props.socialMediaLogo}
+                      source={logo_google}
                     />
                 </TouchableHighlight>
 
                 <TouchableHighlight
-                    style={props.circle}
                     onPress={() => {
                         navigateTo(props.navigationButton);
                     }}
-                    underlayColor='white'                >
+                    underlayColor='transparent'>
                     <Image
-                        style={{
-                            width: 56,
-                            height: 56, marginTop: 3, marginLeft: 5
-                        }}
-                        source={logo_tw}
+                      style={props.socialMediaLogo}
+                      source={logo_tw}
                     />
                 </TouchableHighlight>
-
             </View>
-            <Text type="body" style={props.mainFooter}>Don't have an account? <Text type="body" style={props.subFooter}>Sign Up</Text></Text>
+
+            <TouchableHighlight
+                onPress={() => {
+                  navigateTo('SignUp');
+                }}>
+                <Text type="body" style={props.mainFooter}>Don't have an account? <Text type="body" style={props.subFooter}>Sign Up</Text></Text>
+            </TouchableHighlight>
         </View>
     );
 }

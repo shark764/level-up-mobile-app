@@ -5,6 +5,7 @@ import { ScrollView, View, Image } from 'react-native';
 import { Avatar, Button } from 'react-native-paper';
 import { AchievementsItem } from './components/AchievementsItem';
 import { GamesItem } from './components/GamesItem';
+import { HeadSection } from '@components/HeadSection';
 import { Achievement, Game } from '@app-types/appData';
 // @ts-ignore
 import progressProfile from '@assets/images/progress-profile.png';
@@ -62,6 +63,10 @@ const Progress = () => {
     <>
       <Container background='dark'>
         <ScrollView>
+          <HeadSection style={styles.headSection}
+            textStyle={styles.backText}
+            backText='Back'
+          />
           <View style={[styles.header, styles.spaceBetween]}>
             <View style={styles.spaceBetween}>
               <Image source={facility} />

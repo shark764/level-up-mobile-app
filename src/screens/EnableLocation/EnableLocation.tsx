@@ -60,7 +60,6 @@ const EnableLocation = () => {
         <HeadSection
           backText='Back'
           textStyle={styles.backText}
-          stepsText='step 4/4'
         />
         <View style={styles.mainIconContainer}>
           <Image source={locationImage} />
