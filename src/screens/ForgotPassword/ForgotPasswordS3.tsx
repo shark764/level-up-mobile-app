@@ -2,10 +2,8 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView, Text, ScrollView, View, } from 'react-native';
 import styles from './ForgotPasswordS3.styles';
-
-import { TextInput } from '@components/TextInput';
-
 import { Button } from '@components/Button';
+import { HeadSection } from '@components/HeadSection';
 
 
 
@@ -20,9 +18,11 @@ const ForgotPasswordReset = (props: Props) => {
         <SafeAreaView style={[styles.loginContainer]}>
             <ScrollView>
                 <View style={styles.main}>
-                    <View style={styles.backSection}>
-                        <Text style={styles.backText}> Back</Text>
-                    </View>
+                    <HeadSection
+                        textStyle={styles.backText}
+                        backText='Back'
+                        stepsText='Step 3/4'
+                    />
                     <View>
                         <View style={styles.containerText}>
                             <Text style={styles.textHeader}>Reset your</Text>

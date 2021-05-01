@@ -8,6 +8,7 @@ import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
 //@ts-ignore
 import VideoPlayer from 'react-native-video-controls';
+import { HeadSection } from '@components/HeadSection';
 export interface Props {
 
 }
@@ -22,10 +23,10 @@ const SafetyVideo = () => {
         <Container background='dark'>
             <ScrollView>
                 <View style={styles.main}>
-                    <View style={styles.backSection}>
-                        <Icon style={styles.backIcon} name='chevron-left' size={26} />
-                        <Text type='body' style={styles.backText}> Back</Text>
-                    </View>
+                    <HeadSection
+                        textStyle={styles.backText}
+                        backText='Back'
+                    />
                     <View>
                         <View>
                             <Text type='heading-1' style={styles.headerText}>Safety Video</Text>
@@ -33,7 +34,7 @@ const SafetyVideo = () => {
                         <View style={{ width: '80%' }}>
                             <Text type='heading-4' style={styles.subHeaderText}>Watch this safety video before you join a facility</Text>
                         </View>
-                        <View style={[styles.videoContainer, {width:'100%', height:250}]}>
+                        <View style={[styles.videoContainer, { width: '100%', height: 250 }]}>
                             <VideoPlayer
                                 source={{ uri: 'https://vjs.zencdn.net/v/oceans.mp4' }}
                                 paused={true}
