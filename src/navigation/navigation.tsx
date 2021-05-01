@@ -12,10 +12,14 @@ import {
 } from '@screens/ForgotPassword';
 import { JoinRange } from '@screens/JoinRange';
 import { RangeProfile } from '@screens/RangeProfile';
+import { Membership } from '@screens/Membership';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { EnableLocation } from '@screens/EnableLocation';
 import { Progress } from '@screens/Progress';
+import { Consent} from '@screens/Consent';
+import { SafetyVideo } from '@screens/SafetyVideo';
+import { NewMember } from '@screens/NewMember';
 import { getColor } from '@utils/tailwind';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -87,6 +91,10 @@ const MainNavigation = () => {
         <Screen name='JoinRange' component={JoinRange} />
         <Screen name='RangeProfile' component={RangeProfile} />
         <Screen name='Progress' component={TabsBottomNavigation} />
+        <Screen name='Membership' component={Membership} />
+        <Screen name='Consent' component={Consent} />
+        <Screen name='SafetyVideo' component={SafetyVideo} />
+        <Screen name='NewMember' component={NewMember} />
       </Navigator>
     </NavigationContainer>
   );

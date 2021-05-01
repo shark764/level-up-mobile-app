@@ -12,12 +12,17 @@ import homeBackground from '@assets/images/evan-nesbitt.png';
 // @ts-ignore
 import cafire from '@assets/images/ca-fire.png';
 import { Button } from "@components/Button";
+import { useNavigation } from "@react-navigation/core";
 
 export interface Props {
 
 }
 
 const RangeProfile = () => {
+    const { navigate } = useNavigation();
+    const navigateTo = (screen: string) => {
+        navigate(screen);
+    };
     return (
         <Container background='dark' defaultPadding={false}>
             <ScrollView>
@@ -71,7 +76,7 @@ const RangeProfile = () => {
                             <View>
                                 <Icon color={'#9BB1D2'} name='credit-card' size={26} style={{ marginRight: 15, marginTop: '5%' }} />
                             </View>
-                            <View>
+                            <View style={{width:'85%'}}>
                                 <Text type='body' style={{ color: '#9BB1D2' }}>Free membership</Text>
                             </View>
                         </View>
@@ -79,7 +84,7 @@ const RangeProfile = () => {
                             <View>
                                 <Icon color={'#9BB1D2'} name='credit-card' size={26} style={{ marginRight: 15, marginTop: '5%' }} />
                             </View>
-                            <View>
+                            <View style={{width:'85%'}}>
                                 <Text type='body' style={{ color: '#9BB1D2' }}>2715 Ash Dr. San Jose, South Dakota 834475, United States</Text>
                             </View>
                         </View>
@@ -87,7 +92,7 @@ const RangeProfile = () => {
                             <View>
                                 <Icon color={'#9BB1D2'} name='credit-card' size={26} style={{ marginRight: 15, marginTop: '5%' }} />
                             </View>
-                            <View>
+                            <View style={{width:'85%'}}>
                                 <Text type='body' style={{ color: '#9BB1D2' }}>Open Now</Text>
                             </View>
                         </View>
@@ -95,15 +100,15 @@ const RangeProfile = () => {
                             <View>
                                 <Icon color={'#9BB1D2'} name='credit-card' size={26} style={{ marginRight: 15, marginTop: '10%' }} />
                             </View>
-                            <View>
+                            <View style={{width:'85%'}}>
                                 <Text type='body' style={{ color: '#9BB1D2' }}>(316) 555-0116</Text>
                             </View>
                         </View>
                         <View style={{ marginTop: 35, marginBottom:20}}>
                             <Button
-                                /*onPress={() => {
-                                        navigateTo('');
-                                    }}*/
+                                onPress={() => {
+                                    navigateTo('Membership');
+                                }}
                                 title='Become a member'
                                 color='primary'
                             />
