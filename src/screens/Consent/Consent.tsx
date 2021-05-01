@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
 import CheckBox from '@react-native-community/checkbox';
+import { HeadSection } from '@components/HeadSection';
 export interface Props {
 
 }
@@ -21,10 +22,10 @@ const Consent = () => {
         <Container background='dark'>
             <ScrollView>
                 <View style={styles.main}>
-                    <View style={styles.backSection}>
-                        <Icon style={styles.backIcon} name='chevron-left' size={26} />
-                        <Text type='body' style={styles.backText}> Back</Text>
-                    </View>
+                    <HeadSection
+                        textStyle={styles.backText}
+                        backText='Back'
+                    />
                 </View>
                 <View>
                     <Text type='heading-1' style={styles.headerText}>Consent</Text>
@@ -33,7 +34,7 @@ const Consent = () => {
                         <Text type='body' style={styles.bodyText}>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</Text>
                         <Text type='body' style={styles.bodyText}>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.</Text>
                     </View>
-                    <View style={[styles.flexRow, {marginTop:30}]}>
+                    <View style={[styles.flexRow, { marginTop: 30 }]}>
                         <View style={{ marginRight: 10 }}>
                             <CheckBox tintColors={{ true: '#6461EC', false: '' }}
                                 value={toggleCheckBox}
@@ -45,7 +46,7 @@ const Consent = () => {
                         </View>
                     </View>
                     <View>
-                        <View style={{marginBottom:20, marginTop:25}}>
+                        <View style={{ marginBottom: 20, marginTop: 25 }}>
                             <Button
                                 onPress={() => {
                                     navigateTo('SafetyVideo');

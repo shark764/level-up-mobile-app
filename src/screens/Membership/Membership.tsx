@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import { Text } from '@components/Text';
 import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
+import { HeadSection } from '@components/HeadSection';
 
 
 
@@ -19,15 +20,15 @@ export interface Props {
 const Membership = () => {
     const { navigate } = useNavigation();
     const navigateTo = (screen: string) => {
-      navigate(screen);
+        navigate(screen);
     };
     return (
         <Container background='dark'>
             <ScrollView>
-                <View style={styles.backSection}>
-                    <Icon style={styles.backIcon} name='chevron-left' size={26} />
-                    <Text type='heading-3' style={styles.textWhite}> Become a member</Text>
-                </View>
+                <HeadSection
+                    textStyle={styles.backText}
+                    backText='Become a member'
+                />
                 <View style={styles.body}>
                     <View>
                         <Text type='heading-4' style={styles.bodyHeaderText}>Memberships</Text>
@@ -42,7 +43,7 @@ const Membership = () => {
                                         </View>
                                     </View>
                                     <View>
-                                        <Text type='body-lg' style={[styles.bodyHeaderText,{marginLeft:15}]}>FREE</Text>
+                                        <Text type='body-lg' style={[styles.bodyHeaderText, { marginLeft: 15 }]}>FREE</Text>
                                     </View>
                                 </View>
                                 <View style={[styles.flexRow, { marginTop: 10 }]}>
@@ -95,7 +96,7 @@ const Membership = () => {
                                         </View>
                                     </View>
                                     <View>
-                                        <Text type='body-lg' style={[styles.bodyHeaderText,{marginLeft:15}]}>$130.00</Text>
+                                        <Text type='body-lg' style={[styles.bodyHeaderText, { marginLeft: 15 }]}>$130.00</Text>
                                     </View>
                                 </View>
                                 <View style={[styles.flexRow, { marginTop: 10 }]}>
@@ -144,11 +145,11 @@ const Membership = () => {
                                 <View style={[styles.flexRow, { justifyContent: 'space-between' }]}>
                                     <View style={[styles.flexColumn, { width: '80%' }]}>
                                         <View>
-                                            <Text type='body-lg' style={[styles.bodyHeaderText, { textAlign: 'justify'}]}>Membership Black</Text>
+                                            <Text type='body-lg' style={[styles.bodyHeaderText, { textAlign: 'justify' }]}>Membership Black</Text>
                                         </View>
                                     </View>
                                     <View>
-                                        <Text type='body-lg' style={[styles.bodyHeaderText,{marginLeft:15}]}>$180.00</Text>
+                                        <Text type='body-lg' style={[styles.bodyHeaderText, { marginLeft: 15 }]}>$180.00</Text>
                                     </View>
                                 </View>
                                 <View style={[styles.flexRow, { marginTop: 10 }]}>

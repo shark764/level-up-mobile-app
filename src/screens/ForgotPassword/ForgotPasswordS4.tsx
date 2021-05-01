@@ -34,7 +34,6 @@ const ForgotPasswordConfirm = () => {
                                     navigateTo('Login');
                                 }}
                                 title='Log In'
-                                color='bg-gray-400'
                                 titleStyle={styles.buttonTitle}
                             />
                         </View>

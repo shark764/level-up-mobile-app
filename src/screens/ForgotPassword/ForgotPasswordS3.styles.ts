@@ -1,11 +1,9 @@
-import tailwind, { getColor } from 'tailwind-rn';
+import tailwind from '@utils/tailwind';
 
 const styles = {
   loginContainer: tailwind('h-full bg-black'),
   main: tailwind('pt-8 pl-5 pr-5'),
-  backSection: tailwind('pt-2 flex flex-row items-start'),
-  backIcon: tailwind('text-gray-500'),
-  backText: tailwind('text-gray-500 pb-20 mb-3'),
+  backText: tailwind('text-gray-light'),
   containerText : tailwind('items-start'),
   textHeader: tailwind('text-4xl font-bold text-white'),
   textSubHeader: tailwind('text-xl text-gray-400 mt-5 mb-16'),

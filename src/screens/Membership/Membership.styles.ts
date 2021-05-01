@@ -1,8 +1,7 @@
-import { color } from 'react-native-reanimated';
-import tailwind, { getColor } from 'tailwind-rn';
+import tailwind from '@utils/tailwind';
 
 const styles = {
-  backSection: tailwind('pt-8 flex flex-row items-start'),
+  backText: tailwind('text-gray-light'),
   backIcon: tailwind('text-white mt-1'),
   textWhite: tailwind('text-white'),
   body: tailwind('mt-10'),
