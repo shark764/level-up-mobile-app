@@ -6,16 +6,18 @@ import styles from './ForgotPassword.styles';
 import ForgotPasswordHeader from './Components/ForgotPasswordHeader';
 import ForgotPasswordInput from './Components/ForgotPasswordInput';
 import ForgotPasswordBottom from './Components/ForgotPasswordBottom';
+import { HeadSection } from '@components/HeadSection';
 
 const ForgotPassword = () => {
   return (
     <SafeAreaView style={[styles.fpContainer]}>
       <ScrollView>
         <View style={styles.main}>
-          <View style={styles.backSection}>
-            <Icon style={styles.backIcon} name='chevron-left' size={26} />
-            <Text style={styles.backText}> Back</Text>
-          </View>
+          <HeadSection
+            textStyle={styles.backText}
+            backText='Back'
+            stepsText='Step 1/4'
+          />
           <View>
             <ForgotPasswordHeader
               viewStyle={styles.containerText}
