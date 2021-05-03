@@ -113,7 +113,7 @@ const RangeProfile = () => {
           </View>
         </View>
       </ScrollView>
-    </Container>
+    </Container >
   );
 };
 
