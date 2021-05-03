@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, SafeAreaView, ScrollView, TouchableHighlight, Image } from 'react-native';
 import styles from './SignUp.styles';
 import { Text } from '@components/Text';
@@ -17,6 +17,37 @@ const SignUp = () => {
     navigate(screen);
   };
 
+  const [email, setEmail] = useState(undefined);
+  const [password, setPassword] = useState(undefined);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+
+  const _isEmailValid = (email: string) => {
+    if (email) {
+      return (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/).test(email);
+    } else {
+      return true;
+    }
+  };
+  const _isPasswordValid = (password: string) => {
+    if (password) {
+      return (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{8,12}$/).test(password);
+    } else {
+      return true;
+    }
+  };
+
+  const validateData = () => {
+    setEmailError(false);
+    setPasswordError(false);
+    if ((email && _isEmailValid(email)) && (password && _isPasswordValid(password))) {
+      navigateTo('SignUpStep2');
+    } else {
+      if (!email) { setEmailError(true); }
+      if (!password) { setPasswordError(true); }
+    }
+  };
+
   return (
     <>
       <Container background='dark'>
@@ -25,7 +56,7 @@ const SignUp = () => {
             <HeadSection
               textStyle={styles.backText}
               backText='Back'
-              stepsText='Step 1/4'
+              stepsText='Step 1/3'
             />
 
             <View style={[styles.mainText]}>
@@ -38,37 +69,62 @@ const SignUp = () => {
                 colorIcon='#50E5C3'
                 label='Email'
                 placeholder='Your Email'
+                value={email}
+                onChangeText={(value) => setEmail(value)}
+                error={!_isEmailValid(email) || emailError}
+                errorVisible={!_isEmailValid(email) || emailError}
+                errorMessage='Enter a valid email'
               />
               <TextInputContainer
                 icon='lock-outline'
                 colorIcon='#50E5C3'
                 label='Your Password'
                 placeholder='Type your password'
+                secureTextEntry={true}
+                value={password}
+                onChangeText={(value) => setPassword(value)}
+                error={!_isPasswordValid(password) || passwordError}
+                errorVisible={!_isPasswordValid(password) || passwordError}
+                errorMessage='Enter a valid password (At least: 8 characters, 1 lower case letter, 1 upper case letter, no special characters)'
               />
               <Button
                 style={styles.button}
                 onPress={() => {
-                  navigateTo('SignUpStep2');
+                  validateData();
                 }}
                 title='Next'
                 color='primary'
               />
               <View style={styles.signUpWithContainer}>
-                <Text type='body' style={styles.labelText}>OR SIGN UP WITH</Text>
+                  <View style={styles.divider} />
+                  <Text type='body' style={styles.labelText}>OR SIGN UP WITH</Text>
+                  <View style={styles.divider} />
               </View>
               <View style={styles.socialMedia}>
-                <Image
-                  style={styles.socialMediaLogo}
-                  source={logo_fb}
-                />
-                <Image
-                  style={styles.socialMediaLogo}
-                  source={logo_google}
-                />
-                <Image
-                  style={styles.socialMediaLogo}
-                  source={logo_tw}
-                />
+                <TouchableHighlight
+                  onPress={() => {}}
+                  underlayColor='transparent'>
+                  <Image
+                    style={styles.socialMediaLogo}
+                    source={logo_fb}
+                  />
+                </TouchableHighlight>
+                <TouchableHighlight
+                  onPress={() => {}}
+                  underlayColor='transparent'>
+                  <Image
+                    style={styles.socialMediaLogo}
+                    source={logo_google}
+                  />
+                </TouchableHighlight>
+                <TouchableHighlight
+                  onPress={() => {}}
+                  underlayColor='transparent'>
+                  <Image
+                    style={styles.socialMediaLogo}
+                    source={logo_tw}
+                  />
+                </TouchableHighlight>
               </View>
 
               <TouchableHighlight

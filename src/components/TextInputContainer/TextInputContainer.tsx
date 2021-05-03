@@ -1,10 +1,9 @@
 import React from 'react';
-
 import {
   View,
   TextInputProps
 } from 'react-native';
-import { TextInput } from 'react-native-paper';
+import { TextInput, HelperText } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './TextInputContainer.styles';
 
@@ -13,7 +12,8 @@ interface Props extends TextInputProps {
   colorIcon?: string;
   label: string;
   placeholder?: string;
-  underlineColor?: string;
+  errorVisible?: boolean;
+  errorMessage?: string;
 }
 
 const TextInputContainer = (props: Props) => {
@@ -43,8 +43,11 @@ const TextInputContainer = (props: Props) => {
             />
           }
           value={props.value}
-          onChangeText={props.onChangeText}
+          {...props}
         />
+        <HelperText type="error" visible={props.errorVisible ? props.errorVisible : false}>
+          Error: {props.errorMessage}
+        </HelperText>
       </View>
     );
   } else {
@@ -62,10 +65,14 @@ const TextInputContainer = (props: Props) => {
             }
           }}
           value={props.value}
-          onChangeText={props.onChangeText}
+          {...props}
         />
+        <HelperText type="error" visible={props.errorVisible ? props.errorVisible : false}>
+          Error: {props.errorMessage}
+        </HelperText>
       </View>
     );
   }
-}
+};
+
 export default TextInputContainer;

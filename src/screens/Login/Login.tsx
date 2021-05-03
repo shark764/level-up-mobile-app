@@ -1,28 +1,49 @@
 import React, { useState } from 'react';
-import { Text, ScrollView, View, } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import styles from './Login.styles';
 import LoginHeader from './Components/LoginHeader';
-import LoginTextInput from './Components/LoginTextInput';
+// import LoginTextInput from './Components/LoginTextInput';
 import LoginBottom from './Components/LoginBottom';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Container } from '@components/Container';
-import style from '@screens/EnableLocation/EnableLocation.styles';
+import { HeadSection } from '@components/HeadSection';
+import { TextInputContainer } from '@components/TextInputContainer';
 import { useNavigation } from '@react-navigation/core';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [usernameError, setUsernameError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
   const credentials = {
-    'user': 'user',
-    'pass': '1234'
+    user: 'user',
+    pass: 'Test1234'
   };
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
     navigate(screen);
   };
   const loginValidation = () => {
-    if (credentials.user === username && credentials.pass === password) navigateTo('Progress')
-    else console.log('failed');
+    setUsernameError(false);
+    setPasswordError(false);
+    if (
+      username &&
+      _isUsernameValid(username) &&
+      password &&
+      _isPasswordValid(password)
+    ) {
+      if (credentials.user === username && credentials.pass === password) {
+        navigateTo('Progress');
+      } else {
+        console.log('failed');
+      }
+    } else {
+      if (!username) {
+        setUsernameError(true);
+      }
+      if (!password) {
+        setPasswordError(true);
+      }
+    }
   };
   const handleUsername = (value: string) => {
     setUsername(value);
@@ -32,23 +53,62 @@ const Login = () => {
     setPassword(value);
   };
 
+  const _isUsernameValid = (user: string) => {
+    if (user) {
+      return /^(?=.*[a-zA-Z0-9])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{4,}$/.test(
+        user
+      );
+    } else {
+      return true;
+    }
+  };
+  const _isPasswordValid = (pass: string) => {
+    if (pass) {
+      return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{8,12}$/.test(
+        pass
+      );
+    } else {
+      return true;
+    }
+  };
+
   return (
     <Container background='dark'>
       <ScrollView>
         <View style={styles.main}>
-          <View style={styles.backSection}>
-            <Icon style={styles.backIcon} name='chevron-left' size={26} />
-            <Text style={styles.backText}> Back</Text>
-          </View>
+          <HeadSection textStyle={styles.backText} backText='Back' />
           <View>
             <LoginHeader
               viewStyle={styles.containerText}
               textStyle={styles.textHeader}
             />
-            <LoginTextInput
-              handleUsername={handleUsername}
-              handlePassword={handlePassword}
+
+            <TextInputContainer
+              icon='person-outline'
+              colorIcon='#50E5C3'
+              label='Username or Email'
+              placeholder='Type your username or email'
+              onChangeText={(value) => {
+                handleUsername(value);
+              }}
+              // error={!_isUsernameValid(username) || usernameError}
+              errorVisible={!_isUsernameValid(username) || usernameError}
+              errorMessage='Enter a valid username'
             />
+            <TextInputContainer
+              icon='lock-outline'
+              colorIcon='#50E5C3'
+              label='Password'
+              placeholder='Type your Password'
+              secureTextEntry={true}
+              onChangeText={(value) => {
+                handlePassword(value);
+              }}
+              // error={!_isPasswordValid(password) || passwordError}
+              errorVisible={!_isPasswordValid(password) || passwordError}
+              errorMessage='Enter a valid password (At least: 8 characters, 1 lower case letter, 1 upper case letter, no special characters)'
+            />
+
             <LoginBottom
               viewStyle={styles.containerBottom}
               linkStyle={styles.link}
@@ -61,6 +121,8 @@ const Login = () => {
               textDivider={styles.textDivider}
               colDivider={styles.colDivider}
               circle={styles.buttonCircle}
+              socialMedia={styles.socialMedia}
+              socialMediaLogo={styles.socialMediaLogo}
               loginValidation={loginValidation}
             />
           </View>

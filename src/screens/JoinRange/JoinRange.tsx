@@ -4,6 +4,7 @@ import styles from "./JoinRange.styles";
 import React from "react";
 import { ScrollView, View } from "react-native";
 import { TextInputContainer } from "@components/TextInputContainer";
+import { HeadSection } from '@components/HeadSection';
 import { Card } from "@components/Card";
 import Icon from 'react-native-vector-icons/EvilIcons';
 
@@ -15,8 +16,12 @@ const JoinRange = () => {
     return (
         <Container background='dark' defaultPadding={false}>
             <ScrollView>
+                <HeadSection style={styles.headSection}
+                  textStyle={styles.backText}
+                  backText='Back'
+                />
                 <View style={styles.headerContainer}>
-                    <Text type={"body-lg"} style={{ color: '#50E5C3', marginTop: 50 }}>Lets Get Started!</Text>
+                    <Text type={"body-lg"} style={{ color: '#50E5C3', marginTop: 10 }}>Lets Get Started!</Text>
                     <Text type={"heading-1"} style={{ color: 'white', marginBottom: 20 }}>Join a Range</Text>
                     <TextInputContainer
                         icon='search'

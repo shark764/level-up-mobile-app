@@ -18,6 +18,8 @@ const SignUpStep2 = () => {
   };
   const today = new Date();
 
+  const [username, setUsername] = useState(undefined);
+  const [usernameError, setUsernameError] = useState(false);
   const [date, setDate] = useState(today);
   const [dateString, setDateString] = useState(convertDateMDY(today));
   const [show, setShow] = useState(false);
@@ -30,8 +32,25 @@ const SignUpStep2 = () => {
     }
   };
 
+  const _isUsernameValid = (username: string) => {
+    if (username) {
+      return (/^(?=.*[a-zA-Z0-9])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{4,}$/).test(username);
+    } else {
+      return true;
+    }
+  };
+
   const showDatePicker = () => {
     setShow(true);
+  };
+
+  const validateData = () => {
+    setUsernameError(false);
+    if (username && _isUsernameValid(username)) {
+      navigateTo('UploadPic');
+    } else {
+      if (!username) { setUsernameError(true); }
+    }
   };
 
   return (
@@ -42,7 +61,7 @@ const SignUpStep2 = () => {
             <HeadSection
               textStyle={styles.backText}
               backText='Back'
-              stepsText='Step 2/4'
+              stepsText='Step 2/3'
             />
 
             <View style={[styles.mainText]}>
@@ -55,6 +74,10 @@ const SignUpStep2 = () => {
                 colorIcon='#50E5C3'
                 label='Username'
                 placeholder='Choose your username'
+                onChangeText={(value) => setUsername(value)}
+                error={!_isUsernameValid(username) || usernameError}
+                errorVisible={!_isUsernameValid(username) || usernameError}
+                errorMessage='Enter a valid username'
               />
               <TextInputContainer
                 icon='calendar-today'
@@ -81,7 +104,7 @@ const SignUpStep2 = () => {
                 style={styles.button}
                 title='Create Account'
                 color='primary'
-                onPress={() => navigateTo('UploadPic')}
+                onPress={() => { validateData(); }}
               />
 
               <TouchableHighlight
