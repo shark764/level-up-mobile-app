@@ -3,9 +3,11 @@ export interface AppData {
 }
 
 export interface Achievement {
+  title: string;
   achievement: string;
   rewardType: 'coin' | 'ruby';
   reward: number;
+  progress: number;
 }
 
 export interface Game {

@@ -13,7 +13,7 @@ interface Props extends TouchableHighlightProps {
 const ListItem = (props: Props) => (
   <TouchableHighlight
     style={[styles.itemContainer, styles.itemContainerBg, props.style]}>
-    <View style={styles.spaceBetween}>{props.children}</View>
+    <View style={[styles.spaceBetween, props.itemStyle]}>{props.children}</View>
   </TouchableHighlight>
 );
 

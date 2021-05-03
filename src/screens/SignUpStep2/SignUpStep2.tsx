@@ -8,7 +8,7 @@ import { HeadSection } from '@components/HeadSection';
 import { Container } from '@components/Container';
 import { useNavigation } from '@react-navigation/core';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { convertDateMDY } from '@utils/index';
+import { convertDateMDY, isUsernameValid } from '@utils/index';
 
 const SignUpStep2 = () => {
   const { navigate } = useNavigation();
@@ -31,15 +31,7 @@ const SignUpStep2 = () => {
     }
   };
 
-  const _isUsernameValid = (user: string) => {
-    if (user) {
-      return /^(?=.*[a-zA-Z0-9])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{4,}$/.test(
-        user
-      );
-    } else {
-      return true;
-    }
-  };
+
 
   const showDatePicker = () => {
     setShow(true);
@@ -47,7 +39,7 @@ const SignUpStep2 = () => {
 
   const validateData = () => {
     setUsernameError(false);
-    if (username && _isUsernameValid(username)) {
+    if (username && isUsernameValid(username)) {
       navigateTo('UploadPic');
     } else {
       if (!username) {
@@ -82,8 +74,8 @@ const SignUpStep2 = () => {
                 label='Username'
                 placeholder='Choose your username'
                 onChangeText={(value) => setUsername(value)}
-                // error={!_isUsernameValid(username) || usernameError}
-                errorVisible={!_isUsernameValid(username) || usernameError}
+                // error={!isUsernameValid(username) || usernameError}
+                errorVisible={!isUsernameValid(username) || usernameError}
                 errorMessage='Enter a valid username'
               />
               <TextInputContainer

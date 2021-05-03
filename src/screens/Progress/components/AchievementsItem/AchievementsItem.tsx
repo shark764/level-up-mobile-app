@@ -9,14 +9,16 @@ import ruby from '@assets/images/ruby.png';
 import styles from './Achievements.styles';
 
 interface Props {
+  title: string;
   achievement: string;
   rewardType: 'coin' | 'ruby';
   reward: number;
+  progress: number;
 }
-const AchievementsItem = ({ achievement, rewardType, reward }: Props) => (
+const AchievementsItem = ({ title, achievement, rewardType, reward, progress }: Props) => (
   <ListItem>
     <Text type='body-semi' style={[styles.achievement, styles.achievementFont]}>
-      {achievement}
+      {title}
     </Text>
     <View style={styles.spaceBetween}>
       <Image source={rewardType === 'coin' ? coin : ruby} />
