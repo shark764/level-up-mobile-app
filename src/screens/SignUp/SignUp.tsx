@@ -7,6 +7,7 @@ import { Button } from '@components/Button';
 import { HeadSection } from '@components/HeadSection';
 import { Container } from '@components/Container';
 import { useNavigation } from '@react-navigation/core';
+import { isEmailValid, isPasswordValid } from '@utils/index';
 // @ts-ignore
 import logo_fb from '../../assets/social_media/logo_fb.png';
 // @ts-ignore
@@ -25,31 +26,14 @@ const SignUp = () => {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const _isEmailValid = (mail: string) => {
-    if (mail) {
-      return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(mail);
-    } else {
-      return true;
-    }
-  };
-  const _isPasswordValid = (pass: string) => {
-    if (pass) {
-      return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{8,12}$/.test(
-        pass
-      );
-    } else {
-      return true;
-    }
-  };
-
   const validateData = () => {
     setEmailError(false);
     setPasswordError(false);
     if (
       email &&
-      _isEmailValid(email) &&
+      isEmailValid(email) &&
       password &&
-      _isPasswordValid(password)
+      isPasswordValid(password)
     ) {
       navigateTo('SignUpStep2');
     } else {
@@ -88,8 +72,8 @@ const SignUp = () => {
                 placeholder='Your Email'
                 value={email}
                 onChangeText={(value) => setEmail(value)}
-                // error={!_isEmailValid(email) || emailError}
-                errorVisible={!_isEmailValid(email) || emailError}
+                // error={!isEmailValid(email) || emailError}
+                errorVisible={!isEmailValid(email) || emailError}
                 errorMessage='Enter a valid email'
               />
               <TextInputContainer
@@ -100,8 +84,8 @@ const SignUp = () => {
                 secureTextEntry={true}
                 value={password}
                 onChangeText={(value) => setPassword(value)}
-                // error={!_isPasswordValid(password) || passwordError}
-                errorVisible={!_isPasswordValid(password) || passwordError}
+                // error={!isPasswordValid(password) || passwordError}
+                errorVisible={!isPasswordValid(password) || passwordError}
                 errorMessage='Enter a valid password (At least: 8 characters, 1 lower case letter, 1 upper case letter, no special characters)'
               />
               <Button

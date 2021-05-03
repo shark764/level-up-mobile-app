@@ -17,6 +17,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { EnableLocation } from '@screens/EnableLocation';
 import { Progress } from '@screens/Progress';
+import { Achievements } from '@screens/Achievements';
 import { Consent} from '@screens/Consent';
 import { SafetyVideo } from '@screens/SafetyVideo';
 import { NewMember } from '@screens/NewMember';
@@ -98,6 +99,7 @@ const MainNavigation = () => {
         <Screen name='SafetyVideo' component={SafetyVideo} />
         <Screen name='NewMember' component={NewMember} />
         <Screen name='Progress' component={TabsBottomNavigation} />
+        <Screen name='Achievements' component={Achievements} />
         <Screen name='Game' component={Game} />
       </Navigator>
     </NavigationContainer>

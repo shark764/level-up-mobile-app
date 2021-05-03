@@ -1,11 +1,12 @@
 import React from 'react';
 import { Container } from '@components/Container';
 import { Text } from '@components/Text';
-import { ScrollView, View, Image } from 'react-native';
+import { ScrollView, View, Image, TouchableHighlight } from 'react-native';
 import { Avatar, Button } from 'react-native-paper';
 import { AchievementsItem } from './components/AchievementsItem';
 import { GamesItem } from './components/GamesItem';
 import { HeadSection } from '@components/HeadSection';
+import { useNavigation } from '@react-navigation/core';
 import { Achievement, Game } from '@app-types/appData';
 // @ts-ignore
 import progressProfile from '@assets/images/progress-profile.png';
@@ -29,16 +30,15 @@ import medal5 from '@assets/images/medal-5.png';
 import leaderboard from '@assets/images/leaderboard.png';
 
 import styles from './Progress.styles';
-import { useNavigation } from '@react-navigation/core';
 
 const achievements: Array<Achievement> = [
   {
-    achievement: 'Complete this task',
+    title: 'Complete this task',
     rewardType: 'coin',
     reward: 15
   },
   {
-    achievement: 'Complete this task',
+    title: 'Complete this task',
     rewardType: 'ruby',
     reward: 2
   }
@@ -85,6 +85,9 @@ const Progress = () => {
   const { navigate } = useNavigation();
   const onGameSelected = (game: Game) => {
     navigate('Game', { game });
+  };
+  const navigateTo = (screen: string) => {
+    navigate(screen);
   };
 
   return (
@@ -221,9 +224,14 @@ const Progress = () => {
               <Text type='heading-5' style={styles.mainTitle}>
                 Achievements
               </Text>
-              <Text type='heading-5' style={styles.viewTitle}>
-                View All
-              </Text>
+              <TouchableHighlight
+                onPress={() => {
+                  navigateTo('Achievements');
+                }}>
+                <Text type='heading-5' style={styles.viewTitle}>
+                  View All
+                </Text>
+              </TouchableHighlight>
             </View>
             <View>
               {achievements.map((achiement, index) => (

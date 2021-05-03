@@ -8,6 +8,7 @@ import { Container } from '@components/Container';
 import { HeadSection } from '@components/HeadSection';
 import { TextInputContainer } from '@components/TextInputContainer';
 import { useNavigation } from '@react-navigation/core';
+import { isUsernameValid, isPasswordValid } from '@utils/index';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -27,9 +28,9 @@ const Login = () => {
     setPasswordError(false);
     if (
       username &&
-      _isUsernameValid(username) &&
+      isUsernameValid(username) &&
       password &&
-      _isPasswordValid(password)
+      isPasswordValid(password)
     ) {
       if (credentials.user === username && credentials.pass === password) {
         navigateTo('Progress');
@@ -53,25 +54,6 @@ const Login = () => {
     setPassword(value);
   };
 
-  const _isUsernameValid = (user: string) => {
-    if (user) {
-      return /^(?=.*[a-zA-Z0-9])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{4,}$/.test(
-        user
-      );
-    } else {
-      return true;
-    }
-  };
-  const _isPasswordValid = (pass: string) => {
-    if (pass) {
-      return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{8,12}$/.test(
-        pass
-      );
-    } else {
-      return true;
-    }
-  };
-
   return (
     <Container background='dark'>
       <ScrollView>
@@ -91,8 +73,8 @@ const Login = () => {
               onChangeText={(value) => {
                 handleUsername(value);
               }}
-              // error={!_isUsernameValid(username) || usernameError}
-              errorVisible={!_isUsernameValid(username) || usernameError}
+              // error={!isUsernameValid(username) || usernameError}
+              errorVisible={!isUsernameValid(username) || usernameError}
               errorMessage='Enter a valid username'
             />
             <TextInputContainer
@@ -104,8 +86,8 @@ const Login = () => {
               onChangeText={(value) => {
                 handlePassword(value);
               }}
-              // error={!_isPasswordValid(password) || passwordError}
-              errorVisible={!_isPasswordValid(password) || passwordError}
+              // error={!isPasswordValid(password) || passwordError}
+              errorVisible={!isPasswordValid(password) || passwordError}
               errorMessage='Enter a valid password (At least: 8 characters, 1 lower case letter, 1 upper case letter, no special characters)'
             />
 
