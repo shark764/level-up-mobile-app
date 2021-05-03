@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  View,
-  TextInputProps
-} from 'react-native';
+import { View, TextInputProps } from 'react-native';
 import { TextInput, HelperText } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './TextInputContainer.styles';
@@ -34,18 +31,16 @@ const TextInputContainer = (props: Props) => {
           left={
             <TextInput.Icon
               name={() => (
-                <Icon
-                  name={props.icon}
-                  size={26}
-                  color={props.colorIcon}
-                />
+                <Icon name={props.icon} size={26} color={props.colorIcon} />
               )}
             />
           }
           value={props.value}
           {...props}
         />
-        <HelperText type="error" visible={props.errorVisible ? props.errorVisible : false}>
+        <HelperText
+          type='error'
+          visible={props.errorVisible ? props.errorVisible : false}>
           Error: {props.errorMessage}
         </HelperText>
       </View>
@@ -67,7 +62,9 @@ const TextInputContainer = (props: Props) => {
           value={props.value}
           {...props}
         />
-        <HelperText type="error" visible={props.errorVisible ? props.errorVisible : false}>
+        <HelperText
+          type='error'
+          visible={props.errorVisible ? props.errorVisible : false}>
           Error: {props.errorMessage}
         </HelperText>
       </View>

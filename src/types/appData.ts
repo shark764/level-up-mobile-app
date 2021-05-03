@@ -13,4 +13,18 @@ export interface Game {
   level: 1 | 4;
   gameType: 'standard' | 'multiplayer';
   time: string;
+  players: Player[];
+  scores: GameScore[];
+  history: GameScore[];
+}
+
+export interface Player {
+  id: number;
+  name: string;
+  tag?: string;
+}
+
+export interface GameScore {
+  player: Player;
+  score: number;
 }

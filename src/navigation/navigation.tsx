@@ -24,6 +24,7 @@ import { getColor } from '@utils/tailwind';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { UploadPic } from '@screens/UploadPic';
+import { Game } from '@screens/Game';
 const { Navigator, Screen } = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -92,11 +93,12 @@ const MainNavigation = () => {
         />
         <Screen name='JoinRange' component={JoinRange} />
         <Screen name='RangeProfile' component={RangeProfile} />
-        <Screen name='Progress' component={TabsBottomNavigation} />
         <Screen name='Membership' component={Membership} />
         <Screen name='Consent' component={Consent} />
         <Screen name='SafetyVideo' component={SafetyVideo} />
         <Screen name='NewMember' component={NewMember} />
+        <Screen name='Progress' component={TabsBottomNavigation} />
+        <Screen name='Game' component={Game} />
       </Navigator>
     </NavigationContainer>
   );

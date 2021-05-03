@@ -15,6 +15,7 @@ export const convertDateMDY = (date) => {
   const m = date.getMonth() + 1;
   const y = date.getFullYear();
 
-  var dateString = (m <= 9 ? '0' + m : m) + '/' + (d <= 9 ? '0' + d : d) + '/' + y;
+  var dateString =
+    (m <= 9 ? '0' + m : m) + '/' + (d <= 9 ? '0' + d : d) + '/' + y;
   return dateString;
 };

@@ -12,7 +12,8 @@ const style = {
   buttonTitle: tailwind('text-white'),
   skipText: tailwind('text-sm text-gray-500'),
   bottom: tailwind('items-center '),
-  location: tailwind('w-32 h-40')
+  location: tailwind('w-32 h-40'),
+  doneButton: tailwind('w-full mt-8')
 };
 
 export default style;

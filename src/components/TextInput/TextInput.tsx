@@ -17,7 +17,7 @@ interface Props extends TextInputProps {
 
 const TextInput = (props: Props) => (
   <View style={styles.iconInputContainer}>
-    <Icon style={styles.icon} name={props.icon} size={26} color='#50E5C3'/>
+    <Icon style={styles.icon} name={props.icon} size={26} color='#50E5C3' />
     <ScrollView>
       <View style={styles.inputContainer}>
         <Text style={styles.text}>{props.text}</Text>

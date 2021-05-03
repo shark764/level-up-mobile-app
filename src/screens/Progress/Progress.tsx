@@ -29,6 +29,7 @@ import medal5 from '@assets/images/medal-5.png';
 import leaderboard from '@assets/images/leaderboard.png';
 
 import styles from './Progress.styles';
+import { useNavigation } from '@react-navigation/core';
 
 const achievements: Array<Achievement> = [
   {
@@ -48,17 +49,44 @@ const games: Array<Game> = [
     gameType: 'standard',
     level: 1,
     points: 246,
-    time: '2 Days Ago'
+    time: '2 Days Ago',
+    players: [{ id: 1, name: 'Michael Scott' }],
+    scores: [{ player: { name: 'Michael Scott', id: 1 }, score: 10 }],
+    history: [
+      { player: { name: 'Michael Scott', id: 1 }, score: 10 },
+      { player: { name: 'Michael Scott', id: 1 }, score: 2 },
+      { player: { name: 'Michael Scott', id: 1 }, score: 6 }
+    ]
   },
   {
     gameType: 'multiplayer',
     level: 4,
     points: 501,
-    time: '10 Days Ago'
+    time: '10 Days Ago',
+    players: [
+      { id: 1, name: 'Michael Scott' },
+      { id: 2, name: 'Alexander Jonhson' },
+      { id: 3, name: 'Juan Abdul' }
+    ],
+    scores: [
+      { player: { name: 'Michael Scott', id: 1 }, score: 78 },
+      { player: { name: 'Alexander Jonhson', id: 2 }, score: 54 },
+      { player: { name: 'Juan Abdul', id: 3 }, score: 61 }
+    ],
+    history: [
+      { player: { name: 'Michael Scott', id: 1 }, score: 10 },
+      { player: { name: 'Alexander Jonhson', id: 2 }, score: 2 },
+      { player: { name: 'Juan Abdul', id: 3 }, score: 8 }
+    ]
   }
 ];
 
 const Progress = () => {
+  const { navigate } = useNavigation();
+  const onGameSelected = (game: Game) => {
+    navigate('Game', { game });
+  };
+
   return (
     <>
       <Container background='dark'>
@@ -79,9 +107,9 @@ const Progress = () => {
               <Button
                 mode='contained'
                 style={styles.coinButton2}
-                contentStyle={[styles.headerButton, styles.coinButton]}>
-                <Image source={coin} />
-                <Text type='body-sm-semi' style={[styles.buttonText]}>
+                contentStyle={[styles.coinButton]}>
+                <Image source={coin} style={styles.buttonIcon} />
+                <Text type='body-sm' style={[styles.buttonText]}>
                   {' '}
                   123
                 </Text>
@@ -91,7 +119,7 @@ const Progress = () => {
                 style={styles.rubyButton}
                 contentStyle={[styles.headerButton]}>
                 <Image source={ruby} style={styles.buttonIcon} />
-                <Text type='body-sm-semi' style={styles.buttonText}>
+                <Text type='body-sm' style={styles.buttonText}>
                   {' '}
                   456
                 </Text>
@@ -102,30 +130,25 @@ const Progress = () => {
             <Text type='heading-5' style={styles.mainTitle}>
               My Activity
             </Text>
-            <View style={[styles.avatarContainer, styles.spaceBetween]}>
-              <View>
+            <View style={styles.avatarContainer}>
+              <View style={styles.avatarPic}>
                 <Avatar.Image source={progressProfile} />
               </View>
-              <View style={styles.leaderboard}>
-                <View style={styles.leaderboardBadge}>
-                  <Text type='body' style={styles.leaderboardText}>
-                    Leaderboard
-                  </Text>
-                </View>
-                <Image source={leaderboard} />
-              </View>
-            </View>
-            <View style={[styles.spaceBetween]}>
               <View>
                 <View>
                   <Text type='heading-4' style={styles.mainInfo}>
+                    @michael_s1992
+                  </Text>
+                  <Text type='body' style={styles.secondaryInfo}>
                     Michael Scott
                   </Text>
-                  <Text type='heading-5' style={styles.secondaryInfo}>
+                  <Text type='body-sm' style={styles.league}>
                     X League
                   </Text>
                 </View>
               </View>
+            </View>
+            <View style={[styles.spaceBetween]}>
               <View style={styles.spaceBetween}>
                 <View style={styles.scoreSection}>
                   <Text type='heading-2' style={styles.mainScore}>
@@ -144,6 +167,14 @@ const Progress = () => {
                     SCORE
                   </Text>
                 </View>
+              </View>
+              <View style={styles.leaderboard}>
+                <View style={styles.leaderboardBadge}>
+                  <Text type='body' style={styles.leaderboardText}>
+                    Leaderboard
+                  </Text>
+                </View>
+                <Image source={leaderboard} />
               </View>
             </View>
           </View>
@@ -175,7 +206,13 @@ const Progress = () => {
             </View>
             <View>
               {games.map((game, index) => (
-                <GamesItem {...game} key={index} />
+                <GamesItem
+                  {...game}
+                  key={index}
+                  onPress={() => {
+                    onGameSelected(game);
+                  }}
+                />
               ))}
             </View>
           </View>

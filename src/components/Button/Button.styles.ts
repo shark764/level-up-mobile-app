@@ -67,9 +67,9 @@ const styles = {
     }
   },
   padding: {
-    sm: tailwind('px-3 py-1.5'),
-    md: tailwind('px-8 py-3.5'),
-    lg: tailwind('px-12 py-4')
+    sm: tailwind(''),
+    md: tailwind(''),
+    lg: tailwind('')
   }
 };
 

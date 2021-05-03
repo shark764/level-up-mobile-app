@@ -15,30 +15,31 @@ const styles = StyleSheet.create({
   ),
   leaderboardText: tailwind('text-white font-martian-500'),
   headerButton: tailwind('rounded-md flex content-center items-center'),
+  league: tailwind('text-bright-green font-martian-400'),
   points: tailwind('flex flex-row content-center'),
   buttonText: {
     color: '#FFFFFF',
-    fontSize: 14,
     marginLeft: 20
   },
   buttonIcon: {
-    width: 13,
-    height: 13
+    width: 12,
+    height: 12
   },
   vr: tailwind('h-12 border-gray-medium border-l mx-3.5'),
   coinButton: tailwind('bg-purple-light'),
   coinButton2: tailwind('mr-2.5'),
   rubyButton: tailwind('bg-purple'),
-  avatarContainer: tailwind('mb-5'),
+  avatarContainer: tailwind('flex flex-row content-center mb-5'),
   mainTitle: tailwind('mb-4 text-off-white font-martian-500'),
   viewTitle: tailwind('mb-4 text-gray-medium font-martian-400'),
   activitySection: tailwind('mb-12'),
   mainInfo: tailwind('text-off-white mb-1.5 font-martian-700'),
-  secondaryInfo: tailwind('text-charcoal-light font-martian-500'),
+  secondaryInfo: tailwind('text-gray-medium font-martian-400'),
   scoreSection: tailwind('items-center'),
   mainScore: tailwind('text-off-white'),
   secondaryScore: tailwind('text-charcoal-light font-martian-400'),
-  medalSection: tailwind('mb-5')
+  medalSection: tailwind('mb-5'),
+  avatarPic: tailwind('mr-4')
 });
 
 export default styles;
