@@ -1,5 +1,9 @@
 module.exports = {
-  extends: ['@react-native-community'],
+  extends: [
+    '@react-native-community',
+    'ts-react-important-stuff',
+    'plugin:prettier/recommended'
+  ],
   env: {
     'jest/globals': true
   },

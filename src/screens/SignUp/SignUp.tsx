@@ -1,12 +1,19 @@
-import React from 'react';
-import { Text, View, SafeAreaView, ScrollView, TouchableHighlight } from 'react-native';
+import React, { useState } from 'react';
+import { View, ScrollView, TouchableHighlight, Image } from 'react-native';
 import styles from './SignUp.styles';
-import { TextInput } from '@components/TextInput';
+import { Text } from '@components/Text';
+import { TextInputContainer } from '@components/TextInputContainer';
 import { Button } from '@components/Button';
 import { HeadSection } from '@components/HeadSection';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { useNavigation } from '@react-navigation/native';
+import { Container } from '@components/Container';
+import { useNavigation } from '@react-navigation/core';
+import { isEmailValid, isPasswordValid } from '@utils/index';
+// @ts-ignore
+import logo_fb from '../../assets/social_media/logo_fb.png';
+// @ts-ignore
+import logo_google from '../../assets/social_media/logo_google.png';
+// @ts-ignore
+import logo_tw from '../../assets/social_media/logo_tw.png';
 
 const SignUp = () => {
   const { navigate } = useNavigation();
@@ -14,9 +21,34 @@ const SignUp = () => {
     navigate(screen);
   };
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+
+  const validateData = () => {
+    setEmailError(false);
+    setPasswordError(false);
+    if (
+      email &&
+      isEmailValid(email) &&
+      password &&
+      isPasswordValid(password)
+    ) {
+      navigateTo('SignUpStep2');
+    } else {
+      if (!email) {
+        setEmailError(true);
+      }
+      if (!password) {
+        setPasswordError(true);
+      }
+    }
+  };
+
   return (
     <>
-      <SafeAreaView style={[styles.signUpContainer]}>
+      <Container background='dark'>
         <ScrollView>
           <View style={styles.main}>
             <HeadSection
@@ -24,65 +56,89 @@ const SignUp = () => {
               backText='Back'
               stepsText='Step 1/3'
             />
-
             <View style={[styles.mainText]}>
               <View style={styles.titleSection}>
-                <Text style={styles.textTitle}>Create Your</Text>
-                <Text style={styles.textTitle}>Account</Text>
+                <Text type='heading-1' style={styles.textTitle}>
+                  Create Your
+                </Text>
+                <Text type='heading-1' style={styles.textTitle}>
+                  Account
+                </Text>
               </View>
-              <View style={styles.input}>
-                <TextInput
-                  icon={faEnvelope}
-                  text='Email'
-                  placeholder='Your Email'
-                 />
-              </View>
-              <View style={styles.input}>
-                <TextInput
-                  icon={faLock}
-                  text='Password'
-                  placeholder='Type your password'
-                 />
-              </View>
+              <TextInputContainer
+                icon='person-outline'
+                colorIcon='#50E5C3'
+                label='Email'
+                placeholder='Your Email'
+                value={email}
+                onChangeText={(value) => setEmail(value)}
+                // error={!isEmailValid(email) || emailError}
+                errorVisible={!isEmailValid(email) || emailError}
+                errorMessage='Enter a valid email'
+              />
+              <TextInputContainer
+                icon='lock-outline'
+                colorIcon='#50E5C3'
+                label='Your Password'
+                placeholder='Type your password'
+                secureTextEntry={true}
+                value={password}
+                onChangeText={(value) => setPassword(value)}
+                // error={!isPasswordValid(password) || passwordError}
+                errorVisible={!isPasswordValid(password) || passwordError}
+                errorMessage='Enter a valid password (At least: 8 characters, 1 lower case letter, 1 upper case letter, no special characters)'
+              />
               <Button
                 style={styles.button}
-                titleStyle={styles.buttonTitle}
                 onPress={() => {
-                  navigateTo('SignUpStep2');
+                  validateData();
                 }}
                 title='Next'
-                color='bg-gray-500'
+                color='primary'
               />
               <View style={styles.signUpWithContainer}>
-                <Text style={styles.labelText}>OR SIGN UP WITH</Text>
+                <View style={styles.divider} />
+                <Text type='body' style={styles.labelText}>
+                  OR SIGN UP WITH
+                </Text>
+                <View style={styles.divider} />
               </View>
-              <Button
-                style={styles.button}
-                titleStyle={styles.buttonTitle}
-                title='Sign Up with Facebook'
-                color='bg-gray-500'
-              />
-              <Button
-                style={styles.button}
-                titleStyle={styles.buttonTitle}
-                title='Sign Up with Google'
-                color='bg-gray-500'
-              />
+              <View style={styles.socialMedia}>
+                <TouchableHighlight
+                  onPress={() => {}}
+                  underlayColor='transparent'>
+                  <Image style={styles.socialMediaLogo} source={logo_fb} />
+                </TouchableHighlight>
+                <TouchableHighlight
+                  onPress={() => {}}
+                  underlayColor='transparent'>
+                  <Image style={styles.socialMediaLogo} source={logo_google} />
+                </TouchableHighlight>
+                <TouchableHighlight
+                  onPress={() => {}}
+                  underlayColor='transparent'>
+                  <Image style={styles.socialMediaLogo} source={logo_tw} />
+                </TouchableHighlight>
+              </View>
 
               <TouchableHighlight
                 onPress={() => {
                   navigateTo('Login');
                 }}>
                 <View style={styles.haveAccountContainer}>
-                  <Text style={styles.labelText}>Already have an account?
-                    <Text style={styles.loginText}> Log In</Text>
+                  <Text type='body' style={styles.labelText}>
+                    Already have an account?
+                    <Text type='body' style={styles.loginText}>
+                      {' '}
+                      Log In
+                    </Text>
                   </Text>
                 </View>
               </TouchableHighlight>
             </View>
           </View>
         </ScrollView>
-      </SafeAreaView>
+      </Container>
     </>
   );
 };

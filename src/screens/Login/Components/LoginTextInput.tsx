@@ -1,21 +1,34 @@
 import React from 'react';
-import {  View } from 'react-native';
-import { TextInput } from '@components/TextInput';
-import { faUser, faLock, faArrowRight, faArrowLeft, faChevronLeft, } from '@fortawesome/free-solid-svg-icons';
+import { TextInputContainer } from '@components/TextInputContainer';
+import { TextInput } from 'react-native-paper';
 
 export interface Props {
-    viewStyle:object;
+  handleUsername: (value: string) => void;
+  handlePassword: (value: string) => void;
 }
- 
-const loginTextInput = (props: Props) => {
-    return (
-        <><View style={props.viewStyle}>
-            <TextInput icon={faUser} text='Username' placeholder='Choose your username' />
-        </View>
-            <View style={props.viewStyle}>
-                <TextInput icon={faLock} text='Password' placeholder='Type your password' />
-            </View></>
-    );
-}
- 
+
+const loginTextInput = ({ handleUsername, handlePassword }: Props) => {
+  return (
+    <>
+      <TextInputContainer
+        icon='person-outline'
+        colorIcon='#50E5C3'
+        label='Username or Email'
+        onChangeText={(value) => {
+          handleUsername(value);
+        }}
+      />
+
+      <TextInputContainer
+        icon='lock-outline'
+        colorIcon='#50E5C3'
+        label='Type Your Password'
+        onChangeText={(value) => {
+          handlePassword(value);
+        }}
+      />
+    </>
+  );
+};
+
 export default loginTextInput;

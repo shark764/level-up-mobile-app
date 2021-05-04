@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
-import { SafeAreaView, ScrollView, View, Text } from 'react-native';
+import { ScrollView, View, Image } from 'react-native';
 import { Button } from '@components/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
+import { Container } from '@components/Container';
+import { Text } from '@components/Text';
+import { HeadSection } from '@components/HeadSection';
+// @ts-ignore
+import locationImage from '@assets/images/location.png';
 
-import style from './EnableLocation.styles';
+import styles from './EnableLocation.styles';
 import RNLocation from 'react-native-location';
 import { useNavigation } from '@react-navigation/core';
 
@@ -22,7 +25,7 @@ const EnableLocation = () => {
 
       if (granted) {
         console.info('Permission already granted, skipping');
-        navigate('Home');
+        navigate('JoinRange');
       }
     };
 
@@ -44,42 +47,53 @@ const EnableLocation = () => {
     });
     if (granted) {
       console.info('Permission granted, skipping');
-      navigate('Home');
+      navigate('JoinRange');
     } else {
       console.info('permission not granted');
-      navigate('Login');
+      navigate('JoinRange');
     }
   };
 
   return (
-    <SafeAreaView style={style.enableLocationContainer}>
+    <Container background='dark' style={styles.enableLocationContainer}>
       <ScrollView>
-        <View style={style.mainIconContainer}>
-          <FontAwesomeIcon
-            style={style.mainIcon}
-            icon={faMapMarkedAlt}
-            size={150}
-          />
+        <HeadSection backText='Back' textStyle={styles.backText} />
+        <View style={styles.mainIconContainer}>
+          <Image source={locationImage} />
         </View>
-        <View style={style.mainText}>
-          <Text style={style.header}>Enable your location</Text>
-          <Text style={style.subheader}>Chose your location to start find</Text>
-          <Text style={style.subheader}>Level Up facility partners</Text>
-        </View>
-        <View style={style.bottom}>
-          <Button
-            title='Use My Location'
-            onPress={enableLocation}
-            color={style.buttonColor}
-            style={style.mainButton}
-            titleStyle={style.buttonTitle}
-          />
-          <Text style={style.skipText} onPress={enableLocation}>
-            Skip
+        <View style={styles.mainText}>
+          <Text type='heading-3' style={styles.header}>
+            Enable your location
+          </Text>
+          <Text type='body-md' style={styles.subheader}>
+            In order to get full access to
+          </Text>
+          <Text type='body-md' style={styles.subheader}>
+            LevelUpLive features make sure
+          </Text>
+          <Text type='body-md' style={styles.subheader}>
+            Location Services are turned on
           </Text>
         </View>
+        <View style={styles.bottom}>
+          <Button
+            color='primary'
+            title='Use My Location'
+            onPress={enableLocation}
+            style={styles.mainButton}
+            // titleStyle={style.buttonTitle}
+          />
+          <Button
+            color='transparent'
+            mode='text'
+            title='Not Now'
+            onPress={enableLocation}
+            titleStyle={styles.buttonTitle}
+            style={styles.mainButton}
+          />
+        </View>
       </ScrollView>
-    </SafeAreaView>
+    </Container>
   );
 };
 
