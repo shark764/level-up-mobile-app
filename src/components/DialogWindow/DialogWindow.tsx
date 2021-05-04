@@ -25,10 +25,10 @@ const DialogWindow = (props: Props) => {
         <Dialog.Content>
           <View {...props} style={[styles.container, props.style || {}]}>
             <Image style={styles.icon} source={props.icon} />
-            <Text type='heading-3'>
+            <Text type='heading-3' style={styles.title}>
               {props.title}
             </Text>
-            <Text type='body'>
+            <Text type='body' style={styles.body}>
               {props.text}
             </Text>
           </View>

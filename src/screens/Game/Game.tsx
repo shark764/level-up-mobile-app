@@ -95,7 +95,7 @@ const GameInfo = ({
             )}
 
             {gameState === 'results' && (
-              <View style={[styles.multiplayerAvatar, styles.center]}>
+              <View style={[styles.multiplayerAvatar, styles.center, game.gameType === 'standard' && {marginTop: '30%'}]}>
                 <GameProfile {...game.scores[0]} gameState={gameState} />
               </View>
             )}

@@ -29,7 +29,7 @@ const AchievementItem = (props: Props) => {
   const message = 'You earned +' + props.reward + ' points';
   const [visible, setVisible] = useState(false);
 
-  const _toggleDialog = (name: string) => () =>{
+  const _toggleDialog = () => () =>{
     if (visible) {
       setVisible(false);
     } else {
