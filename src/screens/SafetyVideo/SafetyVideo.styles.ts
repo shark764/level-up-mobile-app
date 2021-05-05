@@ -4,9 +4,9 @@ const styles = {
   main: tailwind('pt-8'),
   backText: tailwind('text-white'),
   headerText: tailwind('mt-1 text-white'),
-  subHeaderText: tailwind('mt-5 text-white'),
+  subHeaderText: [{color:'#9BB1D2'},tailwind('mt-5')],
   videoContainer: tailwind('mt-14'),
-  bottomText: [{color:'#C9C9C9'}, tailwind('mt-2')],
+  bottomText: [{color:'#9BB1D2'}, tailwind('mt-5')],
 };
 
 export default styles;

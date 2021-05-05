@@ -7,6 +7,10 @@ const styles = {
       enabled: tailwind('bg-purple'),
       disabled: { backgroundColor: '#2d2f6a' }
     },
+    secondary: {
+      enabled: tailwind('bg-charcoal-medium'),
+      disabled: { backgroundColor: '#2d2f6a' }
+    },
     default: {
       enabled: tailwind('bg-off-white'),
       disabled: tailwind('bg-gray-medium')
@@ -18,12 +22,27 @@ const styles = {
   },
   borderColor: {
     primary: tailwind('border	border-purple'),
+    secondary: tailwind('border	border-purple'),
     default: tailwind('border	border-off-white'),
     transparent: tailwind('border-0')
   },
   text: tailwind('normal-case'),
   textColor: {
     primary: {
+      contained: {
+        enabled: tailwind('text-white'),
+        disabled: { color: '#42446e' }
+      },
+      outlined: {
+        enabled: tailwind('text-purple'),
+        disabled: tailwind('text-purple bg-opacity-40')
+      },
+      text: {
+        enabled: tailwind('text-charcoal'),
+        disabled: tailwind('text-charcoal')
+      }
+    },
+    secondary: {
       contained: {
         enabled: tailwind('text-white'),
         disabled: { color: '#42446e' }

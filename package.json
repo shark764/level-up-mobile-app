@@ -13,10 +13,7 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.14.1",
-<<<<<<< HEAD
-=======
     "@react-native-community/checkbox": "^0.5.7",
->>>>>>> e129f18123dfcdec05ae542f229d24c442cb39d4
     "@react-native-community/datetimepicker": "3.4.6",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.10",
