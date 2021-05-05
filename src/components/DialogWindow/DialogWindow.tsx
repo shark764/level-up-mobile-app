@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Dimensions, Image } from 'react-native';
-import { Paragraph, Dialog, Portal, Button } from 'react-native-paper';
+import { Paragraph, Dialog, Portal } from 'react-native-paper';
 import { Text } from '@components/Text';
+import { Button } from '@components/Button';
 import styles from './DialogWindow.styles';
 
 interface Props {
@@ -20,22 +21,26 @@ const DialogWindow = (props: Props) => {
       <Dialog
         visible={props.visible}
         onDismiss={props.close}
-        style={{ maxHeight: 0.6 * Dimensions.get('window').height }}
+        style={[styles.windowSize, styles.content]}
       >
         <Dialog.Content>
           <View {...props} style={[styles.container, props.style || {}]}>
             <Image style={styles.icon} source={props.icon} />
-            <Text type='heading-3' style={styles.title}>
+            <Text type='heading-2' style={styles.textColor}>
               {props.title}
             </Text>
-            <Text type='body' style={styles.body}>
+            <Text type='body-md' style={styles.textColor}>
               {props.text}
             </Text>
           </View>
         </Dialog.Content>
-        <Dialog.Actions>
-          <Button onPress={props.close}>Done</Button>
-        </Dialog.Actions>
+        <View>
+          <Button
+            onPress={props.close}
+            title='Done'
+            color='primary'
+          />
+        </View>
       </Dialog>
     </Portal>
   );

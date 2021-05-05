@@ -14,28 +14,28 @@ import styles from './Achievements.styles';
 
 const achievementsList: Array<Achievement> = [
   {
-    title: 'Achievement',
+    title: 'Achievement Name',
     achievement: 'Do this and that to complete this achievement',
     rewardType: 'coin',
     reward: 15,
     progress: 1
   },
   {
-    title: 'Achievement',
+    title: 'Achievement Name',
     achievement: 'Do this and that to complete this achievement',
     rewardType: 'ruby',
     reward: 2,
     progress: 1
   },
   {
-    title: 'Achievement',
+    title: 'Achievement Name',
     achievement: 'Do this and that to complete this achievement',
     rewardType: 'coin',
     reward: 25,
     progress: 0.50
   },
   {
-    title: 'Achievement',
+    title: 'Achievement Name',
     achievement: 'Do this and that to complete this achievement',
     rewardType: 'ruby',
     reward: 5,

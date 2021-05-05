@@ -40,7 +40,7 @@ export const isEmailValid = (mail: string) => {
  */
 export const isPasswordValid = (pass: string) => {
   if (pass) {
-    return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{8,12}$/.test(
+    return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^°~@#$%^&*+='`´|,.;:¡!¿?\"{}<>()\[\]\-_\\]{8,12}$/.test(
       pass
     );
   } else {
@@ -49,11 +49,12 @@ export const isPasswordValid = (pass: string) => {
 };
 
 /**
- * Verifies if the username is valid (no special characters allowed).
+ * Verifies if the username is valid (letters and numbers)
+ * (no special characters allowed - exception: underscore "_").
  */
 export const isUsernameValid = (user: string) => {
   if (user) {
-    return /^(?=.*[a-zA-Z0-9])[^~@#$%^&*+=`|{}:;!.?\"()\[\]\-_]{4,}$/.test(
+    return /^(?=.*[a-zA-Z0-9_])[^°~@#$%^&*+='`´|,.;:¡!¿?\"{}<>()\[\]\-\\]{4,}$/.test(
       user
     );
   } else {
