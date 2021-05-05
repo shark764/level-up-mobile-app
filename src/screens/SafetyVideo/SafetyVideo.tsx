@@ -24,12 +24,12 @@ const SafetyVideo = () => {
           <HeadSection textStyle={styles.backText} backText='Back' />
           <View>
             <View>
-              <Text type='heading-1' style={styles.headerText}>
+              <Text type='heading-2' style={styles.headerText}>
                 Safety Video
               </Text>
             </View>
             <View style={{ width: '80%' }}>
-              <Text type='heading-4' style={styles.subHeaderText}>
+              <Text type='body-lg' style={styles.subHeaderText}>
                 Watch this safety video before you join a facility
               </Text>
             </View>
@@ -42,8 +42,8 @@ const SafetyVideo = () => {
               />
             </View>
             <View>
-              <Text type='body' style={styles.bottomText}>
-                This safety video is mandatory*
+              <Text type='heading-6' style={styles.bottomText}>
+                THIS SAFETY VIDEO IS MANDATORY*
               </Text>
             </View>
 

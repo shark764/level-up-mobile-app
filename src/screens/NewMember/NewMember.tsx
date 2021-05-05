@@ -1,10 +1,12 @@
 import { Container } from '@components/Container';
 import styles from './NewMember.styles';
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Image } from 'react-native';
 import { Text } from '@components/Text';
 import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/core';
+// @ts-ignore
+import cafire from '@assets/images/ca-fire.png';
 
 const NewMember = () => {
   const { navigate } = useNavigation();
@@ -15,13 +17,13 @@ const NewMember = () => {
     <Container background='dark'>
       <ScrollView>
         <View style={styles.main}>
-          <View style={styles.memberPicture} />
+          <Image style={styles.memberPicture} source={cafire} />
           <View style={[{ alignItems: 'center' }, styles.body]}>
-            <Text type='heading-2' style={styles.bodyText}>
+            <Text type='body-lg' style={styles.bodyText}>
               You are now a member
             </Text>
-            <Text type='heading-2' style={styles.bodyText}>
-              of Gun Club
+            <Text type='body-lg' style={styles.bodyText}>
+              of CA Fire
             </Text>
           </View>
           <View style={styles.button}>

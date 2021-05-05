@@ -7,7 +7,7 @@ type Size = 'sm' | 'md' | 'lg';
 type Props = Omit<ComponentProps<typeof MaterialButton>, 'children'> & {
   titleStyle?: any;
   title: string;
-  color?: 'primary' | 'default' | 'transparent';
+  color?: 'primary' | 'default' | 'transparent' | 'secondary';
   size?: Size;
 };
 

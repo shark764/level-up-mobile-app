@@ -21,15 +21,15 @@ const Consent = () => {
           <HeadSection textStyle={styles.backText} backText='Back' />
         </View>
         <View>
-          <Text type='heading-1' style={styles.headerText}>
+          <Text type='heading-3' style={styles.headerText}>
             Consent
           </Text>
-          <Text type='heading-5' style={styles.subHeaderText}>
+          <Text type='heading-6' style={styles.subHeaderText}>
             AT VERO EOS ET ACCUSAMUS ET IUSTO ODIO DIGNISSIMOS DUCIMUS QUI
             BLANDITIIS
           </Text>
           <View style={styles.body}>
-            <Text type='body' style={styles.bodyText}>
+            <Text type='body-md' style={styles.bodyText}>
               At vero eos et accusamus et iusto odio dignissimos ducimus qui
               blanditiis praesentium voluptatum deleniti atque corrupti quos
               dolores et quas molestias excepturi sint occaecati cupiditate non
@@ -37,7 +37,7 @@ const Consent = () => {
               animi, id est laborum et dolorum fuga. Et harum quidem rerum
               facilis est et expedita distinctio.
             </Text>
-            <Text type='body' style={styles.bodyText}>
+            <Text type='body-md' style={styles.bodyText}>
               Nam libero tempore, cum soluta nobis est eligendi optio cumque
               nihil impedit quo minus id quod maxime placeat facere possimus.
             </Text>
@@ -53,7 +53,7 @@ const Consent = () => {
               />
             </View>
             <View>
-              <Text type='body-md' style={styles.bodyText}>
+              <Text type='heading-5' style={styles.bodyTerms}>
                 I read and accept the terms
               </Text>
             </View>
@@ -74,7 +74,7 @@ const Consent = () => {
                   navigateTo('Membership');
                 }}
                 title='Cancel'
-                color='primary'
+                color='secondary'
               />
             </View>
           </View>
