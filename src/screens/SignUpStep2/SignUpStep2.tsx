@@ -23,7 +23,7 @@ const SignUpStep2 = () => {
   const [dateString, setDateString] = useState(convertDateMDY(today));
   const [show, setShow] = useState(false);
 
-  const onChange = (event, selectedDate) => {
+  const onChange = (_: Event, selectedDate?: Date) => {
     setShow(false);
     if (selectedDate) {
       setDate(selectedDate);

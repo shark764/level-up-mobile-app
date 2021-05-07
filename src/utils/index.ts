@@ -10,7 +10,7 @@ export const firstMessage = () => {
 /**
  * Converts a date object into 'mm/dd/yyyy' string format.
  */
-export const convertDateMDY = (date) => {
+export const convertDateMDY = (date: Date) => {
   const d = date.getDate();
   const m = date.getMonth() + 1;
   const y = date.getFullYear();

@@ -36,12 +36,16 @@ const achievements: Array<Achievement> = [
   {
     title: 'Complete this task',
     rewardType: 'coin',
-    reward: 15
+    reward: 15,
+    progress: 90,
+    achievement: ''
   },
   {
     title: 'Complete this task',
     rewardType: 'ruby',
-    reward: 2
+    reward: 2,
+    progress: 90,
+    achievement: ''
   }
 ];
 

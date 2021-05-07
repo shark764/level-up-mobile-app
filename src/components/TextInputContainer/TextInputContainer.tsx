@@ -4,21 +4,26 @@ import { TextInput, HelperText } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './TextInputContainer.styles';
 
-interface Props extends TextInputProps {
+type Props = TextInputProps & {
   icon?: string;
   colorIcon?: string;
   label: string;
   placeholder?: string;
   errorVisible?: boolean;
   errorMessage?: string;
-}
+};
 
-const TextInputContainer = (props: Props) => {
-  if (props.icon) {
+const TextInputContainer = ({
+  icon,
+  colorIcon,
+  errorMessage,
+  errorVisible,
+  ...props
+}: Props) => {
+  if (icon) {
     return (
       <View style={styles.inputContainer}>
         <TextInput
-          label={props.label}
           placeholder={props.placeholder}
           theme={{
             colors: {
@@ -31,17 +36,16 @@ const TextInputContainer = (props: Props) => {
           left={
             <TextInput.Icon
               name={() => (
-                <Icon name={props.icon} size={26} color={props.colorIcon} />
+                <Icon name={icon || 'user'} size={26} color={colorIcon} />
               )}
             />
           }
           value={props.value}
           {...props}
+          selectionColor={undefined}
         />
-        <HelperText
-          type='error'
-          visible={props.errorVisible ? props.errorVisible : false}>
-          Error: {props.errorMessage}
+        <HelperText type='error' visible={errorVisible ? errorVisible : false}>
+          Error: {errorMessage}
         </HelperText>
       </View>
     );
@@ -49,7 +53,6 @@ const TextInputContainer = (props: Props) => {
     return (
       <View style={styles.inputContainer}>
         <TextInput
-          label={props.label}
           placeholder={props.placeholder}
           theme={{
             colors: {
@@ -61,11 +64,10 @@ const TextInputContainer = (props: Props) => {
           }}
           value={props.value}
           {...props}
+          selectionColor={undefined}
         />
-        <HelperText
-          type='error'
-          visible={props.errorVisible ? props.errorVisible : false}>
-          Error: {props.errorMessage}
+        <HelperText type='error' visible={errorVisible ? errorVisible : false}>
+          Error: {errorMessage}
         </HelperText>
       </View>
     );
