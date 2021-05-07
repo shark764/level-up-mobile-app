@@ -14,7 +14,8 @@ const styles = {
   progress: tailwind(
     'flex flex-row items-center content-center justify-center mb-9'
   ),
-  gameOver: tailwind('flex h-full content-center items-center pt-36')
+  gameOver: tailwind('flex h-full content-center items-center pt-36'),
+  marginTop: { marginTop: '30%' }
 };
 
 export default styles;

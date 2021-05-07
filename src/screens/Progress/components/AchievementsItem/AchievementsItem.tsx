@@ -15,7 +15,7 @@ interface Props {
   reward: number;
   progress: number;
 }
-const AchievementsItem = ({ title, achievement, rewardType, reward, progress }: Props) => (
+const AchievementsItem = ({ title, rewardType, reward }: Props) => (
   <ListItem>
     <Text type='body-semi' style={[styles.achievement, styles.achievementFont]}>
       {title}

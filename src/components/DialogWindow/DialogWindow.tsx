@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Dimensions, Image } from 'react-native';
-import { Paragraph, Dialog, Portal } from 'react-native-paper';
+import { View, Image } from 'react-native';
+import { Dialog, Portal } from 'react-native-paper';
 import { Text } from '@components/Text';
 import { Button } from '@components/Button';
 import styles from './DialogWindow.styles';
@@ -21,8 +21,7 @@ const DialogWindow = (props: Props) => {
       <Dialog
         visible={props.visible}
         onDismiss={props.close}
-        style={[styles.windowSize, styles.content]}
-      >
+        style={[styles.windowSize, styles.content]}>
         <Dialog.Content>
           <View {...props} style={[styles.container, props.style || {}]}>
             <Image style={styles.icon} source={props.icon} />
@@ -35,11 +34,7 @@ const DialogWindow = (props: Props) => {
           </View>
         </Dialog.Content>
         <View>
-          <Button
-            onPress={props.close}
-            title='Done'
-            color='primary'
-          />
+          <Button onPress={props.close} title='Done' color='primary' />
         </View>
       </Dialog>
     </Portal>

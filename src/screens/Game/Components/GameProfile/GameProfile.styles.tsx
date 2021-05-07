@@ -7,7 +7,7 @@ const styles = {
   avatar: tailwind('mb-3 bg-purple'),
   userText: tailwind('text-off-white'),
   scoreButton: { width: 110 },
-  scoreButtonContent: tailwind('py-1 bg-magenta'),
+  scoreButtonContent: tailwind('py-1 bg-charcoal-medium'),
   scoreButtonText: tailwind('text-sm text-white')
 };
 

@@ -46,6 +46,7 @@ const Consent = () => {
             <View style={{ marginRight: 10 }}>
               <CheckBox
                 tintColors={{ true: '#6461EC', false: '' }}
+                style={styles.checkbox}
                 value={toggleCheckBox}
                 onValueChange={(checkValue) => {
                   setToggleCheckBox(checkValue);

@@ -29,12 +29,7 @@ const SignUp = () => {
   const validateData = () => {
     setEmailError(false);
     setPasswordError(false);
-    if (
-      email &&
-      isEmailValid(email) &&
-      password &&
-      isPasswordValid(password)
-    ) {
+    if (email && isEmailValid(email) && password && isPasswordValid(password)) {
       navigateTo('SignUpStep2');
     } else {
       if (!email) {

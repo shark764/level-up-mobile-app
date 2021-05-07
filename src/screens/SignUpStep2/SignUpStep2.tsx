@@ -31,8 +31,6 @@ const SignUpStep2 = () => {
     }
   };
 
-
-
   const showDatePicker = () => {
     setShow(true);
   };

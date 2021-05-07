@@ -10,7 +10,10 @@ const styles = {
   bodyContent: tailwind('mt-5'),
   flexRow: tailwind('flex flex-row'),
   flexColumn: tailwind('flex flex-col'),
-  icon: [tailwind('mr-3 mt-1'),{backgroundColor:'white', borderRadius:100, height:16}],
+  icon: [
+    tailwind('mr-3 mt-1'),
+    { backgroundColor: 'white', borderRadius: 100, height: 16 }
+  ],
   button: tailwind('mt-2 mb-8')
 };
 

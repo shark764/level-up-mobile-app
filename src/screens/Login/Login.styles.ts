@@ -1,4 +1,3 @@
-import { color } from 'react-native-reanimated';
 import { getColor } from 'tailwind-rn';
 import tailwind from '@utils/tailwind';
 

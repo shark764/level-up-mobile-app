@@ -3,7 +3,6 @@ import { Text } from '@components/Text';
 import styles from './SafetyVideo.styles';
 import React from 'react';
 import { ScrollView, View } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
 //@ts-ignore

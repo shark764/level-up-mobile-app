@@ -35,7 +35,7 @@ const Login = () => {
       if (credentials.user === username && credentials.pass === password) {
         navigateTo('Progress');
       } else {
-        console.log('failed');
+        console.info('failed');
       }
     } else {
       if (!username) {

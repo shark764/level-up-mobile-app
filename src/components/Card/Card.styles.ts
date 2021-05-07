@@ -1,4 +1,4 @@
-import tailwind, { getColor } from '@utils/tailwind';
+import tailwind from '@utils/tailwind';
 
 const styles = {
   mainCard: tailwind('mb-3 pb-5 rounded'),

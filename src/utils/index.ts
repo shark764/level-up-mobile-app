@@ -61,4 +61,3 @@ export const isUsernameValid = (user: string) => {
     return true;
   }
 };
-

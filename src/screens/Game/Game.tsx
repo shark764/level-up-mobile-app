@@ -20,18 +20,22 @@ const GameInfo = ({
     params: { game }
   }
 }: Props) => {
-  const [gameState, setGameState] = useState<GameState>('progress');
+  const [gameState, setGameState] = useState<GameState>(
+    !game.finished ? 'progress' : 'results'
+  );
   const [opacity] = useState(new Animated.Value(1));
   const [fade, setFade] = useState<boolean>(true);
   const { navigate } = useNavigation();
 
   useEffect(() => {
-    setTimeout(() => {
-      setGameState('over');
+    if (gameState !== 'results')
       setTimeout(() => {
-        setGameState('results');
-      }, 2000);
-    }, 10000);
+        setGameState('over');
+        setTimeout(() => {
+          setGameState('results');
+        }, 2000);
+      }, 10000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -95,7 +99,12 @@ const GameInfo = ({
             )}
 
             {gameState === 'results' && (
-              <View style={[styles.multiplayerAvatar, styles.center, game.gameType === 'standard' && {marginTop: '30%'}]}>
+              <View
+                style={[
+                  styles.multiplayerAvatar,
+                  styles.center,
+                  game.gameType === 'standard' && styles.marginTop
+                ]}>
                 <GameProfile {...game.scores[0]} gameState={gameState} />
               </View>
             )}

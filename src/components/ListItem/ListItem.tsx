@@ -10,7 +10,7 @@ import styles from './ListItem.styles';
 
 interface Props extends TouchableHighlightProps {
   children: ReactNode;
-  itemStyle: StyleProp<ViewStyle>
+  itemStyle?: StyleProp<ViewStyle>;
 }
 
 const ListItem = (props: Props) => (

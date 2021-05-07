@@ -1,15 +1,11 @@
 import React from 'react';
 import { Container } from '@components/Container';
 import { Text } from '@components/Text';
-import { ScrollView, View, Image } from 'react-native';
-import { Avatar, Button } from 'react-native-paper';
+import { ScrollView, View } from 'react-native';
 import { AchievementItem } from './components/AchievementItem';
 import { HeadSection } from '@components/HeadSection';
-import { Achievement, Game } from '@app-types/appData';
+import { Achievement } from '@app-types/appData';
 // @ts-ignore
-import ruby from '@assets/images/ruby.png';
-// @ts-ignore
-import coin from '@assets/images/coin.png';
 import styles from './Achievements.styles';
 
 const achievementsList: Array<Achievement> = [
@@ -32,7 +28,7 @@ const achievementsList: Array<Achievement> = [
     achievement: 'Do this and that to complete this achievement',
     rewardType: 'coin',
     reward: 25,
-    progress: 0.50
+    progress: 0.5
   },
   {
     title: 'Achievement Name',
@@ -55,7 +51,9 @@ const Achievements = () => {
           />
 
           <View style={styles.achievementsList}>
-            <Text style={styles.title} type='heading-3'>Achievements</Text>
+            <Text style={styles.title} type='heading-3'>
+              Achievements
+            </Text>
             <View>
               {achievementsList.map((achievement, index) => (
                 <AchievementItem {...achievement} key={index} />

@@ -10,7 +10,6 @@ interface Props {
 }
 
 const ProgressBar = (props: Props) => {
-
   return (
     <View {...props} style={[styles.container, props.style || {}]}>
       <PB progress={props.progress} color={props.color} />

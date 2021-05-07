@@ -24,11 +24,9 @@ interface Props extends TouchableHighlightProps {
 
 const addFacilityLogo = (image: any) => {
   if (image === true) {
-    return (
-      <Image style={{ width: 30, height: 30 }} source={cafire}></Image>
-    );
+    return <Image style={{ width: 30, height: 30 }} source={cafire} />;
   }
-}
+};
 
 const HeadSection = (props: Props) => {
   const navigation = useNavigation();

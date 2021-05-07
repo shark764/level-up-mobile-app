@@ -9,7 +9,7 @@ import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
 import { HeadSection } from '@components/HeadSection';
 
-export interface Props { }
+export interface Props {}
 
 const Membership = () => {
   const { navigate } = useNavigation();
@@ -19,7 +19,12 @@ const Membership = () => {
   return (
     <Container background='dark'>
       <ScrollView>
-        <HeadSection textStyle={styles.backText} backText='Back' stepsText={'CA Fire'} stepImage={true} />
+        <HeadSection
+          textStyle={styles.backText}
+          backText='Back'
+          stepsText={'CA Fire'}
+          stepImage={true}
+        />
         <View style={styles.body}>
           <View>
             <Text type='heading-4' style={styles.bodyHeaderText}>
@@ -27,10 +32,18 @@ const Membership = () => {
             </Text>
           </View>
           <View style={styles.bodyContent}>
-          <Card cardColor='#393B60'>
+            <Card cardColor='#393B60'>
               <View style={[styles.flexColumn]}>
                 <View
-                  style={[styles.flexRow, { justifyContent: 'space-between', borderBottomColor: '#5D5F83', borderBottomWidth: 1, paddingBottom: 5 }]}>
+                  style={[
+                    styles.flexRow,
+                    {
+                      justifyContent: 'space-between',
+                      borderBottomColor: '#5D5F83',
+                      borderBottomWidth: 1,
+                      paddingBottom: 5
+                    }
+                  ]}>
                   <View style={[styles.flexColumn, { width: '80%' }]}>
                     <View>
                       <Text
@@ -133,7 +146,15 @@ const Membership = () => {
             <Card cardColor='#393B60'>
               <View style={[styles.flexColumn]}>
                 <View
-                  style={[styles.flexRow, { justifyContent: 'space-between', borderBottomColor: '#5D5F83', borderBottomWidth: 1, paddingBottom: 5 }]}>
+                  style={[
+                    styles.flexRow,
+                    {
+                      justifyContent: 'space-between',
+                      borderBottomColor: '#5D5F83',
+                      borderBottomWidth: 1,
+                      paddingBottom: 5
+                    }
+                  ]}>
                   <View style={[styles.flexColumn, { width: '80%' }]}>
                     <View>
                       <Text
@@ -236,7 +257,15 @@ const Membership = () => {
             <Card cardColor='#393B60'>
               <View style={[styles.flexColumn]}>
                 <View
-                  style={[styles.flexRow, { justifyContent: 'space-between', borderBottomColor: '#5D5F83', borderBottomWidth: 1, paddingBottom: 5 }]}>
+                  style={[
+                    styles.flexRow,
+                    {
+                      justifyContent: 'space-between',
+                      borderBottomColor: '#5D5F83',
+                      borderBottomWidth: 1,
+                      paddingBottom: 5
+                    }
+                  ]}>
                   <View style={[styles.flexColumn, { width: '80%' }]}>
                     <View>
                       <Text

@@ -18,7 +18,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { EnableLocation } from '@screens/EnableLocation';
 import { Progress } from '@screens/Progress';
 import { Achievements } from '@screens/Achievements';
-import { Consent} from '@screens/Consent';
+import { Consent } from '@screens/Consent';
 import { SafetyVideo } from '@screens/SafetyVideo';
 import { NewMember } from '@screens/NewMember';
 import { getColor } from '@utils/tailwind';
@@ -26,6 +26,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { UploadPic } from '@screens/UploadPic';
 import { Game } from '@screens/Game';
+import GameHistory from '@screens/GameHistory/GameHistory';
 const { Navigator, Screen } = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -101,6 +102,7 @@ const MainNavigation = () => {
         <Screen name='Progress' component={TabsBottomNavigation} />
         <Screen name='Achievements' component={Achievements} />
         <Screen name='Game' component={Game} />
+        <Screen name='GameHistory' component={GameHistory} />
       </Navigator>
     </NavigationContainer>
   );

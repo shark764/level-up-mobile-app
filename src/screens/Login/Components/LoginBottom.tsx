@@ -2,7 +2,6 @@ import React from 'react';
 import { View, TouchableHighlight, Image } from 'react-native';
 import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
-import { color } from 'react-native-reanimated';
 // @ts-ignore
 import logo_fb from '../../../assets/social_media/logo_fb.png';
 // @ts-ignore
@@ -29,7 +28,7 @@ export interface Props {
   loginValidation: () => void;
 }
 
-const loginBottom = ({ loginValidation, ...props }: Props) => {
+const LoginBottom = ({ loginValidation, ...props }: Props) => {
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
     navigate(screen);
@@ -120,4 +119,4 @@ const loginBottom = ({ loginValidation, ...props }: Props) => {
   );
 };
 
-export default loginBottom;
+export default LoginBottom;

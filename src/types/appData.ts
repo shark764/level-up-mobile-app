@@ -18,6 +18,7 @@ export interface Game {
   players: Player[];
   scores: GameScore[];
   history: GameScore[];
+  finished?: boolean;
 }
 
 export interface Player {

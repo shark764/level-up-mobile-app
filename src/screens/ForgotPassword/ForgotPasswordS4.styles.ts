@@ -1,4 +1,4 @@
-import tailwind, { getColor } from 'tailwind-rn';
+import tailwind from 'tailwind-rn';
 
 const styles = {
   loginContainer: tailwind('h-full bg-black'),

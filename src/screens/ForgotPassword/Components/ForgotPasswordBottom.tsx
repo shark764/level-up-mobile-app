@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Button } from '@components/Button';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 
 export interface Props {
   viewStyle: object;
@@ -10,7 +10,7 @@ export interface Props {
   buttonTitleStyle: object;
 }
 
-const forgotPasswordHeader = (props: Props) => {
+const ForgotPasswordHeader = (props: Props) => {
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
     navigate(screen);
@@ -31,4 +31,4 @@ const forgotPasswordHeader = (props: Props) => {
   );
 };
 
-export default forgotPasswordHeader;
+export default ForgotPasswordHeader;

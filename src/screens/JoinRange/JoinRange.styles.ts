@@ -1,4 +1,3 @@
-import { getColor } from 'tailwind-rn';
 import tailwind from '@utils/tailwind';
 
 const styles = {

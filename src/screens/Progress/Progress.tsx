@@ -30,6 +30,7 @@ import medal5 from '@assets/images/medal-5.png';
 import leaderboard from '@assets/images/leaderboard.png';
 
 import styles from './Progress.styles';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const achievements: Array<Achievement> = [
   {
@@ -140,7 +141,7 @@ const Progress = () => {
               <View>
                 <View>
                   <Text type='heading-4' style={styles.mainInfo}>
-                    @michael_s1992
+                    @michael
                   </Text>
                   <Text type='body' style={styles.secondaryInfo}>
                     Michael Scott
@@ -203,9 +204,11 @@ const Progress = () => {
               <Text type='heading-5' style={styles.mainTitle}>
                 Games
               </Text>
-              <Text type='heading-5' style={styles.viewTitle}>
-                View History
-              </Text>
+              <TouchableOpacity onPress={() => navigateTo('GameHistory')}>
+                <Text type='heading-5' style={styles.viewTitle}>
+                  View History
+                </Text>
+              </TouchableOpacity>
             </View>
             <View>
               {games.map((game, index) => (
