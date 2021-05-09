@@ -4,6 +4,7 @@ stages:
   - test
   - build
   - publish
+  # TODO: add a release stage to upload the apk to Store
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -46,6 +47,7 @@ tests:unit:
   script:
     - yarn test
 
+# This one is for developers team testing
 build:android:package:
   stage: build
   image: reactnativecommunity/react-native-android
@@ -60,6 +62,22 @@ build:android:package:
     - lint
     - lint:code-formatter
     - tests:unit
+  artifacts:
+    paths:
+      - ./android/app/build/
+      - ./android/app/src/main/assets/
+
+# This one is for QA team testing
+publish:android:package:
+  stage: build
+  image: reactnativecommunity/react-native-android
+  only:
+    - master
+  script:
+    - echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
+    - yarn android:build:debug
+    - cd android
+    - ./gradlew assembleRelease
   artifacts:
     paths:
       - ./android/app/build/
