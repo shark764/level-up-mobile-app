@@ -1,0 +1,66 @@
+image: node:14
+
+stages:
+  - test
+  - build
+  - publish
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+before_script:
+  - yarn
+
+lint:
+  stage: test
+  only:
+    - merge_requests
+  except:
+    variables:
+      - $CI_COMMIT_REF_NAME =~ /^master/
+  script:
+    - yarn lint
+
+lint:code-formatter:
+  stage: test
+  only:
+    - merge_requests
+  except:
+    variables:
+      - $CI_COMMIT_REF_NAME =~ /^master/
+  script:
+    - yarn format:check
+
+tests:unit:
+  stage: test
+  only:
+    - merge_requests
+  except:
+    variables:
+      - $CI_COMMIT_REF_NAME =~ /^master/
+  script:
+    - yarn test
+
+build:android:package:
+  stage: build
+  image: reactnativecommunity/react-native-android
+  only:
+    - merge_requests
+  script:
+    - echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
+    - yarn android:build:debug
+    - cd android
+    - ./gradlew assembleDebug
+  dependencies:
+    - lint
+    - lint:code-formatter
+    - tests:unit
+  artifacts:
+    paths:
+      - ./android/app/build/
+      - ./android/app/src/main/assets/
