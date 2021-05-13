@@ -9,7 +9,7 @@ import locationImage from '@assets/images/location.png';
 
 import styles from './EnableLocation.styles';
 import RNLocation from 'react-native-location';
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation } from '@react-navigation/native';
 
 const EnableLocation = () => {
   const { navigate } = useNavigation();

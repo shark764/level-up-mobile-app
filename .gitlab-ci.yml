@@ -69,7 +69,7 @@ build:android:package:
 
 # This one is for QA team testing
 publish:android:package:
-  stage: build
+  stage: publish
   image: reactnativecommunity/react-native-android
   only:
     - master
@@ -77,7 +77,7 @@ publish:android:package:
     - echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
     - yarn android:build:debug
     - cd android
-    - ./gradlew assembleRelease
+    - ./gradlew clean assembleRelease
   artifacts:
     paths:
       - ./android/app/build/
