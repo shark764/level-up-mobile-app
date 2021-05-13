@@ -10,7 +10,6 @@
     "test:all": "CI=true yarn test && yarn lint",
     "format": "prettier --write \"./src/**/*.{ts,tsx,js,json}\"",
     "format:check": "prettier --check src/**/*.{ts,tsx,json}",
-    "types:check": "tsc --project . --noEmit --pretty --skipLibCheck",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "android:build:debug": "react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle --assets-dest ./android/app/src/main/res",
     "postinstall": "jetify"
@@ -24,7 +23,6 @@
     "src/**/*.{js,jsx,ts,tsx}": [
       "yarn format",
       "yarn lint",
-      "yarn types:check",
       "yarn test"
     ]
   },

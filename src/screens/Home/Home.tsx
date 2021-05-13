@@ -21,7 +21,7 @@ const Home = () => {
             <View style={[styles.mainText]}>
               <View style={styles.header}>
                 <Text type='heading-1' style={styles.textHeader}>
-                  Welcome to
+                  Welcome
                 </Text>
                 <Text type='heading-1' style={styles.textHeader}>
                   Level Up Live
