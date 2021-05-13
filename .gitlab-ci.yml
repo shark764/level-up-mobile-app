@@ -77,7 +77,7 @@ publish:android:package:
     - echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
     - yarn android:build:debug
     - cd android
-    - ./gradlew clean assembleRelease
+    - ./gradlew clean assembleDebug
   artifacts:
     paths:
       - ./android/app/build/
