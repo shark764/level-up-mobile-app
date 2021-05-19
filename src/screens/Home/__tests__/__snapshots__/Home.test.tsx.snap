@@ -248,6 +248,8 @@ exports[`<Home /> renders correctly 1`] = `
                                   style={
                                     Array [
                                       Object {
+                                        "alignItems": "center",
+                                        "display": "flex",
                                         "marginBottom": 112,
                                       },
                                     ]
@@ -265,93 +267,30 @@ exports[`<Home /> renders correctly 1`] = `
                                         Array [
                                           Object {
                                             "fontFamily": "MartianBThai-Bold",
-                                            "fontSize": 36,
-                                            "lineHeight": 46.8,
+                                            "fontSize": 20,
+                                            "lineHeight": 31.2,
                                           },
                                           Array [
                                             Object {
-                                              "color": "rgba(255, 255, 255, 1)",
-                                              "fontSize": 36,
-                                              "lineHeight": 40,
+                                              "color": "rgba(80, 229, 195, 1)",
+                                              "fontSize": 30,
+                                              "lineHeight": 36,
+                                              "textTransform": "uppercase",
                                             },
                                           ],
                                         ]
                                       }
                                     >
-                                      Welcome
-                                    </Text>
-                                    <Text
-                                      style={
-                                        Array [
-                                          Object {
-                                            "fontFamily": "MartianBThai-Bold",
-                                            "fontSize": 36,
-                                            "lineHeight": 46.8,
-                                          },
-                                          Array [
-                                            Object {
-                                              "color": "rgba(255, 255, 255, 1)",
-                                              "fontSize": 36,
-                                              "lineHeight": 40,
-                                            },
-                                          ],
-                                        ]
-                                      }
-                                    >
-                                      Level Up Live
+                                      Welcome To
                                     </Text>
                                   </View>
-                                  <Text
-                                    style={
-                                      Array [
-                                        Object {
-                                          "fontFamily": "MartianBThai-Bold",
-                                          "fontSize": 20,
-                                          "lineHeight": 31.2,
-                                        },
-                                        Object {
-                                          "color": "rgba(198, 214, 238, 1)",
-                                          "fontFamily": "MartianBThai-Regular",
-                                        },
-                                      ]
+                                  <Image
+                                    source={
+                                      Object {
+                                        "testUri": "../../../src/assets/images/main-logo.png",
+                                      }
                                     }
-                                  >
-                                    Level up your game and
-                                  </Text>
-                                  <Text
-                                    style={
-                                      Array [
-                                        Object {
-                                          "fontFamily": "MartianBThai-Bold",
-                                          "fontSize": 20,
-                                          "lineHeight": 31.2,
-                                        },
-                                        Object {
-                                          "color": "rgba(198, 214, 238, 1)",
-                                          "fontFamily": "MartianBThai-Regular",
-                                        },
-                                      ]
-                                    }
-                                  >
-                                    be part of the next-gen
-                                  </Text>
-                                  <Text
-                                    style={
-                                      Array [
-                                        Object {
-                                          "fontFamily": "MartianBThai-Bold",
-                                          "fontSize": 20,
-                                          "lineHeight": 31.2,
-                                        },
-                                        Object {
-                                          "color": "rgba(198, 214, 238, 1)",
-                                          "fontFamily": "MartianBThai-Regular",
-                                        },
-                                      ]
-                                    }
-                                  >
-                                    shooters
-                                  </Text>
+                                  />
                                 </View>
                                 <View
                                   style={
@@ -652,7 +591,7 @@ exports[`<Home /> renders correctly 1`] = `
                                           "lineHeight": 23.8,
                                         },
                                         Object {
-                                          "color": "rgba(144, 241, 219, 1)",
+                                          "color": "rgba(198, 214, 238, 1)",
                                         },
                                       ]
                                     }
@@ -668,7 +607,7 @@ exports[`<Home /> renders correctly 1`] = `
                                           "lineHeight": 23.8,
                                         },
                                         Object {
-                                          "color": "rgba(144, 241, 219, 1)",
+                                          "color": "rgba(198, 214, 238, 1)",
                                         },
                                       ]
                                     }

@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, ScrollView, ImageBackground, StyleSheet } from 'react-native';
+import {
+  View,
+  ScrollView,
+  ImageBackground,
+  StyleSheet,
+  Image
+} from 'react-native';
 import { Text } from '@components/Text';
 import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
@@ -7,6 +13,8 @@ import styles from './Home.styles';
 import { Container } from '@components/Container';
 // @ts-ignore
 import homeBackground from '@assets/images/home-background.png';
+// @ts-ignore
+import MainLogo from '@assets/images/main-logo.png';
 const Home = () => {
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
@@ -20,22 +28,11 @@ const Home = () => {
           <View style={styles.main}>
             <View style={[styles.mainText]}>
               <View style={styles.header}>
-                <Text type='heading-1' style={styles.textHeader}>
-                  Welcome
-                </Text>
-                <Text type='heading-1' style={styles.textHeader}>
-                  Level Up Live
+                <Text type='heading-3' style={styles.textHeader}>
+                  Welcome To
                 </Text>
               </View>
-              <Text type='heading-3' style={styles.textSubHeader}>
-                Level up your game and
-              </Text>
-              <Text type='heading-3' style={styles.textSubHeader}>
-                be part of the next-gen
-              </Text>
-              <Text type='heading-3' style={styles.textSubHeader}>
-                shooters
-              </Text>
+              <Image source={MainLogo} />
             </View>
             <Button
               style={styles.button}
