@@ -5,7 +5,7 @@ const styles = {
   backgroundImage: tailwind('flex'),
   mainText: tailwind('mb-28 flex items-center'),
   header: tailwind('mb-5'),
-  textHeader: [tailwind('text-3xl text-bright-green uppercase')],
+  textHeader: [tailwind('text-bright-green uppercase')],
   textSubHeader: tailwind('text-gray-light font-martian-400'),
   button: tailwind('mb-2'),
   footer: tailwind('mt-20 items-center'),
