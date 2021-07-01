@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, ToastAndroid } from 'react-native';
 import styles from './Login.styles';
 import LoginHeader from './Components/LoginHeader';
 // import LoginTextInput from './Components/LoginTextInput';
@@ -9,16 +9,40 @@ import { HeadSection } from '@components/HeadSection';
 import { TextInputContainer } from '@components/TextInputContainer';
 import { useNavigation } from '@react-navigation/core';
 import { isUsernameValid, isPasswordValid } from '@utils/index';
+import axios from 'axios';
+import { useEffect } from 'react';
+
+interface Props {
+  visible: any,
+  message: string,
+}
+
+const Toast = ({ visible, message }: Props) => {
+  if (visible) {
+    ToastAndroid.showWithGravityAndOffset(
+      message,
+      ToastAndroid.LONG,
+      ToastAndroid.BOTTOM,
+      25,
+      50
+    );
+    return null;
+  }
+  return null;
+};
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const credentials = {
-    user: 'user',
-    pass: 'Test1234'
-  };
+  const [visibleToast, setvisibleToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  useEffect(() => {
+    setvisibleToast(false)
+  }, [visibleToast]);
+
+
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
     navigate(screen);
@@ -26,25 +50,18 @@ const Login = () => {
   const loginValidation = () => {
     setUsernameError(false);
     setPasswordError(false);
-    if (
-      username &&
-      isUsernameValid(username) &&
-      password &&
-      isPasswordValid(password)
-    ) {
-      if (credentials.user === username && credentials.pass === password) {
-        navigateTo('Progress');
-      } else {
-        console.info('failed');
-      }
-    } else {
-      if (!username) {
-        setUsernameError(true);
-      }
-      if (!password) {
-        setPasswordError(true);
-      }
+    const credentials = {
+      email: username,
+      password: password
     }
+    axios.post('https://dev-lul-sec.herokuapp.com/api/auth/login', credentials).then(response => {
+      setToastMessage(response.data.status);
+      setvisibleToast(true);
+      navigateTo('Progress');
+    }).catch(error => {
+      setToastMessage(error.response.data.error.message);
+      setvisibleToast(true);
+    })
   };
   const handleUsername = (value: string) => {
     setUsername(value);
@@ -57,6 +74,7 @@ const Login = () => {
   return (
     <Container background='dark'>
       <ScrollView>
+        <Toast visible={visibleToast} message={toastMessage} />
         <View style={styles.main}>
           <HeadSection textStyle={styles.backText} backText='Back' />
           <View>
