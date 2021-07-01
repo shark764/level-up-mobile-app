@@ -244,7 +244,10 @@ exports[`<App /> renders correctly 1`] = `
                               }
                             }
                           >
-                            <RCTScrollView>
+                            <RCTScrollView
+                              showsHorizontalScrollIndicator={false}
+                              showsVerticalScrollIndicator={false}
+                            >
                               <View>
                                 <View
                                   style={
@@ -282,8 +285,6 @@ exports[`<App /> renders correctly 1`] = `
                                             Array [
                                               Object {
                                                 "color": "rgba(80, 229, 195, 1)",
-                                                "fontSize": 30,
-                                                "lineHeight": 36,
                                                 "textTransform": "uppercase",
                                               },
                                             ],

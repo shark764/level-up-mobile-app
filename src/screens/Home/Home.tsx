@@ -24,7 +24,9 @@ const Home = () => {
   return (
     <ImageBackground source={homeBackground} style={stylesx.image}>
       <Container background='none'>
-        <ScrollView>
+        <ScrollView
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}>
           <View style={styles.main}>
             <View style={[styles.mainText]}>
               <View style={styles.header}>

@@ -22,9 +22,9 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "yarn format",
-      "yarn lint",
-      "yarn test"
-    ]
+      "yarn lint"
+    ],
+    "src/**/*.test.tsx" : ["yarn test"]
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.14.1",
