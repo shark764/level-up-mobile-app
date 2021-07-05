@@ -9,8 +9,9 @@ import { HeadSection } from '@components/HeadSection';
 import { TextInputContainer } from '@components/TextInputContainer';
 import { useNavigation } from '@react-navigation/core';
 import { isUsernameValid, isPasswordValid } from '@utils/index';
-import axios from 'axios';
 import { useEffect } from 'react';
+import { login } from '../../api/login.js';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface Props {
   visible: any,
@@ -47,21 +48,29 @@ const Login = () => {
   const navigateTo = (screen: string) => {
     navigate(screen);
   };
-  const loginValidation = () => {
+  const loginValidation = async () => {
     setUsernameError(false);
     setPasswordError(false);
     const credentials = {
       email: username,
       password: password
     }
-    axios.post('https://dev-lul-sec.herokuapp.com/api/auth/login', credentials).then(response => {
-      setToastMessage(response.data.status);
+    try {
+      const result = await login(credentials);
+      try {
+        await AsyncStorage.setItem('@accessToken', result.data.accessToken);
+        await AsyncStorage.setItem('@authorizationToken', result.data.authorizationToken);
+      }catch(e){
+        console.log(e);
+      }
+      setToastMessage(result.status);
       setvisibleToast(true);
       navigateTo('Progress');
-    }).catch(error => {
-      setToastMessage(error.response.data.error.message);
+    } catch (e) {
+      setToastMessage(e.response.data.error.message);
       setvisibleToast(true);
-    })
+    }
+
   };
   const handleUsername = (value: string) => {
     setUsername(value);
