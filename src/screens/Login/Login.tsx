@@ -10,14 +10,11 @@ import { TextInputContainer } from '@components/TextInputContainer';
 import { useNavigation } from '@react-navigation/core';
 import { isUsernameValid, isPasswordValid } from '@utils/index';
 import { login } from '../../api/login.js';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-interface Props {
-  visible: any;
-  message: string;
-}
+import { useDispatch } from 'react-redux';
+import { setAppData } from '@state/appDataSlice';
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState(false);
@@ -32,20 +29,18 @@ const Login = () => {
     setPasswordError(false);
     const credentials = {
       email: username,
-      password: password
+      password
     };
     try {
       const result = await login(credentials);
       try {
-        await AsyncStorage.setItem('@accessToken', result.data.accessToken);
-        await AsyncStorage.setItem(
-          '@authorizationToken',
-          result.data.authorizationToken
-        );
+        //@ts-ignore
+        dispatch(setAppData({ accessToken: result.data.accessToken }));
+        //@ts-ignore
+        dispatch(setAppData({ authToken: result.data.authorizationToken }));
       } catch (e) {
         console.error(e);
       }
-      toast.show(result.status);
       navigateTo('Progress');
     } catch (e) {
       toast.show(e.response.data.error.message);

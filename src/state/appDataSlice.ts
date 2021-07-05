@@ -4,7 +4,9 @@ import { AppData } from '@app-types/appData';
 
 // Define the initial state using that type
 const initialState: AppData = {
-  showPermissionsScreen: true
+  showPermissionsScreen: true,
+  accessToken: '',
+  authToken: ''
 };
 
 export const appDataSlice = createSlice({
