@@ -1,4 +1,6 @@
 import { NativeModules as RNNativeModules } from 'react-native';
+//@ts-ignore
+import mock from 'react-native-permissions/mock';
 import 'react-native-gesture-handler/jestSetup';
 // @ts-ignore
 import mockAsyncStorage from '@react-native-async-storage/async-storage/jest/async-storage-mock';
@@ -42,4 +44,8 @@ jest.mock('redux-persist', () => {
     ...real,
     persistReducer: jest.fn().mockImplementation((config, reducers) => reducers)
   };
+});
+
+jest.mock('react-native-permissions', () => {
+  return mock;
 });

@@ -24,7 +24,9 @@
       "yarn format",
       "yarn lint"
     ],
-    "src/**/*.test.tsx" : ["yarn test"]
+    "src/**/*.test.{js,jsx,ts,tsx}": [
+      "yarn test"
+    ]
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.14.1",
@@ -44,6 +46,7 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-location": "^2.5.0",
     "react-native-paper": "^4.7.2",
+    "react-native-permissions": "^3.0.4",
     "react-native-reanimated": "^2.0.1",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^2.18.1",

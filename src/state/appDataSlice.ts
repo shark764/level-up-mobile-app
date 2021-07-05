@@ -4,7 +4,7 @@ import { AppData } from '@app-types/appData';
 
 // Define the initial state using that type
 const initialState: AppData = {
-  email: ''
+  showPermissionsScreen: true
 };
 
 export const appDataSlice = createSlice({
@@ -13,8 +13,8 @@ export const appDataSlice = createSlice({
   initialState,
   reducers: {
     // Use the PayloadAction type to declare the contents of `action.payload`
-    setAppData: (state, payload: PayloadAction<AppData>) => {
-      state = { ...state, ...payload };
+    setAppData: (state, { payload }: PayloadAction<AppData>) => {
+      return { ...state, ...payload };
     }
   }
 });

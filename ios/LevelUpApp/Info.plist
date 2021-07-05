@@ -37,8 +37,12 @@
 			</dict>
 		</dict>
 	</dict>
+  <key>NSCameraUsageDescription</key>
+  <string>To upload a profile picture</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+  <string>To find nearest Ranges</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+  <string>To upload a profile picture</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MartianBThai-Black.otf</string>
