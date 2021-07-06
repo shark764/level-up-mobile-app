@@ -4,6 +4,7 @@ import { Button } from '@components/Button';
 import { Container } from '@components/Container';
 import { Text } from '@components/Text';
 import { HeadSection } from '@components/HeadSection';
+import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/core';
 import { getColor } from '@utils/tailwind';
 // @ts-ignore
@@ -11,12 +12,17 @@ import avatar from '@assets/images/avatar.png';
 import { IconButton } from 'react-native-paper';
 
 import styles from './UploadPic.styles';
+import { RootState } from '@state/reducer';
 
 const UploadPic = () => {
   const { navigate } = useNavigation();
+  const { showPermissionsScreen } = useSelector(
+    (state: RootState) => state.appData
+  );
   const [isUploaded, setIsUploaded] = useState(false);
 
-  const navigateTo = (screen: string) => navigate(screen);
+  const navigateTo = (screen: string) =>
+    showPermissionsScreen ? navigate(screen) : navigate('JoinRange');
 
   return (
     <Container background='dark'>

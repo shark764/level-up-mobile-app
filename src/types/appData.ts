@@ -1,5 +1,5 @@
 export interface AppData {
-  email?: string;
+  showPermissionsScreen: boolean;
 }
 
 export interface Achievement {

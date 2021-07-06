@@ -83,7 +83,6 @@ const MainNavigation = () => {
         <Screen name='SignUpStep2' component={SignUpStep2} />
         <Screen name='ForgotPassword' component={ForgotPassword} />
         <Screen name='UploadPic' component={UploadPic} />
-        <Screen name='EnableLocation' component={EnableLocation} />
         <Screen
           name='ForgotPasswordVerification'
           component={ForgotPasswordVerification}
@@ -93,6 +92,7 @@ const MainNavigation = () => {
           name='ForgotPasswordConfirm'
           component={ForgotPasswordConfirm}
         />
+        <Screen name='EnableLocation' component={EnableLocation} />
         <Screen name='JoinRange' component={JoinRange} />
         <Screen name='RangeProfile' component={RangeProfile} />
         <Screen name='Membership' component={Membership} />

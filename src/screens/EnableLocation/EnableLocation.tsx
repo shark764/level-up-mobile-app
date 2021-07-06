@@ -1,58 +1,74 @@
-import React, { useEffect } from 'react';
-import { ScrollView, View, Image } from 'react-native';
+import React from 'react';
+import { Platform, ScrollView, View, Image } from 'react-native';
+import { PERMISSIONS, request, check, RESULTS } from 'react-native-permissions';
 import { Button } from '@components/Button';
 import { Container } from '@components/Container';
 import { Text } from '@components/Text';
 import { HeadSection } from '@components/HeadSection';
+import { setAppData } from '@state/appDataSlice';
+import { useSelector, useDispatch } from 'react-redux';
+
 // @ts-ignore
 import locationImage from '@assets/images/location.png';
 
 import styles from './EnableLocation.styles';
-import RNLocation from 'react-native-location';
 import { useNavigation } from '@react-navigation/native';
+import { RootState } from '@state/reducer';
 
 const EnableLocation = () => {
   const { navigate } = useNavigation();
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const checkPermission = async () => {
-      const granted = await RNLocation.checkPermission({
-        ios: 'whenInUse',
-        android: {
-          detail: 'coarse'
-        }
-      });
+  const { showPermissionsScreen } = useSelector(
+    (state: RootState) => state.appData
+  );
 
-      if (granted) {
-        console.info('Permission already granted, skipping');
-        navigate('JoinRange');
+  const shouldRequest = (checkPermission: string) =>
+    checkPermission !== RESULTS.UNAVAILABLE &&
+    checkPermission !== RESULTS.GRANTED;
+
+  const enablePermissions = async () => {
+    if (Platform.OS === 'ios') {
+      const locationCheck = await check(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);
+      const cameraCheck = await check(PERMISSIONS.IOS.CAMERA);
+      const galleryCheck = await check(PERMISSIONS.IOS.PHOTO_LIBRARY);
+      console.info(cameraCheck);
+      try {
+        shouldRequest(locationCheck) &&
+          (await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE));
+        shouldRequest(cameraCheck) && (await request(PERMISSIONS.IOS.CAMERA));
+        shouldRequest(galleryCheck) &&
+          (await request(PERMISSIONS.IOS.PHOTO_LIBRARY));
+      } catch (error) {
+        console.error(error);
       }
-    };
-
-    checkPermission();
-  }, [navigate]);
-
-  const enableLocation = async () => {
-    const granted = await RNLocation.requestPermission({
-      ios: 'whenInUse',
-      android: {
-        detail: 'coarse',
-        rationale: {
-          title: 'We need to access your location',
-          message: 'We use your location to show where you are on the map',
-          buttonPositive: 'OK',
-          buttonNegative: 'Cancel'
-        }
-      }
-    });
-    if (granted) {
-      console.info('Permission granted, skipping');
-      navigate('JoinRange');
-    } else {
-      console.info('permission not granted');
-      navigate('JoinRange');
     }
+
+    if (Platform.OS === 'android') {
+      const locationCheck = await check(
+        PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION
+      );
+      const cameraCheck = await check(PERMISSIONS.ANDROID.CAMERA);
+      const galleryCheck = await check(
+        PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE
+      );
+      shouldRequest(locationCheck) &&
+        (await request(PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION));
+      shouldRequest(cameraCheck) && (await request(PERMISSIONS.ANDROID.CAMERA));
+      shouldRequest(galleryCheck) &&
+        (await request(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE));
+    }
+    //@ts-ignore
+    dispatch(setAppData({ showPermissionsScreen: false }));
+
+    goNext();
   };
+
+  const goNext = () => navigate('JoinRange');
+
+  if (!showPermissionsScreen) {
+    goNext();
+  }
 
   return (
     <Container background='dark' style={styles.enableLocationContainer}>
@@ -63,7 +79,7 @@ const EnableLocation = () => {
         </View>
         <View style={styles.mainText}>
           <Text type='heading-3' style={styles.header}>
-            Enable your location
+            Enable permissions
           </Text>
           <Text type='body-md' style={styles.subheader}>
             In order to get full access to
@@ -72,14 +88,14 @@ const EnableLocation = () => {
             LevelUpLive features make sure
           </Text>
           <Text type='body-md' style={styles.subheader}>
-            Location Services are turned on
+            the following permissions are turned on
           </Text>
         </View>
         <View style={styles.bottom}>
           <Button
             color='primary'
-            title='Use My Location'
-            onPress={enableLocation}
+            title='Enable Permissions'
+            onPress={enablePermissions}
             style={styles.mainButton}
             // titleStyle={style.buttonTitle}
           />
@@ -87,7 +103,7 @@ const EnableLocation = () => {
             color='transparent'
             mode='text'
             title='Not Now'
-            onPress={enableLocation}
+            onPress={goNext}
             titleStyle={styles.buttonTitle}
             style={styles.mainButton}
           />
