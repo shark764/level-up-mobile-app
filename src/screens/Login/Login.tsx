@@ -1,49 +1,28 @@
 import React, { useState } from 'react';
-import { ScrollView, View, ToastAndroid } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { useToast } from 'react-native-fast-toast';
 import styles from './Login.styles';
 import LoginHeader from './Components/LoginHeader';
-// import LoginTextInput from './Components/LoginTextInput';
 import LoginBottom from './Components/LoginBottom';
 import { Container } from '@components/Container';
 import { HeadSection } from '@components/HeadSection';
 import { TextInputContainer } from '@components/TextInputContainer';
 import { useNavigation } from '@react-navigation/core';
 import { isUsernameValid, isPasswordValid } from '@utils/index';
-import { useEffect } from 'react';
 import { login } from '../../api/login.js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface Props {
-  visible: any,
-  message: string,
+  visible: any;
+  message: string;
 }
-
-const Toast = ({ visible, message }: Props) => {
-  if (visible) {
-    ToastAndroid.showWithGravityAndOffset(
-      message,
-      ToastAndroid.LONG,
-      ToastAndroid.BOTTOM,
-      25,
-      50
-    );
-    return null;
-  }
-  return null;
-};
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const [visibleToast, setvisibleToast] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
-  useEffect(() => {
-    setvisibleToast(false)
-  }, [visibleToast]);
-
-
+  const toast = useToast();
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
     navigate(screen);
@@ -54,23 +33,23 @@ const Login = () => {
     const credentials = {
       email: username,
       password: password
-    }
+    };
     try {
       const result = await login(credentials);
       try {
         await AsyncStorage.setItem('@accessToken', result.data.accessToken);
-        await AsyncStorage.setItem('@authorizationToken', result.data.authorizationToken);
-      }catch(e){
-        console.log(e);
+        await AsyncStorage.setItem(
+          '@authorizationToken',
+          result.data.authorizationToken
+        );
+      } catch (e) {
+        console.error(e);
       }
-      setToastMessage(result.status);
-      setvisibleToast(true);
+      toast.show(result.status);
       navigateTo('Progress');
     } catch (e) {
-      setToastMessage(e.response.data.error.message);
-      setvisibleToast(true);
+      toast.show(e.response.data.error.message);
     }
-
   };
   const handleUsername = (value: string) => {
     setUsername(value);
@@ -83,7 +62,6 @@ const Login = () => {
   return (
     <Container background='dark'>
       <ScrollView>
-        <Toast visible={visibleToast} message={toastMessage} />
         <View style={styles.main}>
           <HeadSection textStyle={styles.backText} backText='Back' />
           <View>
