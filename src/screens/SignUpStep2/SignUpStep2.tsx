@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector, connect } from 'react-redux';
 import { View, ScrollView, TouchableHighlight } from 'react-native';
+import { ProgressBar, Colors } from 'react-native-paper';
+import { Snackbar } from '@components/Snackbar';
 import styles from './SignUpStep2.styles';
 import { Text } from '@components/Text';
 import { TextInputContainer } from '@components/TextInputContainer';
@@ -9,8 +12,20 @@ import { Container } from '@components/Container';
 import { useNavigation } from '@react-navigation/core';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { convertDateMDY, isUsernameValid } from '@utils/index';
+import type { RootState } from '@state/reducer';
+import {
+  sendSignUp,
+  getUserData,
+  getRegisterResponse
+} from '@state/signUpSlice';
 
-const SignUpStep2 = () => {
+type Props = {
+  registerResponseStatus: any;
+};
+
+const SignUpStep2 = (props: Props) => {
+  const dispatch = useDispatch();
+  const UserData = useSelector(getUserData);
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
     navigate(screen);
@@ -21,10 +36,12 @@ const SignUpStep2 = () => {
   const [usernameError, setUsernameError] = useState(false);
   const [date, setDate] = useState(today);
   const [dateString, setDateString] = useState(convertDateMDY(today));
-  const [show, setShow] = useState(false);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [showProgressBar, setShowProgressBar] = useState(false);
+  const [showSnackbar, setShowSnackbar] = useState(false);
 
   const onChange = (_: Event, selectedDate?: Date) => {
-    setShow(false);
+    setShowCalendar(false);
     if (selectedDate) {
       setDate(selectedDate);
       setDateString(convertDateMDY(selectedDate));
@@ -32,19 +49,34 @@ const SignUpStep2 = () => {
   };
 
   const showDatePicker = () => {
-    setShow(true);
+    setShowCalendar(true);
   };
 
   const validateData = () => {
     setUsernameError(false);
     if (username && isUsernameValid(username)) {
-      navigateTo('UploadPic');
+      setShowProgressBar(true);
+      dispatch(sendSignUp(UserData));
     } else {
       if (!username) {
         setUsernameError(true);
       }
     }
   };
+
+  if (props.registerResponseStatus) {
+    if (props.registerResponseStatus.status === 'success') {
+      if (showProgressBar) {
+        setShowProgressBar(false);
+        navigateTo('UploadPic');
+      }
+    } else {
+      if (showProgressBar) {
+        setShowProgressBar(false);
+        setShowSnackbar(true);
+      }
+    }
+  }
 
   return (
     <>
@@ -85,7 +117,7 @@ const SignUpStep2 = () => {
                 showSoftInputOnFocus={false}
                 value={dateString}
               />
-              {show && (
+              {showCalendar && (
                 <DateTimePicker
                   testID='dateTimePicker'
                   timeZoneOffsetInMinutes={0}
@@ -103,6 +135,11 @@ const SignUpStep2 = () => {
                 color='primary'
                 onPress={() => validateData()}
               />
+              <ProgressBar
+                indeterminate
+                visible={showProgressBar}
+                color={Colors.white}
+              />
 
               <TouchableHighlight
                 onPress={() => {
@@ -112,6 +149,7 @@ const SignUpStep2 = () => {
                   <Text type='body' style={styles.labelText}>
                     Already have an account?
                     <Text type='body' style={styles.loginText}>
+                      {' '}
                       Log In
                     </Text>
                   </Text>
@@ -121,8 +159,23 @@ const SignUpStep2 = () => {
           </View>
         </ScrollView>
       </Container>
+
+      {showSnackbar && (
+        <Snackbar
+          type='error'
+          visible={showSnackbar}
+          onDismiss={() => setShowSnackbar(false)}>
+          {props.registerResponseStatus.error.message}
+        </Snackbar>
+      )}
     </>
   );
 };
 
-export default SignUpStep2;
+const mapStateToProps = (state: RootState) => {
+  return {
+    registerResponseStatus: getRegisterResponse(state)
+  };
+};
+
+export default connect(mapStateToProps)(SignUpStep2);
