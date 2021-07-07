@@ -1,5 +1,7 @@
 export interface AppData {
   showPermissionsScreen: boolean;
+  accessToken: string;
+  authToken: string;
 }
 
 export interface Achievement {

@@ -1,49 +1,49 @@
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
+import { useToast } from 'react-native-fast-toast';
 import styles from './Login.styles';
 import LoginHeader from './Components/LoginHeader';
-// import LoginTextInput from './Components/LoginTextInput';
 import LoginBottom from './Components/LoginBottom';
 import { Container } from '@components/Container';
 import { HeadSection } from '@components/HeadSection';
 import { TextInputContainer } from '@components/TextInputContainer';
 import { useNavigation } from '@react-navigation/core';
 import { isUsernameValid, isPasswordValid } from '@utils/index';
+import { login } from '../../api/login.js';
+import { useDispatch } from 'react-redux';
+import { setAppData } from '@state/appDataSlice';
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const credentials = {
-    user: 'user',
-    pass: 'Test1234'
-  };
+  const toast = useToast();
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
     navigate(screen);
   };
-  const loginValidation = () => {
+  const loginValidation = async () => {
     setUsernameError(false);
     setPasswordError(false);
-    if (
-      username &&
-      isUsernameValid(username) &&
-      password &&
-      isPasswordValid(password)
-    ) {
-      if (credentials.user === username && credentials.pass === password) {
-        navigateTo('Progress');
-      } else {
-        console.info('failed');
+    const credentials = {
+      email: username,
+      password
+    };
+    try {
+      const result = await login(credentials);
+      try {
+        //@ts-ignore
+        dispatch(setAppData({ accessToken: result.data.accessToken }));
+        //@ts-ignore
+        dispatch(setAppData({ authToken: result.data.authorizationToken }));
+      } catch (e) {
+        console.error(e);
       }
-    } else {
-      if (!username) {
-        setUsernameError(true);
-      }
-      if (!password) {
-        setPasswordError(true);
-      }
+      navigateTo('Progress');
+    } catch (e) {
+      toast.show(e.response.data.error.message);
     }
   };
   const handleUsername = (value: string) => {
