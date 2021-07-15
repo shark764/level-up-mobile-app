@@ -2,7 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import MainNavigation from '@navigation/navigation';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ToastProvider } from 'react-native-fast-toast';
 import { LogBox } from 'react-native';
 import {
   persistStore,
@@ -43,15 +42,13 @@ const App = () => {
   LogBox.ignoreLogs(['Warning: ...']);
   LogBox.ignoreAllLogs();
   return (
-    <ToastProvider>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <PaperProvider>
-            <MainNavigation />
-          </PaperProvider>
-        </PersistGate>
-      </Provider>
-    </ToastProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <PaperProvider>
+          <MainNavigation />
+        </PaperProvider>
+      </PersistGate>
+    </Provider>
   );
 };
 

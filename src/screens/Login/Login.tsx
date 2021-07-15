@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View } from 'react-native';
-import { useToast } from 'react-native-fast-toast';
+import { ScrollView, Text, View } from 'react-native';
 import styles from './Login.styles';
 import LoginHeader from './Components/LoginHeader';
 import LoginBottom from './Components/LoginBottom';
@@ -12,6 +11,8 @@ import { isUsernameValid, isPasswordValid } from '@utils/index';
 import { login } from '../../api/login.js';
 import { useDispatch } from 'react-redux';
 import { setAppData } from '@state/appDataSlice';
+//@ts-ignore
+import SnackBar from 'react-native-snackbar-component';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const toast = useToast();
+  const [open, setOpen] = useState(false);
+  const [snackMessage, setSnackMessage] = useState('');
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
     navigate(screen);
@@ -43,7 +45,9 @@ const Login = () => {
       }
       navigateTo('Progress');
     } catch (e) {
-      toast.show(e.response.data.error.message);
+      if (open) setOpen(false);
+      setOpen(true);
+      setSnackMessage(e.response.data.error.message);
     }
   };
   const handleUsername = (value: string) => {
@@ -52,6 +56,18 @@ const Login = () => {
 
   const handlePassword = (value: string) => {
     setPassword(value);
+  };
+
+  const handleMessage = () => {
+    return (
+      <Text
+        // eslint-disable-next-line react-native/no-inline-styles
+        style={{
+          fontSize: 14
+        }}>
+        {snackMessage}
+      </Text>
+    );
   };
 
   return (
@@ -110,6 +126,18 @@ const Login = () => {
           </View>
         </View>
       </ScrollView>
+      <SnackBar
+        visible={open}
+        textMessage={handleMessage()}
+        position='bottom'
+        bottom={-145}
+        backgroundColor={'#E23C3C'}
+        autoHidingTime={3000}
+        // eslint-disable-next-line react-native/no-inline-styles
+        containerStyle={{
+          height: 61
+        }}
+      />
     </Container>
   );
 };

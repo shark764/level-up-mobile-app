@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, TouchableHighlight, Image } from 'react-native';
+import { View, TouchableHighlight /*Image*/ } from 'react-native';
 import { Button } from '@components/Button';
 import { useNavigation } from '@react-navigation/native';
 // @ts-ignore
-import logo_fb from '../../../assets/social_media/logo_fb.png';
+//import logo_fb from '../../../assets/social_media/logo_fb.png';
 // @ts-ignore
-import logo_google from '../../../assets/social_media/logo_google.png';
+//import logo_google from '../../../assets/social_media/logo_google.png';
 // @ts-ignore
-import logo_tw from '../../../assets/social_media/logo_tw.png';
+//import logo_tw from '../../../assets/social_media/logo_tw.png';
 import { Text } from '@components/Text';
 import { getColor } from '@utils/tailwind';
 
@@ -35,7 +35,9 @@ const LoginBottom = ({ loginValidation, ...props }: Props) => {
   };
   return (
     <View style={props.viewStyle}>
-      <View style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
+      <View
+        // eslint-disable-next-line react-native/no-inline-styles
+        style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
         <TouchableHighlight
           onPress={() => {
             //                         navigateTo(props.navigationLink);
@@ -54,8 +56,9 @@ const LoginBottom = ({ loginValidation, ...props }: Props) => {
         title='Log In'
         color='primary'
       />
-      <View style={props.textDivider}>
+      {/*<View style={props.textDivider}>
         <View
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{
             flex: 1,
             height: 1,
@@ -63,12 +66,18 @@ const LoginBottom = ({ loginValidation, ...props }: Props) => {
             marginTop: '4.5%'
           }}
         />
-        <View style={{ width: '50%' }}>
-          <Text type='body' style={{ color: 'white', textAlign: 'center' }}>
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ width: '50%' }}>
+          <Text
+            type='body'
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{ color: 'white', textAlign: 'center' }}>
             OR LOG IN WITH
           </Text>
         </View>
         <View
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{
             flex: 1,
             height: 1,
@@ -76,9 +85,9 @@ const LoginBottom = ({ loginValidation, ...props }: Props) => {
             marginTop: '4.5%'
           }}
         />
-      </View>
+        </View>*/}
 
-      <View style={props.socialMedia}>
+      {/*<View style={props.socialMedia}>
         <TouchableHighlight
           onPress={() => {
             navigateTo(props.navigationButton);
@@ -102,7 +111,7 @@ const LoginBottom = ({ loginValidation, ...props }: Props) => {
           underlayColor='transparent'>
           <Image style={props.socialMediaLogo} source={logo_tw} />
         </TouchableHighlight>
-      </View>
+        </View>*/}
 
       <TouchableHighlight
         onPress={() => {
