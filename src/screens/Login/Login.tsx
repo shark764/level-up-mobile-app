@@ -7,7 +7,7 @@ import { Container } from '@components/Container';
 import { HeadSection } from '@components/HeadSection';
 import { TextInputContainer } from '@components/TextInputContainer';
 import { useNavigation } from '@react-navigation/core';
-import { isUsernameValid, isPasswordValid } from '@utils/index';
+import { isEmailValid, isPasswordValid } from '@utils/index';
 import { login } from '../../api/login.js';
 import { useDispatch } from 'react-redux';
 import { setAppData } from '@state/appDataSlice';
@@ -90,7 +90,7 @@ const Login = () => {
                 handleUsername(value);
               }}
               // error={!isUsernameValid(username) || usernameError}
-              errorVisible={!isUsernameValid(username) || usernameError}
+              errorVisible={!isEmailValid(username) || usernameError}
               errorMessage='Enter a valid username'
             />
             <TextInputContainer
