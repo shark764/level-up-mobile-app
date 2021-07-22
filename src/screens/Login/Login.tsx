@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import styles from './Login.styles';
 import LoginHeader from './Components/LoginHeader';
 import LoginBottom from './Components/LoginBottom';
@@ -59,15 +59,7 @@ const Login = () => {
   };
 
   const handleMessage = () => {
-    return (
-      <Text
-        // eslint-disable-next-line react-native/no-inline-styles
-        style={{
-          fontSize: 14
-        }}>
-        {snackMessage}
-      </Text>
-    );
+    return `${snackMessage}`;
   };
 
   return (
@@ -91,7 +83,7 @@ const Login = () => {
               }}
               // error={!isUsernameValid(username) || usernameError}
               errorVisible={!isEmailValid(username) || usernameError}
-              errorMessage='Enter a valid username'
+              errorMessage='Enter a valid username or email'
             />
             <TextInputContainer
               icon='lock-outline'
@@ -125,19 +117,26 @@ const Login = () => {
             />
           </View>
         </View>
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ marginTop: 10 }}>
+          <SnackBar
+            visible={open}
+            textMessage={handleMessage()}
+            backgroundColor={'#E23C3C'}
+            autoHidingTime={3000}
+            //eslint-disable-next-line react-native/no-inline-styles
+            containerStyle={{
+              height: 60,
+              flexDirection: 'row'
+            }}
+            // eslint-disable-next-line react-native/no-inline-styles
+            messageStyle={{
+              flexWrap: 'wrap'
+            }}
+          />
+        </View>
       </ScrollView>
-      <SnackBar
-        visible={open}
-        textMessage={handleMessage()}
-        position='bottom'
-        bottom={-145}
-        backgroundColor={'#E23C3C'}
-        autoHidingTime={3000}
-        // eslint-disable-next-line react-native/no-inline-styles
-        containerStyle={{
-          height: 61
-        }}
-      />
     </Container>
   );
 };
