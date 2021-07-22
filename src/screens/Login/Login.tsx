@@ -60,13 +60,16 @@ const Login = () => {
 
   const handleMessage = () => {
     return (
-      <Text
-        // eslint-disable-next-line react-native/no-inline-styles
-        style={{
-          fontSize: 14
-        }}>
-        {snackMessage}
-      </Text>
+      <View>
+        <Text
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            fontSize: 14,
+            color: 'white'
+          }}>
+          {snackMessage}
+        </Text>
+      </View>
     );
   };
 
@@ -125,19 +128,19 @@ const Login = () => {
             />
           </View>
         </View>
+        <View>
+          <SnackBar
+            visible={open}
+            textMessage={handleMessage()}
+            backgroundColor={'#E23C3C'}
+            autoHidingTime={3000}
+            //eslint-disable-next-line react-native/no-inline-styles
+            containerStyle={{
+              height: 50
+            }}
+          />
+        </View>
       </ScrollView>
-      <SnackBar
-        visible={open}
-        textMessage={handleMessage()}
-        position='bottom'
-        bottom={-145}
-        backgroundColor={'#E23C3C'}
-        autoHidingTime={3000}
-        // eslint-disable-next-line react-native/no-inline-styles
-        containerStyle={{
-          height: 61
-        }}
-      />
     </Container>
   );
 };
