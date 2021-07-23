@@ -12,7 +12,8 @@ import { login } from '../../api/login.js';
 import { useDispatch } from 'react-redux';
 import { setAppData } from '@state/appDataSlice';
 //@ts-ignore
-import SnackBar from 'react-native-snackbar-component';
+//import SnackBar from 'react-native-snackbar-component';
+import { Snackbar } from '@components/Snackbar';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const Login = () => {
   const [open, setOpen] = useState(false);
   const [snackMessage, setSnackMessage] = useState('');
   const { navigate } = useNavigation();
+
   const navigateTo = (screen: string) => {
     navigate(screen);
   };
@@ -59,85 +61,71 @@ const Login = () => {
   };
 
   const handleMessage = () => {
-    return `${snackMessage}`;
+    return snackMessage;
   };
 
   return (
-    <Container background='dark'>
-      <ScrollView>
-        <View style={styles.main}>
-          <HeadSection textStyle={styles.backText} backText='Back' />
-          <View>
-            <LoginHeader
-              viewStyle={styles.containerText}
-              textStyle={styles.textHeader}
-            />
+    <>
+      <Container background='dark'>
+        <ScrollView>
+          <View style={styles.main}>
+            <HeadSection textStyle={styles.backText} backText='Back' />
+            <View>
+              <LoginHeader
+                viewStyle={styles.containerText}
+                textStyle={styles.textHeader}
+              />
 
-            <TextInputContainer
-              icon='person-outline'
-              colorIcon='#50E5C3'
-              label='Username or Email'
-              placeholder='Type your username or email'
-              onChangeText={(value) => {
-                handleUsername(value);
-              }}
-              // error={!isUsernameValid(username) || usernameError}
-              errorVisible={!isEmailValid(username) || usernameError}
-              errorMessage='Enter a valid username or email'
-            />
-            <TextInputContainer
-              icon='lock-outline'
-              colorIcon='#50E5C3'
-              label='Password'
-              placeholder='Type your Password'
-              secureTextEntry={true}
-              onChangeText={(value) => {
-                handlePassword(value);
-              }}
-              // error={!isPasswordValid(password) || passwordError}
-              errorVisible={!isPasswordValid(password) || passwordError}
-              errorMessage='Enter a valid password (At least: 8 characters, 1 lower case letter, 1 upper case letter, no special characters)'
-            />
+              <TextInputContainer
+                icon='person-outline'
+                colorIcon='#50E5C3'
+                label='Username or Email'
+                placeholder='Type your username or email'
+                onChangeText={(value) => {
+                  handleUsername(value);
+                }}
+                // error={!isUsernameValid(username) || usernameError}
+                errorVisible={!isEmailValid(username) || usernameError}
+                errorMessage='Enter a valid username or email'
+              />
+              <TextInputContainer
+                icon='lock-outline'
+                colorIcon='#50E5C3'
+                label='Password'
+                placeholder='Type your Password'
+                secureTextEntry={true}
+                onChangeText={(value) => {
+                  handlePassword(value);
+                }}
+                // error={!isPasswordValid(password) || passwordError}
+                errorVisible={!isPasswordValid(password) || passwordError}
+                errorMessage='Enter a valid password (At least: 8 characters, 1 lower case letter, 1 upper case letter, no special characters)'
+              />
 
-            <LoginBottom
-              viewStyle={styles.containerBottom}
-              linkStyle={styles.link}
-              navigationLink={'ForgotPassword'}
-              buttonStyle={styles.button}
-              navigationButton={'Login'}
-              buttonTittle={styles.buttonTitle}
-              mainFooter={styles.mainFooter}
-              subFooter={styles.subFooter}
-              textDivider={styles.textDivider}
-              colDivider={styles.colDivider}
-              circle={styles.buttonCircle}
-              socialMedia={styles.socialMedia}
-              socialMediaLogo={styles.socialMediaLogo}
-              loginValidation={loginValidation}
-            />
+              <LoginBottom
+                viewStyle={styles.containerBottom}
+                linkStyle={styles.link}
+                navigationLink={'ForgotPassword'}
+                buttonStyle={styles.button}
+                navigationButton={'Login'}
+                buttonTittle={styles.buttonTitle}
+                mainFooter={styles.mainFooter}
+                subFooter={styles.subFooter}
+                textDivider={styles.textDivider}
+                colDivider={styles.colDivider}
+                circle={styles.buttonCircle}
+                socialMedia={styles.socialMedia}
+                socialMediaLogo={styles.socialMediaLogo}
+                loginValidation={loginValidation}
+              />
+            </View>
           </View>
-        </View>
-        <View
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{ marginTop: 10 }}>
-          <SnackBar
-            visible={open}
-            textMessage={handleMessage()}
-            backgroundColor={'#E23C3C'}
-            autoHidingTime={3000}
-            //eslint-disable-next-line react-native/no-inline-styles
-            containerStyle={{
-              height: 60,
-              flexDirection: 'row'
-            }}
-            // eslint-disable-next-line react-native/no-inline-styles
-            messageStyle={{
-              flexWrap: 'wrap'
-            }}
-          />
-        </View>
-      </ScrollView>
-    </Container>
+        </ScrollView>
+      </Container>
+      <Snackbar type='error' visible={open} onDismiss={() => setOpen(false)}>
+        {handleMessage()}
+      </Snackbar>
+    </>
   );
 };
 
