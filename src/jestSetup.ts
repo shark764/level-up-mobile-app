@@ -49,3 +49,5 @@ jest.mock('redux-persist', () => {
 jest.mock('react-native-permissions', () => {
   return mock;
 });
+
+jest.useFakeTimers();

@@ -33,3 +33,5 @@ export interface GameScore {
   player: Player;
   score: number;
 }
+
+export type SemanticColors = 'error' | 'info' | 'warning' | 'success';
