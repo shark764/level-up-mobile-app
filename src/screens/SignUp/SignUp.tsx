@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { View, ScrollView, TouchableHighlight, Image } from 'react-native';
 import styles from './SignUp.styles';
 import { Text } from '@components/Text';
@@ -8,6 +9,7 @@ import { HeadSection } from '@components/HeadSection';
 import { Container } from '@components/Container';
 import { useNavigation } from '@react-navigation/core';
 import { isEmailValid, isPasswordValid } from '@utils/index';
+import { setUserData } from '@state/signUpSlice';
 // @ts-ignore
 import logo_fb from '../../assets/social_media/logo_fb.png';
 // @ts-ignore
@@ -16,6 +18,8 @@ import logo_google from '../../assets/social_media/logo_google.png';
 import logo_tw from '../../assets/social_media/logo_tw.png';
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+
   const { navigate } = useNavigation();
   const navigateTo = (screen: string) => {
     navigate(screen);
@@ -25,11 +29,13 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const showSignUpWith = false;
 
   const validateData = () => {
     setEmailError(false);
     setPasswordError(false);
     if (email && isEmailValid(email) && password && isPasswordValid(password)) {
+      dispatch(setUserData({ email: email, password: password }));
       navigateTo('SignUpStep2');
     } else {
       if (!email) {
@@ -81,7 +87,7 @@ const SignUp = () => {
                 onChangeText={(value) => setPassword(value)}
                 // error={!isPasswordValid(password) || passwordError}
                 errorVisible={!isPasswordValid(password) || passwordError}
-                errorMessage='Enter a valid password (At least: 8 characters, 1 lower case letter, 1 upper case letter, no special characters)'
+                errorMessage='Enter a valid password (At least: 8 characters, 1 lower case letter, 1 upper case letter, 1 number, no special characters)'
               />
               <Button
                 style={styles.button}
@@ -91,30 +97,37 @@ const SignUp = () => {
                 title='Next'
                 color='primary'
               />
-              <View style={styles.signUpWithContainer}>
-                <View style={styles.divider} />
-                <Text type='body' style={styles.labelText}>
-                  OR SIGN UP WITH
-                </Text>
-                <View style={styles.divider} />
-              </View>
-              <View style={styles.socialMedia}>
-                <TouchableHighlight
-                  onPress={() => {}}
-                  underlayColor='transparent'>
-                  <Image style={styles.socialMediaLogo} source={logo_fb} />
-                </TouchableHighlight>
-                <TouchableHighlight
-                  onPress={() => {}}
-                  underlayColor='transparent'>
-                  <Image style={styles.socialMediaLogo} source={logo_google} />
-                </TouchableHighlight>
-                <TouchableHighlight
-                  onPress={() => {}}
-                  underlayColor='transparent'>
-                  <Image style={styles.socialMediaLogo} source={logo_tw} />
-                </TouchableHighlight>
-              </View>
+              {showSignUpWith && (
+                <>
+                  <View style={styles.signUpWithContainer}>
+                    <View style={styles.divider} />
+                    <Text type='body' style={styles.labelText}>
+                      OR SIGN UP WITH
+                    </Text>
+                    <View style={styles.divider} />
+                  </View>
+                  <View style={styles.socialMedia}>
+                    <TouchableHighlight
+                      onPress={() => {}}
+                      underlayColor='transparent'>
+                      <Image style={styles.socialMediaLogo} source={logo_fb} />
+                    </TouchableHighlight>
+                    <TouchableHighlight
+                      onPress={() => {}}
+                      underlayColor='transparent'>
+                      <Image
+                        style={styles.socialMediaLogo}
+                        source={logo_google}
+                      />
+                    </TouchableHighlight>
+                    <TouchableHighlight
+                      onPress={() => {}}
+                      underlayColor='transparent'>
+                      <Image style={styles.socialMediaLogo} source={logo_tw} />
+                    </TouchableHighlight>
+                  </View>
+                </>
+              )}
 
               <TouchableHighlight
                 onPress={() => {

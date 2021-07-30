@@ -4,6 +4,11 @@ export interface AppData {
   authToken: string;
 }
 
+export interface UserData {
+  email: string;
+  password: string;
+}
+
 export interface Achievement {
   title: string;
   achievement: string;
