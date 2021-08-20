@@ -9,7 +9,7 @@ import { setAppData } from '@state/appDataSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 // @ts-ignore
-import locationImage from '@assets/images/location.png';
+import locationImage from '@assets/images/permissions.png';
 
 import styles from './EnableLocation.styles';
 import { useNavigation } from '@react-navigation/native';
@@ -79,22 +79,22 @@ const EnableLocation = () => {
         </View>
         <View style={styles.mainText}>
           <Text type='heading-3' style={styles.header}>
-            Enable permissions
+            Enable app permissions
           </Text>
           <Text type='body-md' style={styles.subheader}>
-            In order to get full access to
+            In order to get full access to LevelUp
           </Text>
           <Text type='body-md' style={styles.subheader}>
-            LevelUpLive features make sure
+            Live features make sure you are
           </Text>
           <Text type='body-md' style={styles.subheader}>
-            the following permissions are turned on
+            allowing the following permissions
           </Text>
         </View>
         <View style={styles.bottom}>
           <Button
             color='primary'
-            title='Enable Permissions'
+            title='Enable access'
             onPress={enablePermissions}
             style={styles.mainButton}
             // titleStyle={style.buttonTitle}
