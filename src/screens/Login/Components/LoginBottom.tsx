@@ -40,7 +40,7 @@ const LoginBottom = ({ loginValidation, ...props }: Props) => {
         style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
         <TouchableHighlight
           onPress={() => {
-            //                         navigateTo(props.navigationLink);
+            navigateTo(props.navigationLink);
           }}
           underlayColor={getColor('charcoal')}>
           <Text type='body' style={props.linkStyle}>

@@ -40,12 +40,25 @@ const TextInputContainer = ({
               )}
             />
           }
+          right={
+            <TextInput.Icon
+              name={() => (
+                <Icon
+                  name={'warning'}
+                  size={26}
+                  color={'#F83F3F'} // eslint-disable-next-line react-native/no-inline-styles
+                  style={{ display: errorVisible ? 'flex' : 'none' }}
+                />
+              )}
+            />
+          }
+          error={errorVisible}
           value={props.value}
           {...props}
           selectionColor={undefined}
         />
         <HelperText type='error' visible={errorVisible ? errorVisible : false}>
-          Error: {errorMessage}
+          {errorMessage}
         </HelperText>
       </View>
     );

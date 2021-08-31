@@ -24,7 +24,7 @@ interface Props extends TouchableHighlightProps {
 
 const addFacilityLogo = (image: any) => {
   if (image === true) {
-    return <Image style={{ width: 30, height: 30 }} source={cafire} />;
+    return <Image style={styles.imageDimensions} source={cafire} />;
   }
 };
 
@@ -46,6 +46,7 @@ const HeadSection = (props: Props) => {
         </View>
       </TouchableHighlight>
       {props.stepsText && (
+        // eslint-disable-next-line react-native/no-inline-styles
         <View style={{ flexDirection: 'row' }}>
           <View style={tailwind('mr-2')}>
             {addFacilityLogo(props.stepImage)}

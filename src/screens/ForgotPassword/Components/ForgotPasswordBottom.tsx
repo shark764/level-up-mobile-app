@@ -1,33 +1,26 @@
 import React from 'react';
-import { View } from 'react-native';
 import { Button } from '@components/Button';
-import { useNavigation } from '@react-navigation/core';
-
+import { StyleProp, ViewStyle, View } from 'react-native';
+import styles from './ForgotPasswordBottom.styles';
 export interface Props {
-  viewStyle: object;
-  buttonStyle: object;
+  buttonStyle?: StyleProp<ViewStyle>;
   navigationButton: string;
-  buttonTitleStyle: object;
+  buttonTitleStyle: StyleProp<ViewStyle>;
+  sendEmail: () => void;
 }
 
 const ForgotPasswordHeader = (props: Props) => {
-  const { navigate } = useNavigation();
-  const navigateTo = (screen: string) => {
-    navigate(screen);
-  };
   return (
-    <>
-      <View style={props.viewStyle}>
-        <Button
-          style={props.buttonStyle}
-          onPress={() => {
-            navigateTo(props.navigationButton);
-          }}
-          title='Send'
-          titleStyle={props.buttonTitleStyle}
-        />
-      </View>
-    </>
+    <View style={styles.spaceBottom}>
+      <Button
+        style={props.buttonStyle}
+        onPress={() => {
+          props.sendEmail();
+        }}
+        title='Next'
+        color='primary'
+      />
+    </View>
   );
 };
 

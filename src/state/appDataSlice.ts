@@ -6,7 +6,8 @@ import { AppData } from '@app-types/appData';
 const initialState: AppData = {
   showPermissionsScreen: true,
   accessToken: '',
-  authToken: ''
+  authToken: '',
+  forgotEmail: ''
 };
 
 export const appDataSlice = createSlice({
