@@ -21,7 +21,8 @@ const styles = {
   socialMedia: tailwind(
     'flex flex-row justify-between content-center items-center pl-10 pr-10 pt-5 pb-5'
   ),
-  socialMediaLogo: tailwind('w-14 h-14 ml-5 mr-5')
+  socialMediaLogo: tailwind('w-14 h-14 ml-5 mr-5'),
+  progressBar: tailwind('bg-white')
 };
 
 export default styles;

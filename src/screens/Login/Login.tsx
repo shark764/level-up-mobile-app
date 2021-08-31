@@ -14,6 +14,8 @@ import { setAppData } from '@state/appDataSlice';
 //@ts-ignore
 //import SnackBar from 'react-native-snackbar-component';
 import { Snackbar } from '@components/Snackbar';
+import { ProgressBar } from 'react-native-paper';
+import { getColor } from '@utils/tailwind';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -23,6 +25,7 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState(false);
   const [open, setOpen] = useState(false);
   const [snackMessage, setSnackMessage] = useState('');
+  const [showProgressBar, setShowProgressBar] = useState(false);
   const { navigate } = useNavigation();
 
   const navigateTo = (screen: string) => {
@@ -31,6 +34,7 @@ const Login = () => {
   const loginValidation = async () => {
     setUsernameError(false);
     setPasswordError(false);
+    setShowProgressBar(true);
     const credentials = {
       email: username,
       password
@@ -45,10 +49,12 @@ const Login = () => {
       } catch (e) {
         console.error(e);
       }
+      setShowProgressBar(false);
       navigateTo('Progress');
     } catch (e) {
       if (open) setOpen(false);
       setOpen(true);
+      setShowProgressBar(false);
       setSnackMessage(e.response.data.error.message);
     }
   };
@@ -120,6 +126,11 @@ const Login = () => {
               />
             </View>
           </View>
+          <ProgressBar
+            indeterminate
+            visible={showProgressBar}
+            color={getColor('white')}
+          />
         </ScrollView>
       </Container>
       <Snackbar type='error' visible={open} onDismiss={() => setOpen(false)}>
