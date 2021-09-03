@@ -1,8 +1,10 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { View, TextInputProps } from 'react-native';
 import { TextInput, HelperText } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './TextInputContainer.styles';
+import { getColor } from '@utils/tailwind';
 
 type Props = TextInputProps & {
   icon?: string;
@@ -40,12 +42,25 @@ const TextInputContainer = ({
               )}
             />
           }
+          right={
+            <TextInput.Icon
+              name={() => (
+                <Icon
+                  name={'warning'}
+                  size={26}
+                  color={getColor('red')}
+                  style={{ display: errorVisible ? 'flex' : 'none' }}
+                />
+              )}
+            />
+          }
+          error={errorVisible}
           value={props.value}
           {...props}
           selectionColor={undefined}
         />
         <HelperText type='error' visible={errorVisible ? errorVisible : false}>
-          Error: {errorMessage}
+          {errorMessage}
         </HelperText>
       </View>
     );

@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import styles from './Login.styles';
@@ -84,7 +85,7 @@ const Login = () => {
 
               <TextInputContainer
                 icon='person-outline'
-                colorIcon='#50E5C3'
+                colorIcon={!isEmailValid(username) ? '#F83F3F' : '#50E5C3'}
                 label='Username or Email'
                 placeholder='Type your username or email'
                 onChangeText={(value) => {
@@ -93,10 +94,14 @@ const Login = () => {
                 // error={!isUsernameValid(username) || usernameError}
                 errorVisible={!isEmailValid(username) || usernameError}
                 errorMessage='Enter a valid username or email'
+                style={{
+                  borderColor: !isEmailValid(username) ? '#F83F3F' : '',
+                  borderWidth: !isEmailValid(username) ? 1 : 0
+                }}
               />
               <TextInputContainer
                 icon='lock-outline'
-                colorIcon='#50E5C3'
+                colorIcon={!isPasswordValid(password) ? '#F83F3F' : '#50E5C3'}
                 label='Password'
                 placeholder='Type your Password'
                 secureTextEntry={true}
@@ -106,6 +111,10 @@ const Login = () => {
                 // error={!isPasswordValid(password) || passwordError}
                 errorVisible={!isPasswordValid(password) || passwordError}
                 errorMessage='Enter a valid password (At least: 8 characters, 1 lower case letter, 1 upper case letter, no special characters)'
+                style={{
+                  borderColor: !isPasswordValid(password) ? '#F83F3F' : '',
+                  borderWidth: !isPasswordValid(password) ? 1 : 0
+                }}
               />
 
               <LoginBottom

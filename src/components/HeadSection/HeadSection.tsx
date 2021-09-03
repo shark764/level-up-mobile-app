@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
   View,
@@ -24,7 +25,7 @@ interface Props extends TouchableHighlightProps {
 
 const addFacilityLogo = (image: any) => {
   if (image === true) {
-    return <Image style={{ width: 30, height: 30 }} source={cafire} />;
+    return <Image style={styles.imageDimensions} source={cafire} />;
   }
 };
 

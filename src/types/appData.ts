@@ -2,6 +2,7 @@ export interface AppData {
   showPermissionsScreen: boolean;
   accessToken: string;
   authToken: string;
+  forgotEmail: string;
 }
 
 export interface UserData {
