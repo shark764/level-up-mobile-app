@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
 import { Container } from '@components/Container';
 import { SafeAreaView, ScrollView, View } from 'react-native';
@@ -60,7 +61,6 @@ const ForgotPassword = () => {
                   }}
                   errorVisible={!isEmailValid(email)}
                   errorMessage='The email you entered is invalid. Please try again'
-                  // eslint-disable-next-line react-native/no-inline-styles
                   style={{
                     borderColor: !isEmailValid(email) ? styles.redColor : '',
                     borderWidth: !isEmailValid(email) ? 1 : 0

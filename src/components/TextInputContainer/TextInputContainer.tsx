@@ -1,8 +1,10 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { View, TextInputProps } from 'react-native';
 import { TextInput, HelperText } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './TextInputContainer.styles';
+import { getColor } from '@utils/tailwind';
 
 type Props = TextInputProps & {
   icon?: string;
@@ -46,7 +48,7 @@ const TextInputContainer = ({
                 <Icon
                   name={'warning'}
                   size={26}
-                  color={'#F83F3F'} // eslint-disable-next-line react-native/no-inline-styles
+                  color={getColor('red')}
                   style={{ display: errorVisible ? 'flex' : 'none' }}
                 />
               )}

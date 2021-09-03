@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
   View,
@@ -46,7 +47,6 @@ const HeadSection = (props: Props) => {
         </View>
       </TouchableHighlight>
       {props.stepsText && (
-        // eslint-disable-next-line react-native/no-inline-styles
         <View style={{ flexDirection: 'row' }}>
           <View style={tailwind('mr-2')}>
             {addFacilityLogo(props.stepImage)}

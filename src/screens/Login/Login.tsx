@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import styles from './Login.styles';
@@ -87,7 +88,6 @@ const Login = () => {
                 // error={!isUsernameValid(username) || usernameError}
                 errorVisible={!isEmailValid(username) || usernameError}
                 errorMessage='Enter a valid username or email'
-                // eslint-disable-next-line react-native/no-inline-styles
                 style={{
                   borderColor: !isEmailValid(username) ? '#F83F3F' : '',
                   borderWidth: !isEmailValid(username) ? 1 : 0
@@ -105,7 +105,6 @@ const Login = () => {
                 // error={!isPasswordValid(password) || passwordError}
                 errorVisible={!isPasswordValid(password) || passwordError}
                 errorMessage='Enter a valid password (At least: 8 characters, 1 lower case letter, 1 upper case letter, no special characters)'
-                // eslint-disable-next-line react-native/no-inline-styles
                 style={{
                   borderColor: !isPasswordValid(password) ? '#F83F3F' : '',
                   borderWidth: !isPasswordValid(password) ? 1 : 0

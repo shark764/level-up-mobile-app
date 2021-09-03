@@ -6,7 +6,7 @@ const styles = {
   backText: tailwind('text-gray-light'),
   containerText: tailwind('my-2 w-full'),
   textHeader: tailwind('text-white'),
-  textSubHeader: tailwind('text-xl mb-14'),
+  textSubHeader: tailwind('text-xl mb-14 text-gray-light'),
   containerInputs: tailwind('mt-10 bg-gray-400'),
   button: tailwind('mt-8 w-full'),
   buttonTitle: tailwind('text-xl text-white'),
