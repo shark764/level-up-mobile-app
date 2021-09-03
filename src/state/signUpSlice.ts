@@ -4,7 +4,7 @@
 
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from './reducer';
-import { signUp } from '../api/signUp.js';
+import { signUp } from '../api/signUp';
 import { UserData } from '@app-types/appData';
 
 const initialState = {

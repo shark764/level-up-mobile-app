@@ -36,7 +36,7 @@ const SignUp = () => {
     setPasswordError(false);
     if (email && isEmailValid(email) && password && isPasswordValid(password)) {
       dispatch(setUserData({ email: email, password: password }));
-      navigateTo('SignUpStep2');
+      navigateTo('EnableLocation');
     } else {
       if (!email) {
         setEmailError(true);

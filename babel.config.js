@@ -28,7 +28,7 @@ module.exports = {
           '@components': './src/components',
           '@state': './src/state',
           '@utils': './src/utils',
-          '@services': './src/services',
+          '@api': './src/api',
           '@app-types': './src/types',
           '@assets': './src/assets',
           '@hooks': './src/hooks'

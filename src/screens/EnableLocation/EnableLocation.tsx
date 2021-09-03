@@ -64,7 +64,7 @@ const EnableLocation = () => {
     goNext();
   };
 
-  const goNext = () => navigate('JoinRange');
+  const goNext = () => navigate('SignUpStep2');
 
   if (!showPermissionsScreen) {
     goNext();

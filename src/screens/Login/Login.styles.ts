@@ -1,5 +1,4 @@
-import { getColor } from 'tailwind-rn';
-import tailwind from '@utils/tailwind';
+import tailwind, { getColor } from '@utils/tailwind';
 
 const styles = {
   main: tailwind('pt-2'),
@@ -10,7 +9,7 @@ const styles = {
   textHeader: tailwind('text-white'),
   containerInputs: tailwind('mt-4 bg-gray-400'),
   containerBottom: tailwind('items-center my-2'),
-  link: [{ color: '#50E5C3' }, tailwind('underline mb-10 mt-2')],
+  link: tailwind('underline mb-10 mt-2 text-bright-green'),
   button: tailwind('mb-5 w-full'),
   buttonCircle: tailwind('w-16 h-16 rounded-full bg-white mx-5'),
   buttonTitle: tailwind('text-xl text-white'),

@@ -62,7 +62,7 @@
       "@navigation/*": ["src/navigation/*"],
       "@app-types/*": ["src/types/*"],
       "@state/*": ["src/state/*"],
-      "@services/*": ["src/services/*"],
+      "@api/*": ["src/api/*"],
       "@utils/*": ["src/utils/*"],
       "@assets/*":  ["src/assets/*"],
       "@hooks/*": ["src/hooks/*"]

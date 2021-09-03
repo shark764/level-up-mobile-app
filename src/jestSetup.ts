@@ -50,4 +50,22 @@ jest.mock('react-native-permissions', () => {
   return mock;
 });
 
+jest.mock('@reduxjs/toolkit/query/react', () => ({
+  fetchBaseQuery: async () => ({}),
+  createApi: (data: any): any => ({ useGetUserPictureQuery: jest.fn(data) })
+}));
+
+jest.mock('@reduxjs/toolkit', () => ({
+  createNextState: jest.fn(),
+  createAction: jest.fn(),
+  configureStore: () => ({
+    dispatch: jest.fn(),
+    getState: jest.fn(),
+    subscribe: jest.fn()
+  }),
+  createAsyncThunk: () => ({}),
+  createSlice: () => ({ actions: {} }),
+  combineReducers: () => ({})
+}));
+
 jest.useFakeTimers();

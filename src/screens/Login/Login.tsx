@@ -9,7 +9,7 @@ import { HeadSection } from '@components/HeadSection';
 import { TextInputContainer } from '@components/TextInputContainer';
 import { useNavigation } from '@react-navigation/core';
 import { isEmailValid, isPasswordValid } from '@utils/index';
-import { login } from '../../api/login.js';
+import { login } from '../../api/login';
 import { useDispatch } from 'react-redux';
 import { setAppData } from '@state/appDataSlice';
 //@ts-ignore
@@ -42,11 +42,14 @@ const Login = () => {
     };
     try {
       const result = await login(credentials);
+      console.info('result', result);
       try {
-        //@ts-ignore
-        dispatch(setAppData({ accessToken: result.data.accessToken }));
-        //@ts-ignore
-        dispatch(setAppData({ authToken: result.data.authorizationToken }));
+        dispatch(
+          setAppData({
+            accessToken: result.data.accessToken,
+            authToken: result.data.authorizationToken
+          })
+        );
       } catch (e) {
         console.error(e);
       }

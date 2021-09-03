@@ -27,50 +27,44 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { UploadPic } from '@screens/UploadPic';
 import { Game } from '@screens/Game';
 import GameHistory from '@screens/GameHistory/GameHistory';
+import { More } from '@screens/More';
+import { View } from 'react-native';
+import styles from './navigation.styles';
+
 const { Navigator, Screen } = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export const TabsBottomNavigation = () => (
   <Tab.Navigator
     screenOptions={({ route }) => ({
-      tabBarIcon: ({ color, size }) => {
+      tabBarIcon: ({ color, size, focused }) => {
         let icon;
         switch (route.name) {
           case 'Level Up':
             icon = 'trophy-outline';
             break;
-          case 'Shop':
-            icon = 'cart-outline';
-            break;
-          case 'Social':
-            icon = 'bullhorn-outline';
-            break;
-          case 'Messages':
-            icon = 'forum-outline';
-            break;
           default:
             icon = 'menu';
         }
-        return <Icon name={icon} size={size} color={color} />;
+        return (
+          <>
+            {focused && <View style={styles.activeIcon} />}
+            <Icon name={icon} size={size} color={color} />
+          </>
+        );
       }
     })}
     tabBarOptions={{
-      style: { backgroundColor: '#24263F', paddingVertical: 10 },
-      tabStyle: { backgroundColor: '#24263F' },
-      activeTintColor: getColor('green'),
-      inactiveTintColor: '#C8C9D0',
-      labelStyle: { fontFamily: 'MartianBThai-Regular' },
-      // @ts-ignore
-      indicatorStyle: { backgroundColor: 'red' },
+      style: styles.tabBar,
+      tabStyle: styles.tab,
+      activeTintColor: getColor('bright-green'),
+      labelStyle: styles.label,
       safeAreaInsets: {
         bottom: 20
       }
     }}>
     <Tab.Screen name='Level Up' component={Progress} />
-    <Tab.Screen name='Shop' component={Progress} />
-    <Tab.Screen name='Social' component={Progress} />
-    <Tab.Screen name='Messages' component={Progress} />
-    <Tab.Screen name='More' component={Progress} />
+    <Tab.Screen name='More' component={More} />
   </Tab.Navigator>
 );
 const MainNavigation = () => {
