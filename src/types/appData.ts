@@ -1,13 +1,13 @@
 export interface AppData {
-  showPermissionsScreen: boolean;
-  accessToken: string;
-  authToken: string;
-  forgotEmail: string;
+  showPermissionsScreen?: boolean;
+  accessToken?: string;
+  authToken?: string;
+  forgotEmail?: string;
 }
 
 export interface UserData {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 }
 
 export interface Achievement {

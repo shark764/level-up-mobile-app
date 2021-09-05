@@ -1,6 +1,6 @@
-import { postData } from './api.js';
+import { postData } from './api';
 
-export const forgotPasswordSendEmail = async (data) => {
+export const forgotPasswordSendEmail = async (data: any) => {
   const promise = await postData(
     `/api/auth/password/forgot/?email=${data.email}`
   );
