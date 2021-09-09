@@ -64,7 +64,7 @@ const EnableLocation = () => {
     goNext();
   };
 
-  const goNext = () => navigate('SignUpStep2');
+  const goNext = () => navigate('Login');
 
   if (!showPermissionsScreen) {
     goNext();
