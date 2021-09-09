@@ -68,7 +68,7 @@ const SignUpStep2 = (props: Props) => {
     if (props.registerResponseStatus.status === 'success') {
       if (showProgressBar) {
         setShowProgressBar(false);
-        navigateTo('UploadPic');
+        navigateTo('EnableLocation');
       }
     } else {
       if (showProgressBar) {

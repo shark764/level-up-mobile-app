@@ -2,7 +2,7 @@ import tailwind, { getColor } from '@utils/tailwind';
 import { StyleSheet } from 'react-native';
 
 const style = StyleSheet.create({
-  fullScroll: tailwind('h-full'),
+  //fullScroll: tailwind('h-full'),
   enableLocationContainer: tailwind('pt-2'),
   backText: tailwind('text-gray-light'),
   mainIconContainer: tailwind('items-center mt-24 mb-12'),

@@ -116,19 +116,23 @@ const UploadPic = () => {
   const uploadPicture = async () => {
     if (selectedImage) {
       setIsUploading(true);
+      console.info(selectedImage);
       const formData = new FormData();
       formData.append('image', {
-        name: selectedImage.filename?.toLowerCase(),
+        name:
+          selectedImage.filename?.toLowerCase() ||
+          selectedImage.path.substring(
+            selectedImage.path.lastIndexOf('/') + 1,
+            selectedImage.path.length
+          ),
         type: 'multipart/form-data',
         height: selectedImage.height,
         width: selectedImage.width,
-        uri:
-          Platform.OS === 'android'
-            ? selectedImage.path
-            : selectedImage.path.replace('file:/', '')
+        uri: selectedImage.path
       });
       try {
         const res = await uploadAvatar(formData);
+        console.info('Res', res.status);
         const { status } = res;
         const snackMessage: SnackBarInfo =
           status === 'success'
@@ -146,9 +150,10 @@ const UploadPic = () => {
           setSelectedImage(undefined);
           refetch();
           setIsUploading(false);
-          setSnackbarInfo(snackMessage);
         }
+        setSnackbarInfo(snackMessage);
       } catch (e) {
+        console.error(e);
         setIsUploading(false);
         setSnackbarInfo({
           type: 'error',
@@ -162,7 +167,7 @@ const UploadPic = () => {
   return (
     <>
       <Container background='dark'>
-        <ScrollView style={styles.fullScroll}>
+        <ScrollView>
           <HeadSection backText='Back' textStyle={styles.backText} />
           <View style={styles.mainIconContainer}>
             {!data.data && !selectedImage ? (
