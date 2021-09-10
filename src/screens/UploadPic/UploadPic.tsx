@@ -92,7 +92,8 @@ const UploadPic = () => {
       height: 500,
       multiple: false,
       compressImageQuality: 0.5,
-      includeBase64: true
+      includeBase64: true,
+      forceJpg: true
     };
     setShowDialog(false);
     try {
